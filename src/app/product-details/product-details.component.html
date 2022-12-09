@@ -1,8 +1,8 @@
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col-md-5 mb-4 mb-md-0">
-        <img class="img-fluid w-100" src="assets/source/images/showcase/showcase-1.png" alt="product-image">
+      <div class="col-md-5 mb-4 mb-md-0" *ngIf="product">
+        <img class="img-fluid w-100" src="{{backendURL}}/{{product.image}}" alt="product-image">
         <!-- <div class="product-image-slider">
 
           <div data-image="assets/source/images/showcase/showcase-1.png">
@@ -23,12 +23,12 @@
 
         </div> -->
       </div>
-      <div class="col-lg-6 col-md-7 offset-lg-1">
-        <h1 class="mb-4">Apple Watch</h1>
+      <div class="col-lg-6 col-md-7 offset-lg-1" *ngIf="product">
+        <h1 class="mb-4">{{product.name}}</h1>
         <p><strong>Colors: </strong>Black, White, Gray</p>
         <p><strong>Sizes: </strong>Small, Medium, Large</p>
-        <p class="price py-4">$25.00
-          <s class="price">$30.00</s>
+        <p class="price py-4">${{product.sale_price}}
+          <s class="price">${{product.regular_price}}</s>
         </p>
         <button class="snipcart-add-item btn btn-main mb-5" data-item-id="apple-watch__25.00"
           data-item-name="Apple Watch" data-item-image="assets/source/images/showcase/showcase-1.png" data-item-price="25.00"
@@ -37,8 +37,7 @@
           data-item-custom2-options="Small|Medium|Large">Add to Cart
         </button>
         <div class="content">
-          <p>Apple Watch is a line of smartwatches produced by Apple Inc. It incorporates fitness tracking and
-            health-oriented capabilities with integration with iOS and other Apple products and services.</p>
+          <p [innerHTML]="product.product_description"></p>
         </div>
       </div>
     </div>

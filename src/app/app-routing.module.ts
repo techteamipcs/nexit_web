@@ -20,7 +20,15 @@ const routes: Routes = [
     component:ProductDetailsComponent
   },
   {
+    path:'product-details/:id',
+    component:ProductDetailsComponent
+  },
+  {
     path:'products',
+    component:ProductsComponent
+  },
+  {
+    path:'products/:id/:type',
     component:ProductsComponent
   },
   {

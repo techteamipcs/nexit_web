@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { catchError } from 'rxjs/operators';
-import { HttpClient,HttpHeaders  } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs'; 
 import {environment} from '../../environments/environment';
-import { BrandsService } from '../providers/brands.service';
+import { DataService } from '../providers/data.service';
+
 @Component({
   selector: 'app-brands',
   templateUrl: './brands.component.html',
@@ -15,7 +13,7 @@ export class BrandsComponent implements OnInit {
   backendUrl:any;
   currentPage: number = 1; 
 	currentLimit: number = 6;
-  constructor(private brandsservice:BrandsService) {
+  constructor(private dataservice:DataService) {
     this.baseUrl=environment.baseUrl + '/assets';
     this.backendUrl=environment.backendUrl + '/public/';
    }
@@ -23,12 +21,13 @@ export class BrandsComponent implements OnInit {
   ngOnInit(): void {
     this.get_AllBrands();
   }
+  
   get_AllBrands() {
     const obj = {
       limit: this.currentLimit,
       page: this.currentPage,
     };
-    this.brandsservice.getAllBrands(obj).subscribe(
+    this.dataservice.getAllBrands(obj).subscribe(
         (response) => {
             if (response.code == 200) {
               if(response.result && response.result.length > 0){
