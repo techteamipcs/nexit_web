@@ -13,7 +13,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrandsComponent } from './brands/brands.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { ProductsComponent} from './products/products.component'
+import { ProductsComponent} from './products/products.component';
+import {ContactComponent} from './contact/contact.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { ProductsComponent} from './products/products.component'
     HomeComponent,
     BrandsComponent,
     ProductDetailsComponent,
-    ProductsComponent
+    ProductsComponent,
+    ContactComponent
     
   ],
   imports: [
