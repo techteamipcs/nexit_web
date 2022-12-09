@@ -11,12 +11,19 @@ import { HttpClientModule,HttpResponse } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel'
 // Needs to import the BrowserAnimationsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrandsComponent } from './brands/brands.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductsComponent} from './products/products.component'
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    BrandsComponent,
+    ProductDetailsComponent,
+    ProductsComponent
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
