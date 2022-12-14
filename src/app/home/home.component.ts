@@ -78,6 +78,8 @@ export class HomeComponent implements OnInit {
   }
   config:any;
   imageUrl:any ='';
+  products:any = [];
+  allcategories:any = [];
   constructor(private renderer: Renderer2,private readonly http: HttpClient, public dataservice: DataService) {
     this.baseUrl = environment.baseUrl + '/assets';
     this.imageUrl = environment.backendUrl+'/public';    
@@ -86,7 +88,8 @@ export class HomeComponent implements OnInit {
    ngOnInit() {
     this.fetch();
     this.getConfig();
-
+    this.getProducts();
+    this.getAllCategory();
   }
   fetch() {
     // const api = `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=${this.limit}`;
@@ -111,6 +114,43 @@ export class HomeComponent implements OnInit {
 
       }
     },
+    );
+  }
+
+  getProducts(){
+    this.dataservice.getAllProducts({}).subscribe((response) => {
+      if (response.code == 200) {
+        if (response.result) {
+          this.products = response.result;
+        }
+
+      } else if (response.code == 400) {
+
+      }
+      else {
+
+      }
+    },
+    );
+  }
+
+  getAllCategory() {
+    this.dataservice.getAllCategory({}).subscribe(
+      (response) => {
+        if (response.code == 200) {
+
+          if (response.result && response.result.length > 0) {
+            this.allcategories = response.result;
+          }
+
+        } else if (response.code == 400) {
+
+        }
+        else {
+
+        }
+
+      },
     );
   }
   
