@@ -14,7 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrandsComponent } from './brands/brands.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductsComponent} from './products/products.component';
-import {ContactComponent} from './contact/contact.component'
+import {ContactComponent} from './contact/contact.component';
+import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
+import {TermsAndConditionComponent} from './terms-and-condition/terms-and-condition.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import {ContactComponent} from './contact/contact.component'
     BrandsComponent,
     ProductDetailsComponent,
     ProductsComponent,
-    ContactComponent
+    ContactComponent,
+    PrivacyPolicyComponent,
+    TermsAndConditionComponent
     
   ],
   imports: [
