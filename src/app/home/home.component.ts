@@ -3,6 +3,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 declare var $: any;
 import { HttpClient } from '@angular/common/http';
 import { throwError } from 'rxjs';
+import { DataService } from '../providers/data.service';
+import { environment } from 'src/environments/environment';
 export interface PhotosApi {
   albumId?: number;
   id?: number;
@@ -24,78 +26,92 @@ export class HomeComponent implements OnInit {
   recentslider:any=[];
   customOptions: OwlOptions = {
     loop: true,
-    autoplay: true,
-    center: true,
+    autoplay:true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
     dots: false,
-    autoHeight: true,
-    autoWidth: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    margin: 14,
     responsive: {
       0: {
-        items: 1,
+        items: 1
       },
-      600: {
-        items: 1,
+      400: {
+        items: 4
       },
-      1000: {
-        items: 1,
+      740: {
+        items: 8
+      },
+      940: {
+        items: 1
       }
-    }
+    },
+    nav: false
   }
-  constructor(private renderer: Renderer2,private readonly http: HttpClient,) {
-    this.slides.push(
-      {id: 1, img: "https://via.placeholder.com/600/92c952"},
-      {id: 2, img: "https://via.placeholder.com/600/92c952"},
-      {id: 3, img: "https://via.placeholder.com/600/92c952"},
-      {id: 4, img: "https://via.placeholder.com/600/92c952"},
-      {id: 5, img: "https://via.placeholder.com/600/92c952"},
-      {id: 6, img: "https://via.placeholder.com/600/92c952"},
-      {id: 7, img: "https://via.placeholder.com/600/92c952"},
-      {id: 8, img: "https://via.placeholder.com/600/92c952"},
-      {id: 9, img: "https://via.placeholder.com/600/92c952"},
-      {id: 10, img: "https://via.placeholder.com/600/92c952"}
-      );
-      
+  productSlider: OwlOptions = {
+    loop: true,
+    autoplay:true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    margin: 14,
+    responsive: {
+      0: {
+        items: 3
+      },
+      400: {
+        items: 4
+      },
+      740: {
+        items: 5
+      },
+      940: {
+        items: 6
+      }
+    },
+    nav: false
+  }
+  config:any;
+  imageUrl:any ='';
+  constructor(private renderer: Renderer2,private readonly http: HttpClient, public dataservice: DataService) {
+    this.baseUrl = environment.baseUrl + '/assets';
+    this.imageUrl = environment.backendUrl+'/public';    
    }
 
    ngOnInit() {
-    this.fetch()
+    this.fetch();
+    this.getConfig();
+
   }
   fetch() {
-    const api = `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=${this.limit}`;
-    const http$ = this.http.get<PhotosApi>(api);
+    // const api = `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=${this.limit}`;
+    // const http$ = this.http.get<PhotosApi>(api);
 
-    http$.subscribe(
-      res => this.apiData = res,
-      err => throwError(err)
-    )
+    // http$.subscribe(
+    //   res => this.apiData = res,
+    //   err => throwError(err)
+    // )
   }
+  getConfig(){
+    this.dataservice.getConfigData({}).subscribe((response) => {
+      if (response.code == 200) {
+        if (response.result) {
+          this.config = response.result;
+        }
 
+      } else if (response.code == 400) {
 
+      }
+      else {
 
-  slides1 = [
-    { img: 'https://via.placeholder.com/600.png/09f/fff' },
-    { img: 'https://via.placeholder.com/600.png/021/fff' },
-    { img: 'https://via.placeholder.com/600.png/321/fff' },
-    { img: 'https://via.placeholder.com/600.png/422/fff' },
-    { img: 'https://via.placeholder.com/600.png/654/fff' },
-  ];
-  slideConfig = { slidesToShow: 4, slidesToScroll: 4 };
-  addSlide() {
-    this.slides.push({ img: 'http://placehold.it/350x150/777777' });
+      }
+    },
+    );
   }
-  removeSlide() {
-    this.slides.length = this.slides.length - 1;
-  }
-  slickInit(e: any) {
-    console.log('slick initialized');
-  }
-  breakpoint(e: any) {
-    console.log('breakpoint');
-  }
-  afterChange(e: any) {
-    console.log('afterChange');
-  }
-  beforeChange(e: any) {
-    console.log('beforeChange');
-  }
+  
 }

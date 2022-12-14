@@ -65,5 +65,13 @@ export class DataService {
     ); 
   };
 
+  getConfigData = (data:any): Observable<any> => {
+    const endpoint = environment.backendUrl+'/api/config/getAllConfig';
+    return this.http.post(endpoint, data).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    ); 
+  };
 
 }
