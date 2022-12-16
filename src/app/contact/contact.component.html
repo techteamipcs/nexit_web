@@ -40,15 +40,45 @@
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <h2 class="font-weight-bold mb-4">Contact</h2>
-        <form action="#" method="POST" class="row">
+        <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()" class="row">
           <div class="col-lg-6 mb-3">
-            <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Your Name" required>
+            <input type="text" formControlName="name" class="form-control mb-2" id="name" name="name" placeholder="Your Name" required>
+            <div *ngIf="submitted && hasError('name','required')" class="error">
+              <div class="errormsg">
+                Name is required.
+              </div>
+            </div>
           </div>
           <div class="col-lg-6 mb-3">
-            <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Your Email" required>
+            <input type="number" formControlName="phone" class="form-control mb-2" id="phone" name="phone" placeholder="Your Phone Number" required>
+            <div *ngIf="submitted && hasError('phone','required')" class="error">
+              <div class="errormsg">
+                Phone Number is required.
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-3">
+            <input type="email" formControlName="email" class="form-control mb-2" id="email" name="email" placeholder="Your Email" required>
+              <div *ngIf="submitted && hasEmailError('email','required')" class="error">
+                <div class="errormsg">
+                  {{hasEmailError('email','required')}}
+                </div>
+              </div>
+          </div>
+          <div class="col-lg-6 mb-3">
+            <select name="subject" formControlName="subject" class="form-control mb-2" id="subject">
+              <option value="">Select Subject</option>
+              <option value="feeback">Feedback</option>
+              <option value="info">Info</option>
+            </select>
+            <div *ngIf="submitted && hasError('subject','required')" class="error">
+              <div class="errormsg">
+                Subject is required.
+              </div>
+            </div>
           </div>
           <div class="col-12 mb-3">
-            <textarea name="message" id="message" class="form-control mb-2" placeholder="Your Message" required></textarea>
+            <textarea name="message" formControlName="message" id="message" class="form-control mb-2" placeholder="Your Message" required></textarea>
           </div>
           <div class="col-12 text-right">
             <button type="submit" value="send" class="btn btn-main btn-main-sm">Send Now</button>

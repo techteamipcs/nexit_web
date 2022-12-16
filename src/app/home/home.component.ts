@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { DataService } from '../providers/data.service';
 import { environment } from 'src/environments/environment';
+import { Meta, Title } from '@angular/platform-browser';
+import { PageService } from '../providers/page/page.service';
+
 export interface PhotosApi {
   albumId?: number;
   id?: number;
@@ -80,7 +83,10 @@ export class HomeComponent implements OnInit {
   imageUrl:any ='';
   products:any = [];
   allcategories:any = [];
-  constructor(private renderer: Renderer2,private readonly http: HttpClient, public dataservice: DataService) {
+  constructor(private renderer: Renderer2,private readonly http: HttpClient, public dataservice: DataService, 
+    private pageservice: PageService,
+    private metaTagService: Meta,
+    private titleService: Title,) {
     this.baseUrl = environment.baseUrl + '/assets';
     this.imageUrl = environment.backendUrl+'/public';    
    }
@@ -90,7 +96,29 @@ export class HomeComponent implements OnInit {
     this.getConfig();
     this.getProducts();
     this.getAllCategory();
+    this.get_PageMeta();
   }
+
+  get_PageMeta() {
+    let obj = { pageName: 'home' };
+    this.pageservice.getpageWithName(obj).subscribe(
+        (response) => {
+            if (response.body.code == 200) {
+                this.titleService.setTitle(response?.body.result.meta_title);
+                this.metaTagService.addTags([
+                    { name: 'description', content: response?.body.result.meta_description },
+                    { name: 'keywords', content: response?.body.result.meta_keywords },
+                ]);
+            } else if (response.body.code == 400) {
+            }
+            else {
+
+            }
+
+        },
+    );
+}
+
   fetch() {
     // const api = `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=${this.limit}`;
     // const http$ = this.http.get<PhotosApi>(api);
