@@ -1,6 +1,26 @@
 <!-- preloader start -->
 <div class="preloader"></div>
 <!-- preloader end -->
+<nav class="navbar navbar-expand-lg navbar-light  sticky-top1">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item" *ngFor="let category of allcategories">
+
+          <a class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
+            <img class="home-icon" src="{{imageUrl}}/{{category.icon}}" alt="" style="width:50px; display:block; margin:0 auto;">
+            {{category.name}}</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="customslider">
   <owl-carousel-o [options]="customOptions" *ngIf="config">
     <!-- [ngClass]="{ item: true }" -->
@@ -95,7 +115,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="heading">
-          <h2>Our Products</h2>
+          <h2>Our Categories</h2>
         </div>
       </div>
     </div>
@@ -150,7 +170,7 @@
     <div class="row">
       <div class="col-lg-12 text-center mx-auto p-0">
         <div class="heading">
-          <h2>Checkout Our All Products</h2>
+          <h2>Our Products</h2>
         </div>
         <div class="productSlider">
           <owl-carousel-o [options]="productSlider">

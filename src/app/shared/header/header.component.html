@@ -1,7 +1,7 @@
 <header class="navigation sticky-top bg-white">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="index.html"> <img src="assets/source/images/logo.png" alt="Vex" width="180px">
+      <a class="navbar-brand" href="/"> <img src="assets/source/images/logo.png" alt="Vex" width="180px">
       </a>
       <button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navigation"
         aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,25 +16,34 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#!" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products <i class="tf-ion-chevron-down"></i></a>
+            <a class="nav-link dropdown-toggle" href="#!" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Products <i class="tf-ion-chevron-down"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdown02">
-              <li class="dropdown dropdown-submenu dropright" *ngFor="let category of allcategories" ><a class="dropdown-item dropdown-toggle" [routerLink]="['/products',category._id,'category']" routerLinkActive="router-link-active"  id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{category.name}}</a>
+              <li class="dropdown dropdown-submenu dropright" *ngFor="let category of allcategories"><a
+                  class="dropdown-item dropdown-toggle" [routerLink]="['/products',category._id,'category']"
+                  routerLinkActive="router-link-active" id="dropdown0301" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">{{category.name}}</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown0301">
                   <li *ngFor="let subcategory of allsubcategories">
-                    <a *ngIf="subcategory.parent_categoryId == category._id" class="dropdown-item" [routerLink]="['/products',subcategory._id,'sub-category']" routerLinkActive="router-link-active">
-                    {{subcategory.name}}
-                  </a></li>
-                   
+                    <a *ngIf="subcategory.parent_categoryId == category._id" class="dropdown-item"
+                      [routerLink]="['/products',subcategory._id,'sub-category']" routerLinkActive="router-link-active">
+                      {{subcategory.name}}
+                    </a>
+                  </li>
+
                 </ul>
               </li>
             </ul>
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#!" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brands <i class="tf-ion-chevron-down"></i></a>
-            <ul class="dropdown-menu" aria-labelledby="dropdown03"  >
-              <li class="dropdown dropdown-submenu" *ngFor="let brand of allbrands" >
-                <a class="dropdown-item dropdown-toggle" [routerLink]="['/products',brand._id,'brand']" routerLinkActive="router-link-active"  id="dropdown0302" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{brand.name}}</a>
+            <a class="nav-link dropdown-toggle" href="#!" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Brands <i class="tf-ion-chevron-down"></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown03">
+              <li class="dropdown dropdown-submenu" *ngFor="let brand of allbrands">
+                <a class="dropdown-item dropdown-toggle" [routerLink]="['/products',brand._id,'brand']"
+                  routerLinkActive="router-link-active" id="dropdown0302" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">{{brand.name}}</a>
               </li>
             </ul>
           </li>
@@ -50,5 +59,6 @@
 
       </div>
     </nav>
+    
   </div>
 </header>

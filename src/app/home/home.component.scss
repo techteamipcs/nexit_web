@@ -1,3 +1,9 @@
+.sticky-top1{
+  position: sticky;
+  top: 70px;
+  z-index: 1010;
+  background-color: #fff;
+}
 #features{
 .main-heading{
   color: #fff;
@@ -14,8 +20,8 @@ img{
   .overlay {
     position: absolute;
     bottom: 0;
-    padding-left: 25px;
-    padding-top: 15px;
+    // padding-left: 25px;
+    // padding-top: 15px;
     width: 100%;
     color: #fff;
     font-size: 20px;
@@ -53,4 +59,16 @@ padding-left: 30px;
 padding-right: 30px;
 }
 
- 
+ p, h1,h2,h3,h4 {
+  color: #245C4E;
+ }
+ .testimonials .testimonial-block p{
+  color: #245C4E;
+ }
+ .testimonials .testimonial-block .author-details span{
+  color: #245C4E;
+ }
+ .home-icon{
+  width: 30px;
+  height: 30px;
+ }
