@@ -1,0 +1,53 @@
+.card {
+  min-height: 100%;
+  overflow: hidden;
+  a {
+    color: #000;
+    // text-decoration: none;
+    font-size: 14px;
+    img {
+      transform: scale(0.9);
+      transition: all 0.5s ease;
+    }
+  }
+  .block {
+    padding: 0;
+    height: 258px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+  &:hover img {
+    transform: scale(1) !important;
+  }
+  &:hover .product-info a {
+    text-decoration: underline !important;
+  }
+}
+#dropdownMenuButton {
+  background: transparent;
+  color: #245c4e;
+  border: none;
+  border-bottom: 1px solid #245c4e;
+  box-shadow: none;
+  outline: none;
+}
+select {
+  border: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-bottom: 1px solid #245c4e;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 5px;
+  font-size: 14px;
+  
+}
+
+

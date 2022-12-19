@@ -1,27 +1,59 @@
-
 <section class="section gallery">
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center mb-5">
-        <h1 class="font-weight-bold">All latest Smart Watch</h1>
+      <div class="col-12  mb-5">
+        <!-- text-center <h1 class="font-weight-bold">All latest Smart Watch</h1> -->
+        <div class="filter">
+          <p>Sort :
+          <select name="sort" id="">
+            <option value="">Alphabetically, A-Z</option>
+            <option value="">Alphabetically, Z-A</option>
+            <option value="">Price, low to high</option>
+            <option value="">Price, high to low</option>
+            <option value="">Date, old to new</option>
+            <option value="">Date, new to old</option>
+          </select>
+        </p>
+          <!-- <div class="dropdown">
+            Filter: <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Filter
+            </button>
+            <div class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Alphabetically, A-Z</a>
+              <a class="dropdown-item" href="#">Alphabetically, Z-A</a>
+              <a class="dropdown-item" href="#">Price, low to high</a>
+              <a class="dropdown-item" href="#">Price, high to low</a>
+              <a class="dropdown-item" href="#">Date, old to new</a>
+              <a class="dropdown-item" href="#">Date, new to old</a>
+            </div>
+
+
+
+
+          </div> -->
+        </div>
       </div>
-      
-      <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let product of products">
-        <div class="block">
-          <div class="gallery-overlay">
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-4" *ngFor="let product of products">
+        <div class="card">
+
+          <div class="block">
             <a href="product-details/{{product._id}}" class="gallery-popup">
-              <i class="tf-ion-plus-round"></i>
+              <img class="img-fluid" src="{{backendURL}}/{{product.image}}" alt="">
             </a>
           </div>
-          <img class="img-fluid" src="{{backendURL}}/{{product.image}}" alt="Apple Watch">
+
+          <div class="product-info">
+            <h4 class="mb-2">
+              <a href="product-details/{{product._id}}" class="link-title">{{product.name}}</a>
+            </h4>
+            <p class="price"><span>AED</span> {{product.sale_price}}
+              <s class="price"> <span>AED</span> {{product.regular_price}}</s>
+            </p>
+          </div>
+
         </div>
-        <div class="product-info">
-        <h4 class="mb-2"><a href="product-details" class="link-title">{{product.name}}</a></h4>
-        <p class="price">${{product.sale_price}}
-          <s class="price">${{product.regular_price}}</s>
-          </p>
-        </div>
-      </div>      
+      </div>
     </div>
   </div>
 </section>
