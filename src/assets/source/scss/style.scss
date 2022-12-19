@@ -3,7 +3,8 @@
 // Variables
 // $primary-font: "Josefin Sans", sans-serif;
 // $secondary-font: "Droid Serif", serif;
-$primary-color: #f9a743;
+// $primary-color: #f9a743;
+$primary-color: #99B9AE;
 $icon-font: "themefisher-font" !important;
 
 
@@ -26,7 +27,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2e5c4f;
+  background: #245C4E;
   border-radius: 5px;
 }
 
@@ -214,12 +215,15 @@ a:active {
 
 .btn-main {
   color: #fff;
-  border-radius: 30px;
+  // border-radius: 30px;
+  border-radius: 0;
   font-size: 18px;
   padding: 15px 40px;
   display: inline-block;
   background-color: $primary-color;
-  box-shadow: 0 15px 40px rgba(249, 167, 68, 0.5);
+  // box-shadow: 0 15px 40px rgba(249, 167, 68, 0.5);
+  // box-shadow: 0 15px 40px #99B9AE;
+  box-shadow: 0 5px 10px #99b9ae;
   background-image: linear-gradient(
     bottom,
     rgba(255, 239, 206, 0) 0%,
@@ -537,11 +541,13 @@ a:active {
     border-bottom-left-radius: 0;
     top: 0;
     right: 0;
+    box-shadow: none;
   }
 
   input {
     height: 50px;
-    border-radius: 40px;
+    // border-radius: 40px;
+    border-radius: 0px;
     border: none;
     padding-left: 15px;
     box-shadow: none;
@@ -616,7 +622,7 @@ s.price {
 
 .form-control {
   border: 1px solid #dadada;
-  border-radius: 35px;
+  // border-radius: 35px;
   height: 50px;
   padding-left: 20px;
   padding-right: 20px;
