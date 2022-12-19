@@ -40,10 +40,9 @@
             ],
             "scripts": [
               "src/assets/source/plugins/jquery/jquery.js",
-              "src/assets/source/plugins/bootstrap/bootstrap.min.js", 
-                         
-         
-              "src/assets/source/js/script.js"
+              "src/assets/source/plugins/bootstrap/popper.min.js",
+              "src/assets/source/plugins/bootstrap/bootstrap.min.js",
+              "src/assets/source/js/script.js"              
             ]
           },
           "configurations": {

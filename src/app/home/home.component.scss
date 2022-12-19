@@ -1,74 +1,123 @@
-.sticky-top1{
+.sticky-top1 {
   position: sticky;
-  top: 70px;
+  // top: 70px;
+  top: 84px;
   z-index: 1010;
   background-color: #fff;
 }
-#features{
-.main-heading{
-  color: #fff;
-}
-img{
-  width: 100%;
-  // height: 300px;
-}
-.image{
-  margin: 15px 0;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  .overlay {
-    position: absolute;
-    bottom: 0;
-    // padding-left: 25px;
-    // padding-top: 15px;
-    width: 100%;
+#features {
+  background: #245c4e;
+  .main-heading {
     color: #fff;
-    font-size: 20px;
-    z-index: 5;
-    &::before{
-      content: "";
-      background: #ffff;
-      height: 100%;
+  }
+  img {
+    width: 100%;
+    // height: 300px;
+  }
+  .image {
+    margin: 15px 0;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    .overlay {
+      // position: absolute;
+      position: relative;
+      bottom: 0;
+      // padding-left: 25px;
+      // padding-top: 15px;
       width: 100%;
-      z-index: 1;
-      position: absolute;
-      left:0;
-      bottom: -150px;
-      z-index: -2;
-      opacity: 0.5;
-      transition: all 0.3s ease-out;
+      color: #fff;
+      font-size: 20px;
+      z-index: 5;
+      &::before {
+        // content: "";
+        // background: #ffff;
+        background: #000;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        bottom: -150px;
+        z-index: -2;
+        opacity: 0.8;
+        transition: all 0.3s ease-out;
+        padding: 10px 5px;
+      }
+    }
+  }
+  .image:hover .overlay {
+    // color: black;
+    color: #fff;
+  }
+  .image:hover .overlay .amount,
+  .image:hover .overlay .h4,
+  .image:hover .overlay p {
+    // color: black;
+    color: #fff;
+  }
+
+  .image:hover .overlay::before {
+    bottom: 0px;
+  }
+}
+.feature-list.section {
+  padding-left: 30px;
+  padding-right: 30px;
+  .showbtn {
+    color: #245c4e;
+    // color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    &:hover {
+      font-weight: 500;
+    }
+  }
+  h4.subheading {
+    color: #000;
+    padding-bottom: 0;
+    line-height: normal;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+}
+
+//  p, h1,h2,h3,h4 {
+//   color: #245C4E;
+//  }
+
+.testimonials .testimonial-block p {
+  color: #245c4e;
+}
+.testimonials .testimonial-block .author-details span {
+  color: #245c4e;
+}
+.home-icon {
+  width: 30px;
+  height: 30px;
+}
+.home-icon.storage{
+  transform: rotate(90deg);
+}
+
+.gallery.section {
+  .productSlider {
+    .product-slider {
+      .block {
+        img {
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+          -webkit-transition: 0.3s ease-in-out;
+          transition: 0.3s ease-in-out;
+        }
+        &:hover img {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          -webkit-transition: 0.3s ease-in-out;
+          transition: 0.3s ease-in-out;
+        }
+      }
     }
   }
 }
-.image:hover .overlay{
-  color: black;
-}
-.image:hover .overlay .amount,
-.image:hover .overlay .h4,
-.image:hover .overlay p {
-  color: black;
-}
-
-.image:hover .overlay::before{
-  bottom: 0px;
-} 
-}
-.feature-list.section{
-padding-left: 30px;
-padding-right: 30px;
-}
-
- p, h1,h2,h3,h4 {
-  color: #245C4E;
- }
- .testimonials .testimonial-block p{
-  color: #245C4E;
- }
- .testimonials .testimonial-block .author-details span{
-  color: #245C4E;
- }
- .home-icon{
-  width: 30px;
-  height: 30px;
- }
