@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
         this.type = this.router.snapshot.paramMap.get('type');
         this.id = this.router.snapshot.paramMap.get('id');
         if (this.type) {
-          this.getFilterdProducts();
+          this.getFilterdProducts('');
         } else {
           this.getAllProducts();
         }
@@ -55,10 +55,14 @@ export class ProductsComponent implements OnInit {
   }
 
 
-  getFilterdProducts() {
+  getFilterdProducts(event:any) {
     let obj = {
+      sort:'',
       type: this.type,
       _id: this.id
+    }
+    if(event){
+      obj['sort'] = event.target.value;
     }
     this.dataservice.getFilteredProducts(obj).subscribe((response) => {
       if (response.code == 200) {

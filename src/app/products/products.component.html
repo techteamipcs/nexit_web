@@ -5,13 +5,13 @@
         <!-- text-center <h1 class="font-weight-bold">All latest Smart Watch</h1> -->
         <div class="filter">
           <p>Sort :
-          <select name="sort" id="">
-            <option value="">Alphabetically, A-Z</option>
-            <option value="">Alphabetically, Z-A</option>
-            <option value="">Price, low to high</option>
-            <option value="">Price, high to low</option>
-            <option value="">Date, old to new</option>
-            <option value="">Date, new to old</option>
+          <select name="sort" id="" (change)="getFilterdProducts($event)">
+            <option value="A-Z">Alphabetically, A-Z</option>
+            <option value="Z-A">Alphabetically, Z-A</option>
+            <option value="L-H">Price, low to high</option>
+            <option value="H-L">Price, high to low</option>
+            <option value="new">Date, old to new</option>
+            <option value="old">Date, new to old</option>
           </select>
         </p>
           <!-- <div class="dropdown">
