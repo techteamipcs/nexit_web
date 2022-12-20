@@ -1,37 +1,26 @@
 <section class="section gallery">
   <div class="container">
     <div class="row">
-      <div class="col-12  mb-5">
+      <div class="col-6  mb-5">
         <!-- text-center <h1 class="font-weight-bold">All latest Smart Watch</h1> -->
         <div class="filter">
           <p>Sort :
-          <select name="sort" id="" (change)="getFilterdProducts($event)">
-            <option value="A-Z">Alphabetically, A-Z</option>
-            <option value="Z-A">Alphabetically, Z-A</option>
-            <option value="L-H">Price, low to high</option>
-            <option value="H-L">Price, high to low</option>
-            <option value="new">Date, old to new</option>
-            <option value="old">Date, new to old</option>
-          </select>
-        </p>
-          <!-- <div class="dropdown">
-            Filter: <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Filter
-            </button>
-            <div class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Alphabetically, A-Z</a>
-              <a class="dropdown-item" href="#">Alphabetically, Z-A</a>
-              <a class="dropdown-item" href="#">Price, low to high</a>
-              <a class="dropdown-item" href="#">Price, high to low</a>
-              <a class="dropdown-item" href="#">Date, old to new</a>
-              <a class="dropdown-item" href="#">Date, new to old</a>
-            </div>
-
-
-
-
-          </div> -->
+            <select name="sort" id="" (change)="getFilterdProducts($event)">
+              <option value="A-Z">Alphabetically, A-Z</option>
+              <option value="Z-A">Alphabetically, Z-A</option>
+              <option value="L-H">Price, low to high</option>
+              <option value="H-L">Price, high to low</option>
+              <option value="new">Date, old to new</option>
+              <option value="old">Date, new to old</option>
+            </select>
+          </p>
+        </div>
+      </div>
+      <div class="col-6 text-right">
+        <!-- text-center <h1 class="font-weight-bold">All latest Smart Watch</h1> -->
+        <div class="count">
+          <p>Total Products : {{products.length}}
+          </p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 mb-4" *ngFor="let product of products">
