@@ -26,23 +26,19 @@
       <div class="col-lg-6 col-md-7 offset-lg-1" *ngIf="product">
         <h1 class="mb-4">{{product.name}}</h1>
 
-        <table>
-          <tr>
-            <th>Description</th>
+        <table class="table">
+
+
+          <tr *ngIf="product.product_type">
+            <th>Product Type</th>
+            <td>{{product.product_type}}</td>
           </tr>
-          <tr *ngIf="product.category_name">
-            <th>Category</th>
-            <td>{{product.category_name}}</td>
-          </tr>
-          <tr *ngIf="product.subcategory_name">
-            <th>Sub Category</th>
-            <td>{{product.subcategory_name}}</td>
-          </tr>
-          
+
           <tr *ngIf="product.brand_name">
             <th>Brand Name</th>
             <td>{{product.brand_name}}</td>
           </tr>
+
           <tr *ngIf="product.series">
             <th>Series</th>
             <td>{{product.series}}</td>
@@ -50,11 +46,6 @@
           <tr *ngIf="product.model_number">
             <th>Model Number</th>
             <td>{{product.model_number}}</td>
-          </tr>
-
-          <tr *ngIf="product.manufacturer">
-            <th>Manufacturer</th>
-            <td>{{product.manufacturer}}</td>
           </tr>
 
           <tr *ngIf="product.model_name">
@@ -66,166 +57,6 @@
             <th>Part Number</th>
             <td>{{product.part_number}}</td>
           </tr>
-          <tr>
-            <th>Delivery</th>
-          </tr>
-          <tr *ngIf="product.pay_on_delivery">
-            <th>Pay On Delivery</th>
-            <td>{{product.pay_on_delivery}}</td>
-          </tr>
-          
-          <tr *ngIf="product.nexait_delivery">
-            <th>Nexa Delivery</th>
-            <td>{{product.nexait_delivery}}</td>
-          </tr>
-          <tr *ngIf="product.replacement_policy">
-            <th>Replacement Policy</th>
-            <td>{{product.replacement_policy}}</td>
-          </tr>
-          <tr *ngIf="product.regular_price">
-            <th>Regular Price</th>
-            <td>{{product.regular_price}}</td>
-          </tr>
-          <tr *ngIf="product.sale_price">
-            <th>Sale Price</th>
-            <td>{{product.sale_price}}</td>
-          </tr>
-          <tr *ngIf="product.product_discount">
-            <th>Discount</th>
-            <td>{{product.product_discount}}</td>
-          </tr>
-          <tr *ngIf="product.product_description">
-            <th>Description</th>
-            <td>{{product.product_description}}</td>
-          </tr>
-          <tr *ngIf="product.product_type">
-            <th>Product Type</th>
-            <td>{{product.product_type}}</td>
-          </tr>
-
-          <tr *ngIf="product.package">
-            <th>Package</th>
-            <td>{{product.package}}</td>
-          </tr>
-
-          <tr *ngIf="product.dimensions">
-            <th>Dimensions</th>
-            <td>{{product.dimensions}}</td>
-          </tr>
-
-          <tr *ngIf="product.ram_size">
-            <th>Ram Size</th>
-            <td>{{product.ram_size}}</td>
-          </tr>
-
-          <tr *ngIf="product.country_of_origin">
-            <th>Country of Origin</th>
-            <td>{{product.country_of_origin}}</td>
-          </tr>
-
-          <tr *ngIf="product.item_weight">
-            <th>Item Weight</th>
-            <td>{{product.item_weight}}</td>
-          </tr>
-
-          <tr *ngIf="product.memory_technology">
-            <th>Memory Technology</th>
-            <td>{{product.memory_technology}}</td>
-          </tr>
-
-          <tr *ngIf="product.dimensions">
-            <th>Dimensions</th>
-            <td>{{product.dimensions}}</td>
-          </tr>
-
-          <tr *ngIf="product.clock_speed">
-            <th>Clock Speed</th>
-            <td>{{product.clock_speed}}</td>
-          </tr>
-
-          <tr *ngIf="product.screen_display_size">
-            <th>Screen Display Size</th>
-            <td>{{product.screen_display_size}}</td>
-          </tr>
-
-          <tr *ngIf="product.screen_resolution">
-            <th>Screen Resolution</th>
-            <td>{{product.screen_resolution}}</td>
-          </tr>
-
-          <tr *ngIf="product.processor">
-            <th>Processor</th>
-            <td>{{product.processor}}</td>
-          </tr>
-
-          <tr *ngIf="product.graphics_coprocessor">
-            <th>Graphics Co Processor</th>
-            <td>{{product.graphics_coprocessor}}</td>
-          </tr>
-
-          <tr *ngIf="product.hard_drive">
-            <th>Hard Drive</th>
-            <td>{{product.hard_drive}}</td>
-          </tr>
-
-          <tr *ngIf="product.chipset_brand">
-            <th>Chipset Brand</th>
-            <td>{{product.chipset_brand}}</td>
-          </tr>
-
-          <tr *ngIf="product.card_description">
-            <th>Card Description</th>
-            <td>{{product.card_description}}</td>
-          </tr>
-
-          <tr *ngIf="product.operating_system">
-            <th>Operating System</th>
-            <td>{{product.operating_system}}</td>
-          </tr>
-
-          <tr *ngIf="product.processor_brand">
-            <th>Processor Brand</th>
-            <td>{{product.processor_brand}}</td>
-          </tr>
-          <tr *ngIf="product.processor_count">
-            <th>Processor Count</th>
-            <td>{{product.processor_count}}</td>
-          </tr>
-
-          <tr *ngIf="product.flash_memory_size">
-            <th>Flash Memory Size</th>
-            <td>{{product.flash_memory_size}}</td>
-          </tr>
-
-          <tr *ngIf="product.memory_speed">
-            <th>Memory Speed</th>
-            <td>{{product.memory_speed}}</td>
-          </tr>
-
-          <tr *ngIf="product.wireless_type">
-            <th>Wireless Type</th>
-            <td>{{product.wireless_type}}</td>
-          </tr>
-
-          <tr *ngIf="product.batteries">
-            <th>Batteries</th>
-            <td>{{product.batteries}}</td>
-          </tr>
-
-          <tr *ngIf="product.power_source">
-            <th>Power Source</th>
-            <td>{{product.power_source}}</td>
-          </tr>
-
-          <tr *ngIf="product.color">
-            <th>Color</th>
-            <td>{{product.color}}</td>
-          </tr>
-
-          <tr *ngIf="product.connection_type">
-            <th>Connection Type</th>
-            <td>{{product.connection_type}}</td>
-          </tr>
 
         </table>
 
@@ -234,15 +65,15 @@
         <p class="price py-4">${{product.sale_price}}
           <s class="price">${{product.regular_price}}</s>
         </p>
-                <button class="snipcart-add-item btn btn-main mb-5" data-item-id="apple-watch__25.00"
+        <button class="snipcart-add-item btn btn-main mb-5" data-item-id="apple-watch__25.00"
           data-item-name="Apple Watch" data-item-image="assets/source/images/showcase/showcase-1.png"
           data-item-price="25.00" data-item-url="products/product-1/" data-item-custom1-name="Choose Color"
           data-item-custom1-options="Black|White|Gray" data-item-custom2-name="Choose Size"
           data-item-custom2-options="Small|Medium|Large">Add to Cart
         </button>
-        <div class="content">
+        <!-- <div class="content">
           <p *ngIf="product.product_description" [innerHTML]="product.product_description"></p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -252,32 +83,224 @@
     <div class="row">
       <div class="col-lg-12">
         <ul class="nav nav-tabs cst-tab">
-          <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-          <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-          <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-          <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+          <li class="active"><a data-toggle="tab" href="#specifications">Specifications</a></li>
+          <li><a data-toggle="tab" href="#overview">Overview</a></li>
+          <!-- <li><a data-toggle="tab" href="#features">Features</a></li>
+          <li><a data-toggle="tab" href="#models">Models</a></li> -->
+          <li><a data-toggle="tab" href="#media">Media</a></li>
+          <li><a data-toggle="tab" href="#delivery">Delivery</a></li>
         </ul>
-      
+
         <div class="tab-content">
-          <div id="home" class="tab-pane fade in active show">
-            <h3>HOME</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div id="specifications" class="tab-pane fade in active show">
+            <h3>Specifications</h3>
+            <div class="table-responsive">
+              <table class="table">
+
+                <tr *ngIf="product.product_type">
+                  <th>Product Type</th>
+                  <td>{{product.product_type}}</td>
+                </tr>
+
+                <tr *ngIf="product.brand_name">
+                  <th>Brand Name</th>
+                  <td>{{product.brand_name}}</td>
+                </tr>
+                <tr *ngIf="product.series">
+                  <th>Series</th>
+                  <td>{{product.series}}</td>
+                </tr>
+                <tr *ngIf="product.model_number">
+                  <th>Model Number</th>
+                  <td>{{product.model_number}}</td>
+                </tr>
+
+                <tr *ngIf="product.model_name">
+                  <th>Model Name</th>
+                  <td>{{product.model_name}}</td>
+                </tr>
+
+                <tr *ngIf="product.part_number">
+                  <th>Part Number</th>
+                  <td>{{product.part_number}}</td>
+                </tr>
+
+
+                <tr *ngIf="product.package">
+                  <th>Package</th>
+                  <td>{{product.package}}</td>
+                </tr>
+
+                <tr *ngIf="product.manufacturer">
+                  <th>Manufacturer</th>
+                  <td>{{product.manufacturer}}</td>
+                </tr>
+
+                <tr *ngIf="product.dimensions">
+                  <th>Dimensions</th>
+                  <td>{{product.dimensions}}</td>
+                </tr>
+
+                <tr *ngIf="product.ram_size">
+                  <th>Ram Size</th>
+                  <td>{{product.ram_size}}</td>
+                </tr>
+
+                <tr *ngIf="product.country_of_origin">
+                  <th>Country of Origin</th>
+                  <td>{{product.country_of_origin}}</td>
+                </tr>
+
+                <tr *ngIf="product.item_weight">
+                  <th>Item Weight</th>
+                  <td>{{product.item_weight}}</td>
+                </tr>
+
+                <tr *ngIf="product.memory_technology">
+                  <th>Memory Technology</th>
+                  <td>{{product.memory_technology}}</td>
+                </tr>
+
+                <tr *ngIf="product.clock_speed">
+                  <th>Clock Speed</th>
+                  <td>{{product.clock_speed}}</td>
+                </tr>
+
+                <tr *ngIf="product.screen_display_size">
+                  <th>Screen Display Size</th>
+                  <td>{{product.screen_display_size}}</td>
+                </tr>
+
+                <tr *ngIf="product.screen_resolution">
+                  <th>Screen Resolution</th>
+                  <td>{{product.screen_resolution}}</td>
+                </tr>
+
+                <tr *ngIf="product.processor">
+                  <th>Processor</th>
+                  <td>{{product.processor}}</td>
+                </tr>
+
+                <tr *ngIf="product.graphics_coprocessor">
+                  <th>Graphics Co Processor</th>
+                  <td>{{product.graphics_coprocessor}}</td>
+                </tr>
+
+                <tr *ngIf="product.hard_drive">
+                  <th>Hard Drive</th>
+                  <td>{{product.hard_drive}}</td>
+                </tr>
+
+                <tr *ngIf="product.chipset_brand">
+                  <th>Chipset Brand</th>
+                  <td>{{product.chipset_brand}}</td>
+                </tr>
+
+                <tr *ngIf="product.card_description">
+                  <th>Card Description</th>
+                  <td>{{product.card_description}}</td>
+                </tr>
+
+                <tr *ngIf="product.operating_system">
+                  <th>Operating System</th>
+                  <td>{{product.operating_system}}</td>
+                </tr>
+
+                <tr *ngIf="product.processor_brand">
+                  <th>Processor Brand</th>
+                  <td>{{product.processor_brand}}</td>
+                </tr>
+                <tr *ngIf="product.processor_count">
+                  <th>Processor Count</th>
+                  <td>{{product.processor_count}}</td>
+                </tr>
+
+                <tr *ngIf="product.flash_memory_size">
+                  <th>Flash Memory Size</th>
+                  <td>{{product.flash_memory_size}}</td>
+                </tr>
+
+                <tr *ngIf="product.memory_speed">
+                  <th>Memory Speed</th>
+                  <td>{{product.memory_speed}}</td>
+                </tr>
+
+                <tr *ngIf="product.wireless_type">
+                  <th>Wireless Type</th>
+                  <td>{{product.wireless_type}}</td>
+                </tr>
+
+                <tr *ngIf="product.batteries">
+                  <th>Batteries</th>
+                  <td>{{product.batteries}}</td>
+                </tr>
+
+                <tr *ngIf="product.power_source">
+                  <th>Power Source</th>
+                  <td>{{product.power_source}}</td>
+                </tr>
+
+                <tr *ngIf="product.color">
+                  <th>Color</th>
+                  <td>{{product.color}}</td>
+                </tr>
+
+                <tr *ngIf="product.connection_type">
+                  <th>Connection Type</th>
+                  <td>{{product.connection_type}}</td>
+                </tr>
+
+              </table>
+            </div>
+
           </div>
-          <div id="menu1" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div id="overview" class="tab-pane fade">
+            <h3>Description</h3>
+            <div class="content">
+              <p *ngIf="product.product_description" [innerHTML]="product.product_description"></p>
+            </div>
           </div>
-          <div id="menu2" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <!-- <div id="features" class="tab-pane fade">
+            <h3>Features</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+              rem aperiam.</p>
           </div>
-          <div id="menu3" class="tab-pane fade">
-            <h3>Menu 3</h3>
+          <div id="models" class="tab-pane fade">
+            <h3>Models</h3>
             <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          </div> -->
+          <div id="media" class="tab-pane fade">
+            <h3>Media</h3>
+            <div class="row">
+              <div class="col-4" *ngFor="let image of product.product_gallery">
+                <!-- <img class="img-fluid w-100" src="{{backendURL}}/{{product.product_gallery[0]}}" alt="product-image"> -->
+                <div>
+                  <img class="img-fluid w-100" src='{{backendURL}}/{{image}}' />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="delivery" class="tab-pane fade">
+            <h3>Delivery</h3>
+            <table class="table">
+              <tr *ngIf="product.pay_on_delivery">
+                <th>Pay On Delivery</th>
+                <td>{{product.pay_on_delivery == true ? "Yes" : "No"}}</td>
+              </tr>
+
+              <tr *ngIf="product.nexait_delivery">
+                <th>Nexa Delivery</th>
+                <td>{{product.nexait_delivery == true ? "Yes" : "No"}}</td>
+              </tr>
+              <tr *ngIf="product.replacement_policy">
+                <th>Replacement Policy</th>
+                <td>{{product.replacement_policy == true ? "Yes" : "No"}}</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
 </section>
