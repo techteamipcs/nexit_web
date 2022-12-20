@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: true,
     dots: false,
-    navSpeed: 700,
+    navSpeed: 300,
     navText: ['', ''],
     margin: 14,
     responsive: {
@@ -42,10 +42,10 @@ export class HomeComponent implements OnInit {
         items: 1
       },
       400: {
-        items: 4
+        items: 1
       },
       740: {
-        items: 8
+        items: 1
       },
       940: {
         items: 1
@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
         items: 4
       },
       940: {
-        items: 5
+        items: 4
       }
     },
     nav: false
