@@ -1,7 +1,7 @@
 <!-- preloader start -->
 <div class="preloader"></div>
 <!-- preloader end -->
-<nav class="navbar navbar-expand-lg navbar-light  sticky-top1">
+<nav class="navbar navbar-expand-md navbar-light  sticky-top1">
   <div class="container-fluid">
     <!-- <a class="navbar-brand" href="#">Navbar</a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -188,7 +188,16 @@
                     </div> -->
                     <a href="product-details/{{prod._id}}" class="gallery-popup">
                     <img src="{{imageUrl}}/{{prod.image}}">
+                    <!-- {{prod.name}} -->
                   </a>
+                  <div class="product-info">
+                    <h4 class="mb-2">
+                      <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
+                    </h4>
+                    <p class="price"><span>AED</span> {{prod.sale_price}}
+                      <s class="price"> <span>AED</span> {{prod.regular_price}}</s>
+                    </p>
+                  </div>
                   </div>
                 </div>
               </ng-template>
