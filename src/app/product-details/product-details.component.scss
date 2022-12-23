@@ -1,12 +1,30 @@
-.prodcut-tab{
-  .cst-tab{
-    border-bottom:#245c4e;
-    margin-bottom: 10px;    
+.prodcut-tab {
+  .cst-tab {
+    border-bottom: #245c4e;
+    margin-bottom: 10px;
     border-bottom: 2px solid #245c4e;
-    li{
+    border-top: 2px solid #245c4e;
+    li {
       padding: 10px;
-      margin: 0px 15px;
-      a{
+      margin: 0px 15px 0px 0px;
+      @media (max-width: 575px) {
+        padding:5px 0px;
+      }
+      @media(max-width:380px) {
+        margin: 0px 8px 0px 0px;
+      }
+      a {
+        // color: #245c4e;
+        color: #94bdae;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 14px;
+        text-decoration: none;
+        @media (max-width: 575px) {
+          padding: 0;
+        }
+      }
+      a.active {
         color: #245c4e;
       }
       // &:hover, &:focus, &:active{
@@ -16,9 +34,90 @@
       //   }
       // }
     }
-   
+  }
+  .tab-content {
+    padding: 15px;
+    .tab-pane {
+      h3 {
+        margin-bottom: 30px;
+        font-weight: 800;
+      }
     }
-    .tab-content{
-      padding: 15px;
-    }
+  }
+}
+
+/* zoom-section */
+.zoom-section {
+  clear: both;
+  margin-top: 20px;
+}
+*html .zoom-section {
+  display: inline;
+  clear: both;
+}
+.zoom-desc {
+  float: left;
+  margin-left: 10px;
+  width: 310px;
+  margin-bottom: 20px;
+}
+.zoom-small-image {
+  /*border:1px solid #CCC;*/
+  float: left;
+  margin-bottom: 20px;
+}
+.zoom-tiny-image {
+  border: 1px solid #ccc;
+  margin: 0px;
+}
+.zoom-tiny-image:hover {
+  border: 1px solid #c00;
+}
+
+.zoom-tiny-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+.cloud-zoom-big {
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  /* transform:scale(2); */
+}
+.zoom-desc {
+  margin: 0;
+  width: 100%;
+  display: flex;
+}
+.zoom-tiny-image:hover,
+.zoom-tiny-image:focus,
+.zoom-tiny-image:active {
+  border: 1px solid#7e7e7e !important;
+}
+.zoom-desc .d-flex a {
+  margin-left: 5px;
+}
+.pl-0 {
+  padding-left: 0 !important;
+}
+.product-description p {
+  font-size: 14px !important;
+  color: #000 !important;
+}
+.caption {
+  font-family: "OpenSans semibold";
+  font-size: 16px !important;
+  border-bottom: 1px solid #d1d1d1;
+  margin-top: 0;
+}
+
+@media (max-width: 991px) {
+  .zoom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.gallery-popup img{
+  height: 309px;
 }
