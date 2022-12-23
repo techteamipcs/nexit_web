@@ -19,6 +19,9 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ng6-toastr-notifications';
+// Import the library
+import { AboutComponent } from './about/about.component';
+import { ServicesComponent } from './services/services.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { ToastrModule } from 'ng6-toastr-notifications';
     ProductsComponent,
     ContactComponent,
     PrivacyPolicyComponent,
-    TermsAndConditionComponent
+    TermsAndConditionComponent,
+    AboutComponent,
+    ServicesComponent
 
   ],
   imports: [

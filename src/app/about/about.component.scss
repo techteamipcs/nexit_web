@@ -1,0 +1,19 @@
+.page-header {
+  background: linear-gradient(rgba(22, 22, 22, .7), rgba(22, 22, 22, .7)), url(../../assets/source/images/about.jpg) center center no-repeat;
+  
+  background-size: cover;
+  background-attachment: fixed;
+}
+.aboutus h1, h5 span{
+color: #fff;
+}
+.value{
+  text-align: center;
+  background: #245c4e;
+  p{
+    color: #fff;
+  }
+  h5{
+    font-weight: 600;
+  }
+}
