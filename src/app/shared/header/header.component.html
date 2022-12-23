@@ -14,11 +14,17 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#!" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">Products <i class="tf-ion-chevron-down"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdown02">
+              <li class="dropdown dropdown-submenu dropright">
+                <a [routerLink]="['/products']" class="dropdown-item">All Products</a>
+              </li>
               <li class="dropdown dropdown-submenu dropright" *ngFor="let category of allcategories"><a
                   class="dropdown-item dropdown-toggle" [routerLink]="['/products',category._id,'category']"
                   routerLinkActive="router-link-active" id="dropdown0301" role="button" data-toggle="dropdown"
@@ -47,9 +53,9 @@
               </li>
             </ul>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="/#testimonial">Review</a>
-          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="services">Services</a>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="contact">Contact</a>
