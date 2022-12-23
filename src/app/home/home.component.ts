@@ -68,12 +68,16 @@ export class HomeComponent implements OnInit {
         items: 2
       },
       400: {
-        items: 3
+        items: 2
       },
       740: {
-        items: 4
+        items: 3
       },
-      940: {
+      768: {
+        items: 3,
+        margin: 8,
+      },
+      1023: {
         items: 4
       }
     },

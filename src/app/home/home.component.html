@@ -13,7 +13,7 @@
         <li class="nav-item" *ngFor="let category of allcategories">
 
           <a class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
-            <img class="home-icon {{category.name}}" src="{{imageUrl}}/{{category.icon}}" alt="" style="width:50px; display:block; margin:0 auto;">
+            <img class="home-icon {{category.name | lowercase}}" src="{{imageUrl}}/{{category.icon}}" alt="" style="width:50px; display:block; margin:0 auto;">
             {{category.name}}</a>
         </li>
 
@@ -166,7 +166,7 @@
   </div>
 </section>
 <section class="gallery section" id="products" style="background-color: #f6f6ea;">
-  <div class="container-fluid p-0">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 text-center mx-auto p-0">
         <div class="heading">
@@ -180,7 +180,7 @@
 
               <ng-template carouselSlide [id]="prod">
                 <div class="product-slider">
-                  <div class="block">
+                  <!-- <div class="block"> -->
                     <!-- <div class="gallery-overlay">
                       <a href="product-details/{{prod._id}}" class="gallery-popup">
                         <i class="tf-ion-plus-round"></i>
@@ -198,7 +198,7 @@
                       <s class="price"> <span>AED</span> {{prod.regular_price}}</s>
                     </p>
                   </div>
-                  </div>
+                  <!-- </div> -->
                 </div>
               </ng-template>
 

@@ -118,6 +118,14 @@
           transition: 0.3s ease-in-out;
         }
       }
+
     }
   }
+}
+.gallery{
+  overflow: hidden;
+}
+ 
+.gallery-popup img{
+  height: 309px;
 }
