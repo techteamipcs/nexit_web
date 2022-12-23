@@ -1,8 +1,8 @@
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col-md-5 mb-4 mb-md-0" *ngIf="product">
-        <img class="img-fluid w-100" src="{{backendURL}}/{{product.image}}" alt="product-image">
+      <div class="col-md-5 mb-4 mb-md-0" >
+        <!--  <img class="img-fluid w-100" src="{{backendURL}}/{{product.image}}" alt="product-image"> -->
         <!-- <div class="product-image-slider">
 
           <div data-image="assets/source/images/showcase/showcase-1.png">
@@ -22,6 +22,27 @@
           </div>
 
         </div> -->
+        <!-- product slider -->
+        <div class="product-details">
+          <div class="product-slider">
+            <!-- <div class="product-slider-item my-4" data-image="assets/source/images/home/about3.jpg"  *ngFor="let prod of product.product_gallery">
+              <img class="img-fluid w-100" src="{{backendURL}}/{{prod}}" alt="product-img">
+            </div> -->
+            <div class="product-slider-item my-4" data-image="assets/source/images/home/about3.jpg">
+              <img class="d-block img-fluid w-100" src="assets/source/images/home/about3.jpg" alt="Second slide">
+            </div>
+            <div class="product-slider-item my-4" data-image="src/assets/source/images/home/about3.jpg">
+              <img class="d-block img-fluid w-100" src="assets/source/images/home/about3.jpg" alt="Third slide">
+            </div>
+            <div class="product-slider-item my-4" data-image="images/products/products-1.jpg">
+              <img class="d-block img-fluid w-100" src="images/products/products-1.jpg" alt="Third slide">
+            </div>
+            <div class="product-slider-item my-4" data-image="assets/source/images/home/about3.jpg">
+              <img class="d-block img-fluid w-100" src="assets/source/images/home/about3.jpg" alt="Third slide">
+            </div>
+          </div>
+        </div>
+        <!-- product slider -->
       </div>
       <div class="col-lg-6 col-md-7 offset-lg-1" *ngIf="product">
         <h1 class="mb-4">{{product.name}}</h1>
@@ -327,17 +348,17 @@
                       </a>
                     </div> -->
                     <a href="product-details/{{prod._id}}" class="gallery-popup">
-                    <img src="{{backendURL}}/{{prod.image}}">
-                    <!-- {{prod.name}} -->
-                  </a>
-                  <div class="product-info">
-                    <h4 class="mb-2">
-                      <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
-                    </h4>
-                    <p class="price"><span>AED</span> {{prod.sale_price}}
-                      <s class="price"> <span>AED</span> {{prod.regular_price}}</s>
-                    </p>
-                  </div>
+                      <img src="{{backendURL}}/{{prod.image}}">
+                      <!-- {{prod.name}} -->
+                    </a>
+                    <div class="product-info">
+                      <h4 class="mb-2">
+                        <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
+                      </h4>
+                      <p class="price"><span>AED</span> {{prod.sale_price}}
+                        <s class="price"> <span>AED</span> {{prod.regular_price}}</s>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </ng-template>
