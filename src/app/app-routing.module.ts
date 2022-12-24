@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductsComponent } from './products/products.component';
+import { SearchProductComponent } from './search-product/search-product.component';
 import { ServicesComponent } from './services/services.component';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 
@@ -54,6 +55,14 @@ const routes: Routes = [
   {
     path:'terms-conditions',
     component:TermsAndConditionComponent
+  },
+  {
+    path:'search',
+    component:SearchProductComponent
+  },
+  {
+    path:'search/:key',
+    component:SearchProductComponent
   }
 ];
 

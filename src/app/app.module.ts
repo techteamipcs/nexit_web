@@ -26,6 +26,9 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 // Libraries include
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SearchProductComponent } from './search-product/search-product.component';
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     TermsAndConditionComponent,
     AboutComponent,
     ServicesComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -54,7 +58,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     SlickCarouselModule,
     ToastrModule.forRoot(),
     NgxSliderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

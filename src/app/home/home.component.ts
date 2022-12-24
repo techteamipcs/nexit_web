@@ -87,6 +87,11 @@ export class HomeComponent implements OnInit {
   imageUrl:any ='';
   products:any = [];
   allcategories:any = [];
+  // pagination
+  currentPage: number = 1;
+  initialized: boolean = false;
+  currentLimit: number = 10;
+  totalRecord: number = 0;
   constructor(private renderer: Renderer2,private readonly http: HttpClient, public dataservice: DataService, 
     private pageservice: PageService,
     private metaTagService: Meta,
@@ -133,7 +138,11 @@ export class HomeComponent implements OnInit {
     // )
   }
   getConfig(){
-    this.dataservice.getConfigData({}).subscribe((response) => {
+    const obj = {
+      limit: this.currentLimit,
+      page: this.currentPage
+    };
+    this.dataservice.getConfigData(obj).subscribe((response) => {
       if (response.code == 200) {
         if (response.result) {
           this.config = response.result;

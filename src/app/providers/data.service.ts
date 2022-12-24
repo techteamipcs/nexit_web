@@ -74,4 +74,13 @@ export class DataService {
     ); 
   };
 
+  getSearchProducts = (data:any): Observable<any> => {
+    const endpoint = environment.backendUrl+'/api/product/search-product';
+    return this.http.post(endpoint, data).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    ); 
+  };
+
 }
