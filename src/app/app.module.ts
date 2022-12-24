@@ -22,6 +22,7 @@ import { ToastrModule } from 'ng6-toastr-notifications';
 // Import the library
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ServicesComponent } from './services/services.component';
     FormsModule,
     ReactiveFormsModule,
     SlickCarouselModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

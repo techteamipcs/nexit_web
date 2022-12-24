@@ -41,14 +41,16 @@
               "src/assets/details/style.css",
               "src/assets/plugin/slick/slick.css",
               "src/assets/plugin/slick/slick-theme.css",
-              "src/assets/plugin/slick/style-slider.css"                      
+              "src/assets/plugin/slick/style-slider.css",
+              "src/assets/plugin/bootstrap-slider.css"                
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/source/plugins/bootstrap/popper.min.js",
               "src/assets/source/plugins/bootstrap/bootstrap.min.js",
               "src/assets/source/js/script.js",
-              "src/assets/plugin/slick/slick.min.js"                                   
+              "src/assets/plugin/slick/slick.min.js",
+              "src/assets/plugin/bootstrap-slider.js"                                   
             ]
           },
           "configurations": {

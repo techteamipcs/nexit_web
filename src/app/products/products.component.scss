@@ -47,7 +47,101 @@ select {
   background: transparent;
   padding: 5px;
   font-size: 14px;
-  
 }
 
+.category-sidebar {
+  .widget {
+    background: #fff;
+    box-shadow: 0px 1px 3px 0px rgb(0 0 0 / 10%);
+    padding: 25px 30px 30px;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    .widget-header {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #dedede;
+    }
+  }
+  .widget.category-list ul li:not(:last-child) {
+    border-bottom: 1px solid #f4f7f9;
+  }
+  .widget.category-list ul li a {
+    padding: 8px 0;
+    display: block;
+    transition: all linear 0.3s;
+  }
 
+  .widget.category-list ul li a span {
+    float: right;
+    font-size: 10px;
+    background: #f4f7f9;
+    border-radius: 10px;
+    padding: 3px 8px;
+    color: #84919b;
+  }
+  
+  .widget.filter {
+    padding-bottom: 17px;
+  }
+  
+  .widget {
+    background: #fff;
+    box-shadow: 0px 1px 3px 0px rgb(0 0 0 / 10%);
+    padding: 25px 30px 30px;
+    margin-bottom: 30px;
+    border-radius: 2px;
+  }
+  .widget.price-range .slider.slider-horizontal {
+    width: 100%;
+  }
+  .widget.filter .nice-select {
+    width: 100%;
+  }
+  .nice-select {
+    float: none;
+    display: inline-block;
+    border-radius: 0;
+    width: 100%;
+  }
+  .widget.filter .nice-select .list {
+    width: 100%;
+  }
+  .nice-select .list {
+    border-radius: 0;
+  }
+  .widget .widget-header {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dedede;
+  }
+}
+
+.cst-category-search-filter .view{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+  p{
+    margin-bottom: 0;
+  }
+}
+ a:hover, a:focus{
+  color: #000;
+ }
+ ::ng-deep{  
+ .ngx-slider .ngx-slider-pointer{
+  background-color: #94bdae !important;
+ }
+ .ngx-slider .ngx-slider-pointer.ngx-slider-active:after{
+  background-color: #245c4e !important;
+ }
+ .ngx-slider .ngx-slider-selection{
+  background-color: #245c4e !important;
+ }
+}
