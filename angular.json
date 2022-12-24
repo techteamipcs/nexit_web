@@ -36,13 +36,19 @@
               "src/styles.scss",
               "src/assets/source/scss/style.scss",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
-              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css"            
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
+              "src/assets/details/cloud-zoom.css",
+              "src/assets/details/style.css",
+              "src/assets/plugin/slick/slick.css",
+              "src/assets/plugin/slick/slick-theme.css",
+              "src/assets/plugin/slick/style-slider.css"                      
             ],
             "scripts": [
-              "src/assets/source/plugins/jquery/jquery.js",
+              "node_modules/jquery/dist/jquery.min.js",
               "src/assets/source/plugins/bootstrap/popper.min.js",
               "src/assets/source/plugins/bootstrap/bootstrap.min.js",
-              "src/assets/source/js/script.js"              
+              "src/assets/source/js/script.js",
+              "src/assets/plugin/slick/slick.min.js"                                   
             ]
           },
           "configurations": {
