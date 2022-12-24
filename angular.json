@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "b1fce53f-9f4d-40e4-8cf5-6553b5ec5642"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -37,12 +40,12 @@
               "src/assets/source/scss/style.scss",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
-              "src/assets/details/cloud-zoom.css",
-              "src/assets/details/style.css",
               "src/assets/plugin/slick/slick.css",
               "src/assets/plugin/slick/slick-theme.css",
               "src/assets/plugin/slick/style-slider.css",
-              "src/assets/plugin/bootstrap-slider.css"                
+              "src/assets/plugin/bootstrap-slider.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss"                
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -50,7 +53,9 @@
               "src/assets/source/plugins/bootstrap/bootstrap.min.js",
               "src/assets/source/js/script.js",
               "src/assets/plugin/slick/slick.min.js",
-              "src/assets/plugin/bootstrap-slider.js"                                   
+              "src/assets/plugin/bootstrap-slider.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js"                                    
             ]
           },
           "configurations": {

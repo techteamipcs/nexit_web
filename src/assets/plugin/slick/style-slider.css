@@ -128,7 +128,7 @@ ul.pagination li a {
   color: #666;
 }
 ul.pagination .active a {
-  background-color: #5672f9 !important;
+  background-color: #94bdae !important;
   color: #fff !important;
   border-color: transparent !important;
 }
@@ -143,17 +143,17 @@ ul.social-circle-icons li a {
   display: block;
   font-size: 15px;
   line-height: 38px;
-  color: #5672f9;
+  color: #94bdae;
   height: 38px;
   width: 38px;
-  border: 2px solid #5672f9;
+  border: 2px solid #94bdae;
   background: #fff;
   border-radius: 100%;
 }
 ul.social-circle-icons li a:hover {
   text-decoration: none;
   color: #fff;
-  background: #5672f9;
+  background: #94bdae;
 }
 
 .store-list h4 {
@@ -176,7 +176,7 @@ ul.social-circle-icons li a:hover {
 }
 .store-list ul li a:hover {
   text-decoration: underline;
-  color: #5672f9;
+  color: #94bdae;
 }
 @media (max-width: 768px) {
   .store-list {
@@ -216,7 +216,7 @@ a:focus,
 a:hover {
   text-decoration: none;
   outline: 0;
-  color: #5672f9;
+  color: #94bdae;
 }
 
 .form-control {
@@ -230,7 +230,7 @@ a:hover {
 .form-control:focus {
   color: #666;
   box-shadow: none;
-  border: 1px solid #5672f9;
+  border: 1px solid #94bdae;
   background-color: transparent;
 }
 
@@ -543,12 +543,12 @@ ul.pagination li a {
   color: #666;
 }
 ul.pagination li a:hover {
-  background-color: #5672f9 !important;
+  background-color: #94bdae !important;
   color: #fff !important;
   border-color: transparent !important;
 }
 ul.pagination .active a {
-  background-color: #5672f9 !important;
+  background-color: #94bdae !important;
   color: #fff !important;
   border-color: transparent !important;
 }

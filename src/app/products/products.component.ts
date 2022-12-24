@@ -18,8 +18,8 @@ export class ProductsComponent implements OnInit {
   type: any;
   id: any;
   userSubscription: Subscription;
-  allProducts:any = []; 
-// price ranger
+  allProducts: any = [];
+  // price ranger
   value: number = 70;
   minValue: number = 100;
   maxValue: number = 400;
@@ -37,6 +37,11 @@ export class ProductsComponent implements OnInit {
       }
     }
   };
+  // pagination
+  currentPage: number = 1;
+  initialized: boolean = false;
+  currentLimit: number = 10;
+  totalRecord: number = 0;
   constructor(public dataservice: DataService, public router: ActivatedRoute, public route: Router) {
     this.backendURL = environment.backendUrl + '/public/';
     this.userSubscription = this.router.params.subscribe(
@@ -51,10 +56,10 @@ export class ProductsComponent implements OnInit {
         }
       })
   }
-  
+
   ngOnInit() {
-  this.getAllCategory();
-  this.get_AllBrands();
+    this.getAllCategory();
+    this.get_AllBrands();
   }
 
   ngOnDestroy(): void {
@@ -62,12 +67,17 @@ export class ProductsComponent implements OnInit {
   }
 
   getAllProducts() {
-    this.dataservice.getAllProducts({}).subscribe((response) => {
+    const obj = {
+      limit: this.currentLimit,
+      page: this.currentPage
+    };
+    this.dataservice.getAllProducts(obj).subscribe((response) => {
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
           this.products = response.result;
           this.allProducts = [];
           this.allProducts = this.products;
+          this.totalRecord = response?.count;
         }
 
       } else if (response.code == 400) {
@@ -80,20 +90,22 @@ export class ProductsComponent implements OnInit {
     );
   }
 
-
-  getFilterdProducts(event:any) {
+  getFilterdProducts(event: any) {
     let obj = {
-      sort:'',
+      sort: '',
       type: this.type,
-      _id: this.id
+      _id: this.id,
+      limit: this.currentLimit,
+      page: this.currentPage
     }
-    if(event){
+    if (event) {
       obj['sort'] = event.target.value;
     }
     this.dataservice.getFilteredProducts(obj).subscribe((response) => {
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
           this.products = response.result;
+          this.totalRecord = response?.count;
         }
 
       } else if (response.code == 400) {
@@ -125,6 +137,7 @@ export class ProductsComponent implements OnInit {
       },
     );
   }
+
   get_AllBrands() {
     this.dataservice.getAllBrands({}).subscribe(
       (response) => {
@@ -143,15 +156,20 @@ export class ProductsComponent implements OnInit {
     );
   }
 
-  getCategoryLength(catId:any){
+  getCategoryLength(catId: any) {
     let length = 0;
-    if(this.allProducts && this.allProducts.length > 0){
-      this.allProducts.forEach((prod:any)=>{
-        if(prod && prod.category == catId){
-          length = length+1;
+    if (this.allProducts && this.allProducts.length > 0) {
+      this.allProducts.forEach((prod: any) => {
+        if (prod && prod.category == catId) {
+          length = length + 1;
         }
       })
     }
     return length;
+  }
+
+  onListChangePage(event: any) {
+    this.currentPage = event;
+    this.getAllProducts();
   }
 }

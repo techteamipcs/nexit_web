@@ -23,6 +23,9 @@ import { ToastrModule } from 'ng6-toastr-notifications';
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+// Libraries include
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +40,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     PrivacyPolicyComponent,
     TermsAndConditionComponent,
     AboutComponent,
-    ServicesComponent
-
+    ServicesComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -50,7 +53,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     ReactiveFormsModule,
     SlickCarouselModule,
     ToastrModule.forRoot(),
-    NgxSliderModule
+    NgxSliderModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
