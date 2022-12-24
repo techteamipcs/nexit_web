@@ -1,283 +1,283 @@
 <section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 mb-4 mb-md-0">
-        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
-          (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
-          (beforeChange)="beforeChange($event)">
-          <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-            <img src="{{ slide.img }}" alt="" width="100%">
-          </div>
-        </ngx-slick-carousel>
-      </div>
-      <div class="col-lg-6 col-md-7 offset-lg-1" *ngIf="product">
-        <h1 class="mb-4">{{product.name}}</h1>
-        <table class="table">
-          <tr *ngIf="product && product.product_type">
-            <th>Product Type</th>
-            <td>{{product.product_type}}</td>
-          </tr>
-          <tr *ngIf="product && product.brand_name">
-            <th>Brand Name</th>
-            <td>{{product.brand_name}}</td>
-          </tr>
-          <tr *ngIf="product && product.series">
-            <th>Series</th>
-            <td>{{product.series}}</td>
-          </tr>
-          <tr *ngIf="product && product.model_number">
-            <th>Model Number</th>
-            <td>{{product.model_number}}</td>
-          </tr>
-          <tr *ngIf="product && product.model_name">
-            <th>Model Name</th>
-            <td>{{product.model_name}}</td>
-          </tr>
-          <tr *ngIf="product && product.part_number">
-            <th>Part Number</th>
-            <td>{{product.part_number}}</td>
-          </tr>
-        </table>
-        <p class="price py-4">${{product.sale_price}}
-          <s class="price">${{product.regular_price}}</s>
-        </p>
-        <button class="snipcart-add-item btn btn-main mb-5" data-item-id="apple-watch__25.00"
-          data-item-name="Apple Watch" data-item-image="assets/source/images/showcase/showcase-1.png"
-          data-item-price="25.00" data-item-url="products/product-1/" data-item-custom1-name="Choose Color"
-          data-item-custom1-options="Black|White|Gray" data-item-custom2-name="Choose Size"
-          data-item-custom2-options="Small|Medium|Large">Add to Cart
-        </button>
-        <!-- <div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 mb-4 mb-md-0">
+				<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+					(init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+					(beforeChange)="beforeChange($event)">
+					<div ngxSlickItem *ngFor="let slide of slides" class="slide">
+						<img src="{{ slide.img }}" alt="" width="100%">
+					</div>
+				</ngx-slick-carousel>
+			</div>
+			<div class="col-lg-6 col-md-7 offset-lg-1" *ngIf="product">
+				<h1 class="mb-4">{{product.name}}</h1>
+				<table class="table">
+					<tr *ngIf="product && product.product_type">
+						<th>Product Type</th>
+						<td>{{product.product_type}}</td>
+					</tr>
+					<tr *ngIf="product && product.brand_name">
+						<th>Brand Name</th>
+						<td>{{product.brand_name}}</td>
+					</tr>
+					<tr *ngIf="product && product.series">
+						<th>Series</th>
+						<td>{{product.series}}</td>
+					</tr>
+					<tr *ngIf="product && product.model_number">
+						<th>Model Number</th>
+						<td>{{product.model_number}}</td>
+					</tr>
+					<tr *ngIf="product && product.model_name">
+						<th>Model Name</th>
+						<td>{{product.model_name}}</td>
+					</tr>
+					<tr *ngIf="product && product.part_number">
+						<th>Part Number</th>
+						<td>{{product.part_number}}</td>
+					</tr>
+				</table>
+				<p class="price py-4">${{product.sale_price}}
+					<s class="price">${{product.regular_price}}</s>
+				</p>
+				<button class="snipcart-add-item btn btn-main mb-5" data-item-id="apple-watch__25.00"
+					data-item-name="Apple Watch" data-item-image="assets/source/images/showcase/showcase-1.png"
+					data-item-price="25.00" data-item-url="products/product-1/" data-item-custom1-name="Choose Color"
+					data-item-custom1-options="Black|White|Gray" data-item-custom2-name="Choose Size"
+					data-item-custom2-options="Small|Medium|Large">Add to Cart
+				</button>
+				<!-- <div class="content">
           <p *ngIf="product && product.product_description" [innerHTML]="product.product_description"></p>
         </div> -->
-      </div>
-    </div>
-  </div>
+			</div>
+		</div>
+	</div>
 </section>
 <section class="prodcut-tab">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <ul class="nav nav-tabs cst-tab">
-          <li class="active"><a data-toggle="tab" href="#specifications" class="active">Specifications</a></li>
-          <li><a data-toggle="tab" href="#overview">Overview</a></li>
-          <!-- <li><a data-toggle="tab" href="#features">Features</a></li>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs cst-tab">
+					<li class="active"><a data-toggle="tab" href="#specifications" class="active">Specifications</a></li>
+					<li><a data-toggle="tab" href="#overview">Overview</a></li>
+					<!-- <li><a data-toggle="tab" href="#features">Features</a></li>
           <li><a data-toggle="tab" href="#models">Models</a></li> -->
-          <li *ngIf="product && product.product_gallery.lenght > 0"><a data-toggle="tab" href="#media">Media</a></li>
-          <li><a data-toggle="tab" href="#delivery">Delivery</a></li>
-        </ul>
-        <div class="tab-content">
-          <div id="specifications" class="tab-pane fade in active show">
-            <h3>Specifications</h3>
-            <div class="table-responsive">
-              <table class="table">
-                <tr *ngIf="product && product.product_type">
-                  <th>Product Type</th>
-                  <td>{{product.product_type}}</td>
-                </tr>
-                <tr *ngIf="product && product.brand_name">
-                  <th>Brand Name</th>
-                  <td>{{product.brand_name}}</td>
-                </tr>
-                <tr *ngIf="product && product.series">
-                  <th>Series</th>
-                  <td>{{product.series}}</td>
-                </tr>
-                <tr *ngIf="product && product.model_number">
-                  <th>Model Number</th>
-                  <td>{{product.model_number}}</td>
-                </tr>
-                <tr *ngIf="product && product.model_name">
-                  <th>Model Name</th>
-                  <td>{{product.model_name}}</td>
-                </tr>
-                <tr *ngIf="product && product.part_number">
-                  <th>Part Number</th>
-                  <td>{{product.part_number}}</td>
-                </tr>
-                <tr *ngIf="product && product.package">
-                  <th>Package</th>
-                  <td>{{product.package}}</td>
-                </tr>
-                <tr *ngIf="product && product.manufacturer">
-                  <th>Manufacturer</th>
-                  <td>{{product.manufacturer}}</td>
-                </tr>
-                <tr *ngIf="product && product.dimensions">
-                  <th>Dimensions</th>
-                  <td>{{product.dimensions}}</td>
-                </tr>
-                <tr *ngIf="product && product.ram_size">
-                  <th>Ram Size</th>
-                  <td>{{product.ram_size}}</td>
-                </tr>
-                <tr *ngIf="product && product.country_of_origin">
-                  <th>Country of Origin</th>
-                  <td>{{product.country_of_origin}}</td>
-                </tr>
-                <tr *ngIf="product && product.item_weight">
-                  <th>Item Weight</th>
-                  <td>{{product.item_weight}}</td>
-                </tr>
-                <tr *ngIf="product && product.memory_technology">
-                  <th>Memory Technology</th>
-                  <td>{{product.memory_technology}}</td>
-                </tr>
-                <tr *ngIf="product && product.clock_speed">
-                  <th>Clock Speed</th>
-                  <td>{{product.clock_speed}}</td>
-                </tr>
-                <tr *ngIf="product && product.screen_display_size">
-                  <th>Screen Display Size</th>
-                  <td>{{product.screen_display_size}}</td>
-                </tr>
-                <tr *ngIf="product && product.screen_resolution">
-                  <th>Screen Resolution</th>
-                  <td>{{product.screen_resolution}}</td>
-                </tr>
-                <tr *ngIf="product && product.processor">
-                  <th>Processor</th>
-                  <td>{{product.processor}}</td>
-                </tr>
-                <tr *ngIf="product && product.graphics_coprocessor">
-                  <th>Graphics Co Processor</th>
-                  <td>{{product.graphics_coprocessor}}</td>
-                </tr>
-                <tr *ngIf="product && product.hard_drive">
-                  <th>Hard Drive</th>
-                  <td>{{product.hard_drive}}</td>
-                </tr>
-                <tr *ngIf="product && product.chipset_brand">
-                  <th>Chipset Brand</th>
-                  <td>{{product.chipset_brand}}</td>
-                </tr>
-                <tr *ngIf="product && product.card_description">
-                  <th>Card Description</th>
-                  <td>{{product.card_description}}</td>
-                </tr>
-                <tr *ngIf="product && product.operating_system">
-                  <th>Operating System</th>
-                  <td>{{product.operating_system}}</td>
-                </tr>
-                <tr *ngIf="product && product.processor_brand">
-                  <th>Processor Brand</th>
-                  <td>{{product.processor_brand}}</td>
-                </tr>
-                <tr *ngIf="product && product.processor_count">
-                  <th>Processor Count</th>
-                  <td>{{product.processor_count}}</td>
-                </tr>
-                <tr *ngIf="product && product.flash_memory_size">
-                  <th>Flash Memory Size</th>
-                  <td>{{product.flash_memory_size}}</td>
-                </tr>
-                <tr *ngIf="product && product.memory_speed">
-                  <th>Memory Speed</th>
-                  <td>{{product.memory_speed}}</td>
-                </tr>
-                <tr *ngIf="product && product.wireless_type">
-                  <th>Wireless Type</th>
-                  <td>{{product.wireless_type}}</td>
-                </tr>
-                <tr *ngIf="product && product.batteries">
-                  <th>Batteries</th>
-                  <td>{{product.batteries}}</td>
-                </tr>
-                <tr *ngIf="product && product.power_source">
-                  <th>Power Source</th>
-                  <td>{{product.power_source}}</td>
-                </tr>
-                <tr *ngIf="product && product.color">
-                  <th>Color</th>
-                  <td>{{product.color}}</td>
-                </tr>
-                <tr *ngIf="product && product.connection_type">
-                  <th>Connection Type</th>
-                  <td>{{product.connection_type}}</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div id="overview" class="tab-pane fade">
-            <h3>Description</h3>
-            <div class="content">
-              <p *ngIf="product && product.product_description" [innerHTML]="product.product_description"></p>
-            </div>
-          </div>
-          <div id="media" class="tab-pane fade" *ngIf="product && product.product_gallery.lenght > 0">
-            <h3>Media</h3>
-            <div class="row">
-              <div class="col-4" *ngFor="let image of product.product_gallery">
-                <!-- <img class="img-fluid w-100" src="{{backendURL}}/{{product.product_gallery[0]}}" alt="product-image"> -->
-                <div>
-                  <img class="img-fluid w-100" src='{{backendURL}}/{{image}}' />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="delivery" class="tab-pane fade">
-            <h3>Delivery</h3>
-            <table class="table">
-              <tr *ngIf="product && product.pay_on_delivery">
-                <th>Pay On Delivery</th>
-                <td>{{product.pay_on_delivery == true ? "Yes" : "No"}}</td>
-              </tr>
+					<li *ngIf="product && product.product_gallery.lenght > 0"><a data-toggle="tab" href="#media">Media</a></li>
+					<li><a data-toggle="tab" href="#delivery">Delivery</a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="specifications" class="tab-pane fade in active show">
+						<h3>Specifications</h3>
+						<div class="table-responsive">
+							<table class="table">
+								<tr *ngIf="product && product.product_type">
+									<th>Product Type</th>
+									<td>{{product.product_type}}</td>
+								</tr>
+								<tr *ngIf="product && product.brand_name">
+									<th>Brand Name</th>
+									<td>{{product.brand_name}}</td>
+								</tr>
+								<tr *ngIf="product && product.series">
+									<th>Series</th>
+									<td>{{product.series}}</td>
+								</tr>
+								<tr *ngIf="product && product.model_number">
+									<th>Model Number</th>
+									<td>{{product.model_number}}</td>
+								</tr>
+								<tr *ngIf="product && product.model_name">
+									<th>Model Name</th>
+									<td>{{product.model_name}}</td>
+								</tr>
+								<tr *ngIf="product && product.part_number">
+									<th>Part Number</th>
+									<td>{{product.part_number}}</td>
+								</tr>
+								<tr *ngIf="product && product.package">
+									<th>Package</th>
+									<td>{{product.package}}</td>
+								</tr>
+								<tr *ngIf="product && product.manufacturer">
+									<th>Manufacturer</th>
+									<td>{{product.manufacturer}}</td>
+								</tr>
+								<tr *ngIf="product && product.dimensions">
+									<th>Dimensions</th>
+									<td>{{product.dimensions}}</td>
+								</tr>
+								<tr *ngIf="product && product.ram_size">
+									<th>Ram Size</th>
+									<td>{{product.ram_size}}</td>
+								</tr>
+								<tr *ngIf="product && product.country_of_origin">
+									<th>Country of Origin</th>
+									<td>{{product.country_of_origin}}</td>
+								</tr>
+								<tr *ngIf="product && product.item_weight">
+									<th>Item Weight</th>
+									<td>{{product.item_weight}}</td>
+								</tr>
+								<tr *ngIf="product && product.memory_technology">
+									<th>Memory Technology</th>
+									<td>{{product.memory_technology}}</td>
+								</tr>
+								<tr *ngIf="product && product.clock_speed">
+									<th>Clock Speed</th>
+									<td>{{product.clock_speed}}</td>
+								</tr>
+								<tr *ngIf="product && product.screen_display_size">
+									<th>Screen Display Size</th>
+									<td>{{product.screen_display_size}}</td>
+								</tr>
+								<tr *ngIf="product && product.screen_resolution">
+									<th>Screen Resolution</th>
+									<td>{{product.screen_resolution}}</td>
+								</tr>
+								<tr *ngIf="product && product.processor">
+									<th>Processor</th>
+									<td>{{product.processor}}</td>
+								</tr>
+								<tr *ngIf="product && product.graphics_coprocessor">
+									<th>Graphics Co Processor</th>
+									<td>{{product.graphics_coprocessor}}</td>
+								</tr>
+								<tr *ngIf="product && product.hard_drive">
+									<th>Hard Drive</th>
+									<td>{{product.hard_drive}}</td>
+								</tr>
+								<tr *ngIf="product && product.chipset_brand">
+									<th>Chipset Brand</th>
+									<td>{{product.chipset_brand}}</td>
+								</tr>
+								<tr *ngIf="product && product.card_description">
+									<th>Card Description</th>
+									<td>{{product.card_description}}</td>
+								</tr>
+								<tr *ngIf="product && product.operating_system">
+									<th>Operating System</th>
+									<td>{{product.operating_system}}</td>
+								</tr>
+								<tr *ngIf="product && product.processor_brand">
+									<th>Processor Brand</th>
+									<td>{{product.processor_brand}}</td>
+								</tr>
+								<tr *ngIf="product && product.processor_count">
+									<th>Processor Count</th>
+									<td>{{product.processor_count}}</td>
+								</tr>
+								<tr *ngIf="product && product.flash_memory_size">
+									<th>Flash Memory Size</th>
+									<td>{{product.flash_memory_size}}</td>
+								</tr>
+								<tr *ngIf="product && product.memory_speed">
+									<th>Memory Speed</th>
+									<td>{{product.memory_speed}}</td>
+								</tr>
+								<tr *ngIf="product && product.wireless_type">
+									<th>Wireless Type</th>
+									<td>{{product.wireless_type}}</td>
+								</tr>
+								<tr *ngIf="product && product.batteries">
+									<th>Batteries</th>
+									<td>{{product.batteries}}</td>
+								</tr>
+								<tr *ngIf="product && product.power_source">
+									<th>Power Source</th>
+									<td>{{product.power_source}}</td>
+								</tr>
+								<tr *ngIf="product && product.color">
+									<th>Color</th>
+									<td>{{product.color}}</td>
+								</tr>
+								<tr *ngIf="product && product.connection_type">
+									<th>Connection Type</th>
+									<td>{{product.connection_type}}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div id="overview" class="tab-pane fade">
+						<h3>Description</h3>
+						<div class="content">
+							<p *ngIf="product && product.product_description" [innerHTML]="product.product_description"></p>
+						</div>
+					</div>
+					<div id="media" class="tab-pane fade" *ngIf="product && product.product_gallery.lenght > 0">
+						<h3>Media</h3>
+						<div class="row">
+							<div class="col-4" *ngFor="let image of product.product_gallery">
+								<!-- <img class="img-fluid w-100" src="{{backendURL}}/{{product.product_gallery[0]}}" alt="product-image"> -->
+								<div>
+									<img class="img-fluid w-100" src='{{backendURL}}/{{image}}' />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="delivery" class="tab-pane fade">
+						<h3>Delivery</h3>
+						<table class="table">
+							<tr *ngIf="product && product.pay_on_delivery">
+								<th>Pay On Delivery</th>
+								<td>{{product.pay_on_delivery == true ? "Yes" : "No"}}</td>
+							</tr>
 
-              <tr *ngIf="product && product.nexait_delivery">
-                <th>Nexa Delivery</th>
-                <td>{{product.nexait_delivery == true ? "Yes" : "No"}}</td>
-              </tr>
-              <tr *ngIf="product && product.replacement_policy">
-                <th>Replacement Policy</th>
-                <td>{{product.replacement_policy == true ? "Yes" : "No"}}</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+							<tr *ngIf="product && product.nexait_delivery">
+								<th>Nexa Delivery</th>
+								<td>{{product.nexait_delivery == true ? "Yes" : "No"}}</td>
+							</tr>
+							<tr *ngIf="product && product.replacement_policy">
+								<th>Replacement Policy</th>
+								<td>{{product.replacement_policy == true ? "Yes" : "No"}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section *ngIf="product" class="gallery section" id="products" style="background-color: #f6f6ea;">
-  <div class="container-fluid p-0">
-    <div class="row">
-      <div class="col-lg-12 text-center mx-auto p-0">
-        <div class="heading">
-          <h2>Related Products</h2>
-        </div>
-        <div class="productSlider">
-          <owl-carousel-o [options]="productSlider">
-            <!-- [ngClass]="{ item: true }" -->
-            <ng-container *ngFor="let prod of product.related_products">
-              <!-- [ngClass]="{ item: true }" -->
-              <ng-template carouselSlide [id]="prod">
-                <div class="product-slider">
-                  <div class="block">
-                    <!-- <div class="gallery-overlay">
+	<div class="container-fluid p-0">
+		<div class="row">
+			<div class="col-lg-12 text-center mx-auto p-0">
+				<div class="heading">
+					<h2>Related Products</h2>
+				</div>
+				<div class="productSlider">
+					<owl-carousel-o [options]="productSlider">
+						<!-- [ngClass]="{ item: true }" -->
+						<ng-container *ngFor="let prod of product.related_products">
+							<!-- [ngClass]="{ item: true }" -->
+							<ng-template carouselSlide [id]="prod">
+								<div class="product-slider">
+									<div class="block">
+										<!-- <div class="gallery-overlay">
                       <a href="product-details/{{prod._id}}" class="gallery-popup">
                         <i class="tf-ion-plus-round"></i>
                       </a>
                     </div> -->
-                    <a href="product-details/{{prod._id}}" class="gallery-popup">
-                      <img src="{{backendURL}}/{{prod.image}}">
-                      <!-- {{prod.name}} -->
-                    </a>
-                    <div class="product-info">
-                      <h4 class="mb-2">
-                        <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
-                      </h4>
-                      <p class="price"><span>AED</span> {{prod.sale_price}}
-                        <s class="price"> <span>AED</span> {{prod.regular_price}}</s>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </ng-template>
-            </ng-container>
-          </owl-carousel-o>
-        </div>
-      </div>
-    </div>
-  </div>
+										<a href="product-details/{{prod._id}}" class="gallery-popup">
+											<img src="{{backendURL}}/{{prod.image}}">
+											<!-- {{prod.name}} -->
+										</a>
+										<div class="product-info">
+											<h4 class="mb-2">
+												<a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
+											</h4>
+											<p class="price"><span>AED</span> {{prod.sale_price}}
+												<s class="price"> <span>AED</span> {{prod.regular_price}}</s>
+											</p>
+										</div>
+									</div>
+								</div>
+							</ng-template>
+						</ng-container>
+					</owl-carousel-o>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
