@@ -30,9 +30,9 @@
 }
 #dropdownMenuButton {
   background: transparent;
-  color: #245c4e;
+  color: #00714A;
   border: none;
-  border-bottom: 1px solid #245c4e;
+  border-bottom: 1px solid #00714A;
   box-shadow: none;
   outline: none;
 }
@@ -41,7 +41,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  border-bottom: 1px solid #245c4e;
+  border-bottom: 1px solid #00714A;
   outline: none;
   box-shadow: none;
   background: transparent;
@@ -140,13 +140,13 @@ a:focus {
 }
 ::ng-deep {
   .ngx-slider .ngx-slider-pointer {
-    background-color: #94bdae !important;
+    background-color: #539D85 !important;
   }
   .ngx-slider .ngx-slider-pointer.ngx-slider-active:after {
-    background-color: #245c4e !important;
+    background-color: #00714A !important;
   }
   .ngx-slider .ngx-slider-selection {
-    background-color: #245c4e !important;
+    background-color: #00714A !important;
   }
 }
 

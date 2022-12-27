@@ -1,9 +1,9 @@
 .prodcut-tab {
   .cst-tab {
-    border-bottom: #245c4e;
+    border-bottom: #00714A;
     margin-bottom: 10px;
-    border-bottom: 2px solid #245c4e;
-    border-top: 2px solid #245c4e;
+    border-bottom: 2px solid #00714A;
+    border-top: 2px solid #00714A;
     li {
       padding: 10px;
       margin: 0px 15px 0px 0px;
@@ -15,7 +15,7 @@
       }
       a {
         // color: #245c4e;
-        color: #94bdae;
+        color: #539D85;
         font-size: 18px;
         font-weight: 600;
         padding: 14px;
@@ -25,7 +25,7 @@
         }
       }
       a.active {
-        color: #245c4e;
+        color: #00714A;
       }
       // &:hover, &:focus, &:active{
       //   background-color: #245c4e;
@@ -45,7 +45,9 @@
     }
   }
 }
-
+.btn-main:hover, .btn-main:focus{
+  background-color: #00714A;
+}
 /* zoom-section */
 .zoom-section {
   clear: both;
