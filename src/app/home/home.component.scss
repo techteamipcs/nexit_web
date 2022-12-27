@@ -4,6 +4,9 @@
   top: 84px;
   z-index: 1010;
   background-color: #fff;
+  @media(max-width:991px){
+    display: none;
+  }
 }
 #features {
   background: #245c4e;
@@ -102,6 +105,7 @@
 }
 
 .gallery.section {
+  background-color: #f5f5f5;
   .productSlider {
     .product-slider {
       .block {
