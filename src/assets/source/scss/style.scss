@@ -23,7 +23,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c3c3c3;
+  background: #969595;
   border-radius: 5px;
 }
 
@@ -248,7 +248,7 @@ a:active {
 /* navigation */
 .navbar {
   &-brand {
-    color: #444;
+    color: #545554;
     font-size: 25px;
     margin: 0;
     line-height: 1;
@@ -262,7 +262,7 @@ a:active {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #444;
+  color: #545554;
 }
 
 .lang-list {
@@ -328,7 +328,7 @@ a:active {
   }
 
   .dropdown-item {
-    color: #444;
+    color: #545554;
     padding: 0.6rem 1rem 0.35rem;
     font-weight: 600;
     font-size: 15px;
@@ -560,7 +560,7 @@ a:active {
   a {
     font-size: 14;
     font-weight: 700;
-    color: #444;
+    color: #545554;
     padding: 10px;
   }
 }

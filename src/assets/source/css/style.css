@@ -210,7 +210,7 @@ a:active {
 
 /* navigation */
 .navbar-brand {
-  color: #444;
+  color: #545554;
   font-size: 25px;
   margin: 0;
   line-height: 1;
@@ -223,7 +223,7 @@ a:active {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #444;
+  color: #545554;
 }
 
 .lang-list {
@@ -281,7 +281,7 @@ a:active {
   content: "\f125";
 }
 .navigation .dropdown-item {
-  color: #444;
+  color: #545554;
   padding: 0.6rem 1rem 0.35rem;
   font-weight: 600;
   font-size: 15px;
@@ -482,7 +482,7 @@ a:active {
 .footer-menu a {
   font-size: 14;
   font-weight: 700;
-  color: #444;
+  color: #545554;
   padding: 10px;
 }
 
