@@ -1,10 +1,30 @@
+<nav class="navbar navbar-expand navbar-light  sticky-top2">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item" *ngFor="let category of allcategories">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
+            <img class="home-icon {{category.name | lowercase}}" src="{{backendUrl}}/{{category.icon}}" alt="" style=" display:block; margin:0 auto;">
+           <span class="d-sm-inline-block d-none">{{category.name}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <!-- Footer Start -->
 <footer class="p-0">
   <div class="container-fluid footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
       <div class="row g-5">
         <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-lg-0 mb-md-5 mb-4">
-          <a href="index.html" class="mb-4 d-inline-block"> <img src="assets/source/images/logo.png" alt="Vex"
+          <a href="index.html" class="mb-4 d-inline-block"> 
+            <img src="assets/source/images/logo.png" alt="logo"
               width="180px"> </a>
           <h5 class="mb-lg-4 mb-md-2 mb-2">Address</h5>
           <p class="mb-2"><i class="fa fa-map-marker me-3"></i> 123 Street, Dubai, Dubai</p>
@@ -14,11 +34,11 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-lg-0 mb-md-5 mb-4">
           <h5 class="mb-lg-4 mb-md-2 mb-2">Services</h5>
           <ul>
-            <li><a class="btn btn-link" href="">Business Security</a></li>
-            <li><a class="btn btn-link" href="">Fire Detection</a></li>
-            <li><a class="btn btn-link" href="">Alarm Systems</a></li>
-            <li><a class="btn btn-link" href="">CCTV & Video</a></li>
-            <li><a class="btn btn-link" href="">Smart Home</a></li>
+            <li><a class="btn btn-link" href="services#our-services">Business Security</a></li>
+            <li><a class="btn btn-link" href="services#our-services">Fire Detection</a></li>
+            <li><a class="btn btn-link" href="services#our-services">Alarm Systems</a></li>
+            <li><a class="btn btn-link" href="services#our-services">CCTV & Video</a></li>
+            <li><a class="btn btn-link" href="services#our-services">Smart Home</a></li>
           </ul>
         </div>
 
