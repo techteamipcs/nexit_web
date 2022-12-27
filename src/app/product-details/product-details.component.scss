@@ -8,9 +8,9 @@
       padding: 10px;
       margin: 0px 15px 0px 0px;
       @media (max-width: 575px) {
-        padding:5px 0px;
+        padding: 5px 0px;
       }
-      @media(max-width:380px) {
+      @media (max-width: 380px) {
         margin: 0px 8px 0px 0px;
       }
       a {
@@ -118,6 +118,14 @@
     align-items: center;
   }
 }
-.gallery-popup img{
+.gallery-popup img {
   height: 309px;
+}
+::ng-deep {
+  .slick-dots li {
+    width: 85px !important;
+  }
+}
+#products{
+  background-color: #f5f5f5;
 }
