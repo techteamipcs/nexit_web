@@ -16,6 +16,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 575px) {
+      height: auto;
+    }
   }
 
   .product-info {
@@ -30,9 +33,9 @@
 }
 #dropdownMenuButton {
   background: transparent;
-  color: #00714A;
+  color: #00714a;
   border: none;
-  border-bottom: 1px solid #00714A;
+  border-bottom: 1px solid #00714a;
   box-shadow: none;
   outline: none;
 }
@@ -41,7 +44,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  border-bottom: 1px solid #00714A;
+  border-bottom: 1px solid #00714a;
   outline: none;
   box-shadow: none;
   background: transparent;
@@ -120,18 +123,30 @@ select {
     padding-bottom: 10px;
     border-bottom: 1px solid #dedede;
   }
-  a{
-  color: #000;
-}
+  a {
+    color: #000;
+  }
 }
 
-.cst-category-search-filter .view {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  height: 100%;
-  p {
-    margin-bottom: 0;
+.cst-category-search-filter {
+  .view {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .count {
+    @media (max-width: 575px) {
+      width: 100%;
+    }
+    p {
+      @media (max-width: 991px) {
+        font-size: 16px;
+      }
+    }
   }
 }
 a:hover,
@@ -140,13 +155,13 @@ a:focus {
 }
 ::ng-deep {
   .ngx-slider .ngx-slider-pointer {
-    background-color: #539D85 !important;
+    background-color: #539d85 !important;
   }
   .ngx-slider .ngx-slider-pointer.ngx-slider-active:after {
-    background-color: #00714A !important;
+    background-color: #00714a !important;
   }
   .ngx-slider .ngx-slider-selection {
-    background-color: #00714A !important;
+    background-color: #00714a !important;
   }
 }
 
