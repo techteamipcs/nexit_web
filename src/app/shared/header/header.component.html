@@ -87,13 +87,13 @@
         </li>
         <li>
           <a class="node" href="#">Products</a>
-          <button class="btn toggle">toggle</button>
+          <button class="btn toggle"><i class="fa fa-angle-down"></i></button>
           <ul>
             <li><a [routerLink]="['/products']" class="node">All Products</a></li>
             <!-- <li><a href="#" class="node" *ngFor="let category of allcategories"  [routerLink]="['/products',category._id,'category']">{{category.name}}</a></li> -->
             <li  *ngFor="let category of allcategories">
               <a  class="node" href="javascript:void(0);">{{category.name}}</a>
-              <button class="toggle">toggle</button>
+              <button class="toggle btn"><i class="fa fa-angle-down"></i></button>
               <ul>
                 <li *ngFor="let subcategory of allsubcategories"><a *ngIf="subcategory.parent_categoryId == category._id" class="node" [routerLink]="['/products',subcategory._id,'sub-category']" routerLinkActive="router-link-active">
                   {{subcategory.name}}</a></li>
@@ -101,24 +101,25 @@
               </ul>
             </li>
             <!-- <li><a href="#" class="node">Sub Link</a></li> -->
-            <li>
-              <a href="#" class="node">Brands</a>
-              <button class="toggle">toggle</button>
-              <ul>
-                <li *ngFor="let brand of allbrands"><a class="node" [routerLink]="['/products',brand._id,'brand']"
-                  routerLinkActive="router-link-active">{{brand.name}}</a></li>
-                <!-- <li><a href="#" class="node">Sub sub Link</a></li> -->
-              </ul>
-            </li>
+            
           </ul>
         </li>
         <li>
-          <a class="node" href="#">Delivery Types</a>
+          <a href="#" class="node">Brands</a>
+          <button class="toggle btn"><i class="fa fa-angle-down"></i></button>
+          <ul>
+            <li *ngFor="let brand of allbrands"><a class="node" [routerLink]="['/products',brand._id,'brand']"
+              routerLinkActive="router-link-active">{{brand.name}}</a></li>
+            <!-- <li><a href="#" class="node">Sub sub Link</a></li> -->
+          </ul>
         </li>
         <li>
-          <a class="node" href="#">Workstreams</a>
+          <a class="node" href="services">Services</a>
         </li>
         <li>
+          <a class="node" href="contact">Contact</a>
+        </li>
+        <!-- <li>
           <a class="node" href="#">Roles</a>
           <button class="toggle">toggle</button>
           <ul>
@@ -130,7 +131,7 @@
         </li>
         <li>
           <a class="node" href="#">Agile @ Scotia</a>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </div>

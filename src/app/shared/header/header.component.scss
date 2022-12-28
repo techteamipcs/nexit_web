@@ -1,15 +1,19 @@
 .navbar-light .navbar-nav .nav-link {
   color: #545554;
+  font-weight: 400 !important;
   &:hover,
   &:focus {
-    color: #00714A !important;
+    color: #00714a !important;
   }
 }
-.navigation.sticky-top.bg-white{
-display: block;
-@media(max-width:991px){
-display: none;
+.navigation .dropdown-item {
+  font-weight: 400 !important;
 }
+.navigation.sticky-top.bg-white {
+  display: block;
+  @media (max-width: 991px) {
+    display: none;
+  }
 }
 
 /*Module
@@ -71,9 +75,16 @@ display: none;
   position: relative;
 }
 .mainNav li a {
-  color: #666666;
+  // color: #666666;
+  color: #545554;
   text-decoration: none;
   display: block;
+  font-size: 16px;
+  font-weight: 400;
+  &:hover,
+  &:focus {
+    color: #00714a;
+  }
 }
 .mainNav li .node {
   line-height: 0px;
@@ -83,7 +94,7 @@ display: none;
   position: absolute;
   right: 8px;
   // top: 8px;
-  top:0;
+  top: 10px;
 }
 .mainNav > ul {
   border-top: 0px solid #666666;
@@ -109,14 +120,15 @@ display: none;
 }
 .mainNav.open > ul > li > .node {
   line-height: 16px;
-  padding: 10px 20px;
+  padding: 20px 20px;
 }
 .mainNav > ul > li .toggle.open + ul > li {
   border-bottom-width: 1px;
 }
 .mainNav > ul > li .toggle.open + ul > li > .node {
   line-height: 16px;
-  padding: 10px 20px;
+  // padding: 10px 20px;
+  padding: 20px 30px;
 }
 
 /*Break 2
@@ -142,7 +154,8 @@ display: none;
       right: 0;
       z-index: 1020;
       background: #fff;
-      top: 13.5%;
+      // top: 13.5%;
+      top: 100%;
     }
     button.burger:focus {
       outline: none;
