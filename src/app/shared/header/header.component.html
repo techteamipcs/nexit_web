@@ -1,7 +1,7 @@
 <header class="navigation sticky-top bg-white">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="/"> <img src="assets/source/images/logo.png" alt="logo" width="180px">
+      <a class="navbar-brand" href="index.html"> <img src="assets/source/images/logo.png" alt="logo" width="180px">
       </a>
       <button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navigation"
         aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,10 +12,10 @@
         <ul class="navbar-nav ml-auto mr-n0 mr-md-n3">
 
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" [routerLink]="['/about']" >About</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -54,11 +54,11 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services">Services</a>
+            <a class="nav-link" [routerLink]="['/services']" >Services</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="contact">Contact</a>
+            <a class="nav-link" [routerLink]="['/contact']">Contact</a>
           </li>
 
         </ul>
@@ -69,7 +69,7 @@
   </div>
 </header>
 <header id="siteheader" class="sticky-top bg-white">
-  <a class="navbar-brand" href="/"> <img src="assets/source/images/logo.png" alt="logo" width="180px">
+  <a class="navbar-brand" href="index.html"> <img src="assets/source/images/logo.png" alt="logo" width="180px">
   </a>
   <div id="siteNav">
     <button id="mainNavBurger" class="burger">
@@ -80,10 +80,10 @@
     <nav class="mainNav">
       <ul>
         <li >
-          <a class="node" href="/">Home</a>
+          <a class="node" href="index.html">Home</a>
         </li>
         <li >
-          <a class="node" href="/about">About</a>
+          <a class="node" [routerLink]="['/about']" >About</a>
         </li>
         <li>
           <a class="node" href="#">Products</a>
@@ -114,10 +114,10 @@
           </ul>
         </li>
         <li>
-          <a class="node" href="services">Services</a>
+          <a class="node" [routerLink]="['/services']">Services</a>
         </li>
         <li>
-          <a class="node" href="contact">Contact</a>
+          <a class="node" [routerLink]="['/contact']">Contact</a>
         </li>
         <!-- <li>
           <a class="node" href="#">Roles</a>
