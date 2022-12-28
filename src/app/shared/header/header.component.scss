@@ -10,10 +10,21 @@
   font-weight: 400 !important;
 }
 .navigation.sticky-top.bg-white {
-  display: block;
+  // display: block;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #969595;
   @media (max-width: 991px) {
     display: none;
   }
+}
+@media(max-width:991px){
+.navbar-brand{
+  img{
+    width: 158px;
+  }
+}
 }
 
 /*Module
@@ -95,6 +106,9 @@
   right: 8px;
   // top: 8px;
   top: 10px;
+  @media(max-width:480px){
+    top: 0px;
+  }
 }
 .mainNav > ul {
   border-top: 0px solid #666666;
@@ -121,6 +135,9 @@
 .mainNav.open > ul > li > .node {
   line-height: 16px;
   padding: 20px 20px;
+  @media(max-width:480px){
+    padding: 10px 20px;
+  }
 }
 .mainNav > ul > li .toggle.open + ul > li {
   border-bottom-width: 1px;
@@ -129,6 +146,9 @@
   line-height: 16px;
   // padding: 10px 20px;
   padding: 20px 30px;
+  @media(max-width:480px){
+    padding: 10px 30px;
+  }
 }
 
 /*Break 2
