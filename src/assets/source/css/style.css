@@ -156,7 +156,8 @@ a:active {
 .heading {
   text-align: center;
   color: #777777;
-  padding-bottom: 70px;
+  /* padding-bottom: 70px; */
+  padding-bottom: 10px;
 }
 .heading h2 {
   color: #3c3c3c;
@@ -167,7 +168,7 @@ a:active {
   line-height: 40px;
 }
 .heading p {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 300;
 }
