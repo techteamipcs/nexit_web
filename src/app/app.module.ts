@@ -29,6 +29,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { SearchProductComponent } from './search-product/search-product.component';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Error404Component } from './error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AboutComponent,
     ServicesComponent,
     PaginationComponent,
-    SearchProductComponent
+    SearchProductComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
