@@ -21,11 +21,11 @@ export class ProductsComponent implements OnInit {
   allProducts: any = [];
   // price ranger
   value: number = 70;
-  minValue: number = 100;
-  maxValue: number = 400;
+  minValue: number = 100000;
+  maxValue: number = 4000000;
   options: Options = {
     floor: 0,
-    ceil: 500,
+    ceil: 4000000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
@@ -42,6 +42,9 @@ export class ProductsComponent implements OnInit {
   initialized: boolean = false;
   currentLimit: number = 10;
   totalRecord: number = 0;
+  selectedcategory:any;
+  selectedbrand:any;
+  selectedprice:any;
   constructor(public dataservice: DataService, public router: ActivatedRoute, public route: Router) {
     this.backendURL = environment.backendUrl + '/public/';
     this.userSubscription = this.router.params.subscribe(
@@ -78,6 +81,9 @@ export class ProductsComponent implements OnInit {
           this.allProducts = [];
           this.allProducts = this.products;
           this.totalRecord = response?.count;
+        } else {
+          this.allProducts = [];
+          this.products = [];
         }
 
       } else if (response.code == 400) {
@@ -106,6 +112,8 @@ export class ProductsComponent implements OnInit {
         if (response.result && response.result.length > 0) {
           this.products = response.result;
           this.totalRecord = response?.count;
+        }else {
+          this.products = [];
         }
 
       } else if (response.code == 400) {
@@ -116,6 +124,59 @@ export class ProductsComponent implements OnInit {
       }
     },
     );
+  }
+  
+
+  getProductsByCategories(filtertype:any) {
+    let obj = {
+      sort: '',
+      type: 'filter',
+      _id: this.id,
+      catId:'',
+      brandId:'',
+      maxprice: this.maxValue,
+      minprice: this.minValue,
+      limit: this.currentLimit,
+      page: this.currentPage
+    }
+    if(this.selectedbrand){
+      obj['brandId'] = this.selectedbrand._id;
+    }
+    if(this.selectedcategory){
+      obj['catId'] = this.selectedcategory._id;
+    }
+    this.dataservice.getFilteredProducts(obj).subscribe((response) => {
+      if (response.code == 200) {
+        if (response.result && response.result.length > 0) {
+          this.products = response.result;
+          this.totalRecord = response?.count;
+        } else {
+          this.products = [];
+        }
+
+      } else if (response.code == 400) {
+
+      }
+      else {
+
+      }
+    },
+    );
+  }
+
+
+  selectBrand(brand:any){
+    this.selectedbrand = brand;
+    this.getProductsByCategories('brand');
+  }
+
+  selectCategory(category:any){
+    this.selectedcategory = category;
+    this.getProductsByCategories('category')
+  }
+
+  selectPrice(){
+    // this.getProductsByCategories('price')
   }
 
   getAllCategory() {
@@ -171,5 +232,14 @@ export class ProductsComponent implements OnInit {
   onListChangePage(event: any) {
     this.currentPage = event;
     this.getAllProducts();
+  }
+
+
+  clearBrand(){
+
+  }
+
+  clearCaterory(){
+    
   }
 }

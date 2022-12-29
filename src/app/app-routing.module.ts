@@ -18,10 +18,6 @@ const routes: Routes = [
     component:HomeComponent
   },
   {
-    path:'**',
-    component:Error404Component
-  },
-  {
     path:'about',
     component:AboutComponent
   },
@@ -68,6 +64,10 @@ const routes: Routes = [
   {
     path:'search/:key',
     component:SearchProductComponent
+  },
+  {
+    path:'**',
+    component:Error404Component
   }
 ];
 
