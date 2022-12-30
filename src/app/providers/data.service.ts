@@ -38,6 +38,15 @@ export class DataService {
     ); 
   };
 
+  getBrandById = (data:any): Observable<any> => {
+    const endpoint = environment.backendUrl+'/api/brand/getBrandWithId';
+    return this.http.post(endpoint, data).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    ); 
+  };
+
   getAllProducts = (data:any): Observable<any> => {
     const endpoint = environment.backendUrl+'/api/product/getallProducts';
     return this.http.post(endpoint, data).pipe(

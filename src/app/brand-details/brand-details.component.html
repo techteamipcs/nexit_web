@@ -1,0 +1,19 @@
+<div class="col-lg-6 col-md-7 offset-lg-1" *ngIf="brands">
+	<h1 class="mb-4">{{brands.name}}</h1>
+
+
+	<div class="col-4">
+		<h4>Image</h4>
+		<!-- <img class="img-fluid w-100" src="{{backendURL}}/{{product.product_gallery[0]}}" alt="product-image"> -->
+		<div>
+			<img class="img-fluid w-100" src='{{backendUrl}}/{{brands.icon}}' />
+		</div>
+	</div>
+	<div class="col-4">
+		<h4>Icon</h4>
+		<!-- <img class="img-fluid w-100" src="{{backendURL}}/{{product.product_gallery[0]}}" alt="product-image"> -->
+		<div>
+			<img class="img-fluid w-100" src='{{backendUrl}}/{{brands.image}}' />
+		</div>
+	</div>
+</div>

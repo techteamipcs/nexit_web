@@ -30,6 +30,7 @@ import { SearchProductComponent } from './search-product/search-product.componen
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Error404Component } from './error404/error404.component';
+import { BrandDetailsComponent } from './brand-details/brand-details.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { Error404Component } from './error404/error404.component';
     ServicesComponent,
     PaginationComponent,
     SearchProductComponent,
-    Error404Component
+    Error404Component,
+    BrandDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

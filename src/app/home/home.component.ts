@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   baseUrl:any;
   slides:any=[];
   recentslider:any=[];
+  allbrands: any = [];
   customOptions: OwlOptions = {
     loop: true,
     autoplay:true,
@@ -106,6 +107,7 @@ export class HomeComponent implements OnInit {
     this.getProducts();
     this.getAllCategory();
     this.get_PageMeta();
+    this.get_AllBrands();
   }
 
   get_PageMeta() {
@@ -191,6 +193,24 @@ export class HomeComponent implements OnInit {
 
         }
 
+      },
+    );
+  }
+
+  get_AllBrands() {
+    this.dataservice.getAllBrands({}).subscribe(
+      (response) => {
+        if (response.code == 200) {
+          if (response.result && response.result.length > 0) {
+            this.allbrands = response.result;
+          }
+
+        } else if (response.code == 400) {
+          console.log('400');
+        }
+        else {
+          console.log('error');
+        }
       },
     );
   }

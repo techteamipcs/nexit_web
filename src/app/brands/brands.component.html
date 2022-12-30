@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4" *ngFor="let brand of allbrands">
-      <div class="brands" >
-<p>{{brand.name}}</p>
-<p>{{brand.description}}</p>
-<img class="w-100" src="{{backendUrl}}/{{brand.image}}" alt="" width="">
+      <div class="brands">
+        <p>{{brand.name}}</p>
+        <!-- <p>{{brand.description}}</p> -->
+        <!-- <p>{{brand._id}}</p> -->
+        <a href="brands/{{brand._id}}" class="link-title"><img class="w-100" src="{{backendUrl}}/{{brand.image}}" alt=""width=""></a>
       </div>
     </div>
   </div>
