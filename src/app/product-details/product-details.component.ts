@@ -17,6 +17,7 @@ export class ProductDetailsComponent implements OnInit {
 	productId: any;
 	product: any;
 	backendURL = '';
+  baseUrl:any;
 	productSlider: OwlOptions = {
 		loop: true,
 		autoplay: true,
@@ -57,6 +58,8 @@ export class ProductDetailsComponent implements OnInit {
 		private toastr: ToastrManager
 	) {
 		this.backendURL = environment.backendUrl + '/public/';
+    this.baseUrl = environment.baseUrl + '/assets';
+
 	}
 
 	ngOnInit() {
