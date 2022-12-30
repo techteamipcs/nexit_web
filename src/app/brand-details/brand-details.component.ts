@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { response } from 'express';
 import { environment } from 'src/environments/environment';
 import { DataService } from '../providers/data.service';
 
@@ -15,6 +16,12 @@ export class BrandDetailsComponent implements OnInit {
 	brands: any;
 	baseUrl: any;
 	backendUrl: any;
+	type: any;
+	id: any;
+	currentPage: number = 1;
+	currentLimit: number = 10;
+	totalRecord: number = 0;
+	products: any = [];
 	// router: any;
 	constructor(
 		private dataservice: DataService,
@@ -28,6 +35,7 @@ export class BrandDetailsComponent implements OnInit {
 		this.brandId = this.router.snapshot.paramMap.get('id');
 		if (this.brandId) {
 			this.getBrandById();
+			this.getProductsByBrandId(this.brandId);
 		}
 	}
 
@@ -49,6 +57,36 @@ export class BrandDetailsComponent implements OnInit {
 
 			}
 		})
+	}
+
+	getProductsByBrandId(event: any) {
+		let obj = {
+			sort: '',
+			_id: this.brandId,
+			limit: this.currentLimit,
+			page: this.currentPage
+		}
+		// if (event) {
+		// 	obj['sort'] = event.target.value;
+		// }
+		this.dataservice.getBrandProducts(obj).subscribe(
+			(response => {
+				if (response.code == 200) {
+					if (response.result && response.result.length > 0) {
+						this.products = response.result;
+						this.totalRecord = response?.count;
+					} else {
+						this.products = [];
+					}
+				} else if (response.code == 400) {
+					console.log('Error 400');
+
+				} else {
+					console.log('Error');
+				}
+			}
+			)
+		)
 	}
 
 }
