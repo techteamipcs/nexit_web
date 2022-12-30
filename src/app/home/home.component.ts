@@ -84,6 +84,36 @@ export class HomeComponent implements OnInit {
     },
     nav: false
   }
+  brandSlider: OwlOptions = {
+    loop: true,
+    autoplay:true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    margin: 14,
+    responsive: {
+      0: {
+        items: 2
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      768: {
+        items: 3,
+        margin: 8,
+      },
+      1023: {
+        items: 6
+      }
+    },
+    nav: false
+  }
   config:any;
   imageUrl:any ='';
   products:any = [];
