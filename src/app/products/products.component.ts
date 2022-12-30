@@ -21,11 +21,11 @@ export class ProductsComponent implements OnInit {
   allProducts: any = [];
   // price ranger
   value: number = 70;
-  minValue: number = 100000;
-  maxValue: number = 4000000;
+  minValue: number = 5000;
+  maxValue: number = 40000;
   options: Options = {
     floor: 0,
-    ceil: 4000000,
+    ceil: 40000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
@@ -176,7 +176,7 @@ export class ProductsComponent implements OnInit {
   }
 
   selectPrice(){
-    // this.getProductsByCategories('price')
+    this.getProductsByCategories('price')
   }
 
   getAllCategory() {

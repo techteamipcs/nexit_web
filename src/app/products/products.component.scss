@@ -71,13 +71,20 @@ select {
   .widget.category-list ul li:not(:last-child) {
     border-bottom: 1px solid #f4f7f9;
   }
+  .widget.category-list ul li.dropright{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none;
+    margin-bottom: 5px;
+  }
   .widget.category-list ul li a {
     padding: 8px 0;
     display: block;
     transition: all linear 0.3s;
   }
 
-  .widget.category-list ul li a span {
+  .widget.category-list ul li  span {
     float: right;
     font-size: 10px;
     background: #f4f7f9;
@@ -86,6 +93,14 @@ select {
     color: #84919b;
   }
 
+  .category-list .category-count {
+    float: right;
+    font-size: 10px;
+    background: #f4f7f9;
+    border-radius: 10px;
+    padding: 3px 8px;
+    color: #84919b;
+  }
   .widget.filter {
     padding-bottom: 17px;
   }
