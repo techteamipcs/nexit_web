@@ -1,0 +1,42 @@
+.brand-details{
+  padding: 80px 0px;
+@media (max-width:991px) {
+  padding: 50px 0px;
+}
+}
+.card {
+  min-height: 100%;
+  overflow: hidden;
+  a {
+    color: #000;
+    // text-decoration: none;
+    font-size: 14px;
+    &:hover, &:focus{
+      color: #00714a;
+    }
+    img {
+      transform: scale(0.9);
+      transition: all 0.5s ease;
+    }
+  }
+  .block {
+    padding: 0;
+    height: 258px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 575px) {
+      height: auto;
+    }
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+  &:hover img {
+    transform: scale(1) !important;
+  }
+  &:hover .product-info a {
+    text-decoration: underline !important;
+  }
+}

@@ -1,46 +1,47 @@
-<div class="col-lg-10 col-md-7 offset-lg-1" *ngIf="brands">
-	<h1 class="mb-4">{{brands.name}}</h1>
-	<div class="row">
-		<div class="col-1">
-			<h4>Icon</h4>
-			<!-- <img class="img-fluid w-100" src="{{backendURL}}/{{product.product_gallery[0]}}" alt="product-image"> -->
-			<div>
-				<img class="img-fluid w-100" src='{{backendUrl}}/{{brands.icon}}' />
-			</div>
-		</div>
-		<div class="col-4">
-			<h4>Image</h4>
-			<!-- <img class="img-fluid w-100" src="{{backendURL}}/{{product.product_gallery[0]}}" alt="product-image"> -->
-			<div>
-				<img class="img-fluid w-100" src='{{backendUrl}}/{{brands.image}}' />
-			</div>
-		</div>
-		<div class="col-6">
-			<h4>Description</h4>
-			<p>
-				{{brands.description}}
-			</p>
-		</div>
-	</div>
-	<section *ngIf="products">
-		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-6 mb-4" *ngFor="let product of products">
-				<div class="card">
-					<div class="block">
-						<a href="product-details/{{product._id}}" class="gallery-popup">
-							<img class="img-fluid" src="{{backendUrl}}/{{product.image}}" alt="">
-						</a>
-					</div>
-					<div class="product-info">
-						<h4 class="mb-2">
-							<a href="product-details/{{product._id}}" class="link-title">{{product.name}}</a>
-						</h4>
-						<p class="price"><span>AED</span> {{product.sale_price}}
-							<s class="price"> <span>AED</span> {{product.regular_price}}</s>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
+<section class="banner">
+  <div class="col-md-12 p-0">
+    <div class="banner-block">
+      <img class="img-fluid w-100" src='{{backendUrl}}/{{brands.image}}' />
+    </div>
+  </div>
+</section>
+<section class="brand-details" *ngIf="brands">
+  <div class="container">
+    <div class="col-lg-12" >
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 align-self-center">
+          <div>
+            <img class="img-fluid w-100" src='{{backendUrl}}/{{brands.image_desc}}' />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <h1 class="mb-4">{{brands.name}}</h1>
+          <p [innerHtml]="brands.description"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section *ngIf="products">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-4" *ngFor="let product of products">
+        <div class="card">
+          <div class="block">
+            <a href="product-details/{{product._id}}" class="gallery-popup">
+              <img class="img-fluid" src="{{backendUrl}}/{{product.image}}" alt="">
+            </a>
+          </div>
+          <div class="product-info">
+            <h4 class="mb-2">
+              <a href="product-details/{{product._id}}" class="link-title">{{product.name}}</a>
+            </h4>
+            <p class="price"><span>AED</span> {{product.sale_price}}
+              <s class="price"> <span>AED</span> {{product.regular_price}}</s>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
