@@ -108,7 +108,7 @@
           <a href="#" class="node">Brands</a>
           <button class="toggle btn"><i class="fa fa-angle-down"></i></button>
           <ul>
-            <li *ngFor="let brand of allbrands"><a class="node" [routerLink]="['/products',brand._id,'brand']"
+            <li *ngFor="let brand of allbrands"><a class="node" [routerLink]="['/brands',brand._id]"
               routerLinkActive="router-link-active">{{brand.name}}</a></li>
             <!-- <li><a href="#" class="node">Sub sub Link</a></li> -->
           </ul>

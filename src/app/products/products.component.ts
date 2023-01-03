@@ -55,7 +55,7 @@ export class ProductsComponent implements OnInit {
           this.getAllProducts();
           this.getFilterdProducts('');
         } else {
-          this.getAllProducts();
+          this.getAllProductswithoutpage();
         }
       })
   }
@@ -68,6 +68,31 @@ export class ProductsComponent implements OnInit {
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe()
   }
+
+  getAllProductswithoutpage() {
+    const obj = {};
+    this.dataservice.getAllProductswithoutpage(obj).subscribe((response) => {
+      if (response.code == 200) {
+        if (response.result && response.result.length > 0) {
+          this.products = response.result;
+          this.allProducts = [];
+          this.allProducts = this.products;
+          this.totalRecord = response?.count;
+        } else {
+          this.allProducts = [];
+          this.products = [];
+        }
+
+      } else if (response.code == 400) {
+
+      }
+      else {
+
+      }
+    },
+    );
+  }
+  
 
   getAllProducts() {
     const obj = {
