@@ -24,8 +24,8 @@
                  <ul class="category-list">
                   <li class="dropdown dropdown-submenu dropright form-check" *ngFor="let category of allcategories">
                       <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="{{category.name | lowercase}}" value="{{category.name}}"
-                        (click)="selectCategory(category)">
+                        <input class="form-check-input" type="checkbox" name="{{category.name | lowercase}}" value="{{category._id}}"
+                        (click)="selectFilter($event,category._id,'category')">
                         {{category.name}}
                       </label>
                       <span>{{getCategoryLength(category._id)}}</span>
@@ -39,7 +39,7 @@
                 <div class="form-check" *ngFor="let brand of allbrands">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" name="{{brand.name | lowercase}}" value="{{brand.name}}"
-                    (click)="selectBrand(brand)">
+                    (click)="selectFilter($event,brand._id,'brand')">
                     {{brand.name}}
                   </label>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="col-md-6 col-sm-6 text-center text-md-right text-sm-right mt-2 mt-md-0">
                   <div class="view">
                     <div class="count">
-                      <p>Total Products : {{products.length}}
+                      <p>Products : {{products.length}}
                       </p>
                     </div>
                   </div>
@@ -94,6 +94,27 @@
                     </h4>
                     <p class="price"><span>AED</span> {{product.sale_price}}
                       <s class="price"> <span>AED</span> {{product.regular_price}}</s>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="products.length < 1"><h1>No products Found</h1></div>
+            </div>
+            <div class="row" *ngIf="products.length > 0">
+              <div class="col-md-6 col-sm-6 text-center text-md-left text-sm-left">
+                <strong>Product on page</strong>
+                <select name="sort" id="" (change)="onListChangeLimit($event)">
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                  <option value="40">40</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-sm-6 text-center text-md-right text-sm-right mt-2 mt-md-0">
+                <div class="view">
+                  <div class="count">
+                    <p>Total Products : {{totalRecord}}
                     </p>
                   </div>
                 </div>

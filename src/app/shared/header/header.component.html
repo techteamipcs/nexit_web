@@ -47,8 +47,7 @@
               aria-expanded="false">Brands <i class="tf-ion-chevron-down"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdown03">
               <li class="dropdown dropdown-submenu" *ngFor="let brand of allbrands">
-                <a class="dropdown-item dropdown-toggle" [routerLink]="['/products',brand._id,'brand']"
-                  routerLinkActive="router-link-active" id="dropdown0302" role="button" data-toggle="dropdown"
+                <a class="dropdown-item dropdown-toggle" (click)="navigatetoBands(brand._id)" id="dropdown0302" role="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">{{brand.name}}</a>
               </li>
             </ul>
@@ -108,8 +107,7 @@
           <a href="#" class="node">Brands</a>
           <button class="toggle btn"><i class="fa fa-angle-down"></i></button>
           <ul>
-            <li *ngFor="let brand of allbrands"><a class="node" [routerLink]="['/brands',brand._id]"
-              routerLinkActive="router-link-active">{{brand.name}}</a></li>
+            <li *ngFor="let brand of allbrands"><a class="node" (click)="navigatetoBands(brand._id)">{{brand.name}}</a></li>
             <!-- <li><a href="#" class="node">Sub sub Link</a></li> -->
           </ul>
         </li>

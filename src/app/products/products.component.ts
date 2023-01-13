@@ -42,83 +42,36 @@ export class ProductsComponent implements OnInit {
   initialized: boolean = false;
   currentLimit: number = 10;
   totalRecord: number = 0;
-  selectedcategory:any;
-  selectedbrand:any;
+  selectedcategory:any = [];
+  selectedbrand:any = [];
   selectedprice:any;
+  filteredProducts:any = [];
+  isFilter = false;
+  
   constructor(public dataservice: DataService, public router: ActivatedRoute, public route: Router) {
     this.backendURL = environment.backendUrl + '/public/';
     this.userSubscription = this.router.params.subscribe(
       (params: Params) => {
         this.type = this.router.snapshot.paramMap.get('type');
         this.id = this.router.snapshot.paramMap.get('id');
-        if (this.type) {
-          this.getAllProducts();
-          this.getFilterdProducts('');
-        } else {
-          this.getAllProductswithoutpage();
-        }
+        this.getFilterdProducts('');
       })
+      this.getAllCategory();
+      this.get_AllBrands();
   }
 
   ngOnInit() {
-    this.getAllCategory();
-    this.get_AllBrands();
+    
   }
 
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe()
   }
 
-  getAllProductswithoutpage() {
-    const obj = {};
-    this.dataservice.getAllProductswithoutpage(obj).subscribe((response) => {
-      if (response.code == 200) {
-        if (response.result && response.result.length > 0) {
-          this.products = response.result;
-          this.allProducts = [];
-          this.allProducts = this.products;
-          this.totalRecord = response?.count;
-        } else {
-          this.allProducts = [];
-          this.products = [];
-        }
-
-      } else if (response.code == 400) {
-
-      }
-      else {
-
-      }
-    },
-    );
-  }
-  
-
-  getAllProducts() {
-    const obj = {
-      limit: this.currentLimit,
-      page: this.currentPage
-    };
-    this.dataservice.getAllProducts(obj).subscribe((response) => {
-      if (response.code == 200) {
-        if (response.result && response.result.length > 0) {
-          this.products = response.result;
-          this.allProducts = [];
-          this.allProducts = this.products;
-          this.totalRecord = response?.count;
-        } else {
-          this.allProducts = [];
-          this.products = [];
-        }
-
-      } else if (response.code == 400) {
-
-      }
-      else {
-
-      }
-    },
-    );
+  onListChangePage(event: any) {
+    this.currentPage = event;
+    this.getFilterdProducts('');
+    // this.getAllProducts();
   }
 
   getFilterdProducts(event: any) {
@@ -136,7 +89,10 @@ export class ProductsComponent implements OnInit {
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
           this.products = response.result;
+          this.allProducts = [];
+          this.allProducts = this.products;
           this.totalRecord = response?.count;
+          this.filteredProducts = this.products;
         }else {
           this.products = [];
         }
@@ -150,7 +106,6 @@ export class ProductsComponent implements OnInit {
     },
     );
   }
-  
 
   getProductsByCategories(filtertype:any) {
     let obj = {
@@ -170,15 +125,25 @@ export class ProductsComponent implements OnInit {
     if(this.selectedcategory){
       obj['catId'] = this.selectedcategory._id;
     }
+    if(!this.isFilter){
+      this.isFilter = true;
+      this.products = [];
+    }
     this.dataservice.getFilteredProducts(obj).subscribe((response) => {
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
-          this.products = response.result;
           this.totalRecord = response?.count;
-        } else {
-          this.products = [];
+          if(response.result && response.result.length > 0 ){
+            response.result.forEach((prod:any) => {
+                if(prod){
+                  let tempProd = this.products.filter((item:any)=>item._id == prod._id);
+                  if(!tempProd[0]){
+                    this.products.push(prod);
+                  }
+                }
+            });
+          }
         }
-
       } else if (response.code == 400) {
 
       }
@@ -189,20 +154,6 @@ export class ProductsComponent implements OnInit {
     );
   }
 
-
-  selectBrand(brand:any){
-    this.selectedbrand = brand;
-    this.getProductsByCategories('brand');
-  }
-
-  selectCategory(category:any){
-    this.selectedcategory = category;
-    this.getProductsByCategories('category')
-  }
-
-  selectPrice(){
-    this.getProductsByCategories('price')
-  }
 
   getAllCategory() {
     this.dataservice.getAllCategory({}).subscribe(
@@ -254,11 +205,99 @@ export class ProductsComponent implements OnInit {
     return length;
   }
 
-  onListChangePage(event: any) {
-    this.currentPage = event;
-    this.getAllProducts();
+  // selectBrand(brand:any){
+  //   this.selectedbrand = brand;
+  //   this.getProductsByCategories('brand');
+  // }
+
+  // selectCategory(category:any){
+  //   this.selectedcategory = category;
+  //   this.getProductsByCategories('category')
+  // }
+
+  // selectPrice(){
+  //   this.getProductsByCategories('price')
+  // }
+
+  selectBrand(brand:any){
+    this.selectedbrand = brand;
+    this.getProductsByCategories('brand');
   }
 
+  selectFilter(event:any, Ids:any,type:any){
+    let tempCatProducts:any = [];
+    let tempBandProducts:any = [];
+    let tempProductswithbrandcat:any = [];
+    if(type == 'category') {
+      if(event && event.currentTarget.checked){
+        this.selectedcategory.push(Ids);
+      } else {
+        var removeIndex = this.selectedcategory.map((item:any) => item).indexOf(Ids);
+        this.selectedcategory.splice(removeIndex, 1);
+      }
+    } else if(type == 'brand') {
+      if(event && event.currentTarget.checked){
+        this.selectedbrand.push(Ids);
+      } else {
+        var removeIndex = this.selectedbrand.map((item:any) => item).indexOf(Ids);
+        this.selectedbrand.splice(removeIndex, 1);
+      }
+    }
+    if(this.selectedcategory && this.selectedcategory.length > 0){
+      this.selectedcategory.forEach((cat:any)=>{
+        if(cat){
+          let tempPrd = this.allProducts.filter((item:any)=> item.category_id == cat);
+          if(tempPrd.length > 0){
+            tempCatProducts = tempCatProducts.concat(tempPrd);
+          }
+        }
+      });
+    }
+    if(this.selectedbrand && this.selectedbrand.length > 0 && this.selectedcategory.length > 0){
+      this.selectedbrand.forEach((brand:any)=>{
+          let tempprod = tempCatProducts.filter((item:any)=> item.brand_id == brand);
+          if(tempprod[0]){
+            tempProductswithbrandcat = tempProductswithbrandcat.concat(tempprod);
+          }
+      });
+    } else {
+      if(this.selectedbrand && this.selectedbrand.length > 0){
+        this.selectedbrand.forEach((brand:any) => {
+          let tempPrd = this.allProducts.filter((item:any)=> item.brand_id == brand);
+            if(tempPrd.length > 0){
+              tempBandProducts = tempBandProducts.concat(tempPrd);
+            } else {
+              this.products = [];
+            }
+        });
+      }
+    }
+
+    if(this.selectedcategory.length > 0){
+      this.products = tempCatProducts;
+    }
+    if(this.selectedbrand.length > 0){
+      this.products = tempBandProducts;
+    } 
+    if(this.selectedbrand.length > 0 && this.selectedcategory.length > 0){
+      this.products = tempProductswithbrandcat;
+    } 
+    if(this.selectedcategory.length < 1 && this.selectedbrand.length < 1){
+      this.products = this.allProducts;
+    }
+    this.filteredProducts = this.products;
+  }
+
+  selectPrice(){
+    if(this.filteredProducts && this.filteredProducts.length > 0 ){
+      this.products = [];
+      this.filteredProducts.forEach((item:any) => {
+        if(item && item.sale_price >= this.minValue && item.sale_price <= this.maxValue){
+          this.products.push(item);
+        }
+      })
+    }
+  }
 
   clearBrand(){
 
@@ -267,4 +306,92 @@ export class ProductsComponent implements OnInit {
   clearCaterory(){
     
   }
+
+  onListChangeLimit(event: any) {
+    this.currentLimit = parseInt(event.target.value);
+    let obj = {
+      sort: '',
+      type: this.type,
+      _id: this.id,
+      limit: this.currentLimit,
+      page: this.currentPage
+    }
+    this.dataservice.getFilteredProducts(obj).subscribe((response) => {
+      if (response.code == 200) {
+        if (response.result && response.result.length > 0) {
+          this.products = response.result;
+          this.allProducts = [];
+          this.allProducts = this.products;
+          this.totalRecord = response?.count;
+          this.filteredProducts = this.products;
+          this.selectFilter('','','');
+        }else {
+          this.products = [];
+        }
+
+      } else if (response.code == 400) {
+
+      }
+      else {
+
+      }
+    },
+    );
+    // this.getAllProducts();
+  }
+
+  // getAllProductswithoutpage() {
+  //   const obj = {};
+  //   this.dataservice.getAllProductswithoutpage(obj).subscribe((response) => {
+  //     if (response.code == 200) {
+  //       if (response.result && response.result.length > 0) {
+  //         this.products = response.result;
+  //         this.allProducts = [];
+  //         this.allProducts = this.products;
+  //         this.totalRecord = response?.count;
+  //       } else {
+  //         this.allProducts = [];
+  //         this.products = [];
+  //       }
+
+  //     } else if (response.code == 400) {
+
+  //     }
+  //     else {
+
+  //     }
+  //   },
+  //   );
+  // }
+  
+
+  // getAllProducts() {
+  //   const obj = {
+  //     limit: this.currentLimit,
+  //     page: this.currentPage
+  //   };
+  //   this.dataservice.getAllProducts(obj).subscribe((response) => {
+  //     if (response.code == 200) {
+  //       if (response.result && response.result.length > 0) {
+  //         this.products = response.result;
+  //         this.allProducts = [];
+  //         this.allProducts = this.products;
+  //         this.totalRecord = response?.count;
+  //       } else {
+  //         this.allProducts = [];
+  //         this.products = [];
+  //       }
+
+  //     } else if (response.code == 400) {
+
+  //     }
+  //     else {
+
+  //     }
+  //   },
+  //   );
+  // }
+
+  
+  
 }
