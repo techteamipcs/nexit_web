@@ -1,4 +1,4 @@
-<header class="navigation sticky-top bg-white">
+<!-- <header class="navigation sticky-top bg-white">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="index.html"> <img src="assets/source/images/logo.png" alt="logo" width="180px">
@@ -89,18 +89,15 @@
           <button class="btn toggle"><i class="fa fa-angle-down"></i></button>
           <ul>
             <li><a [routerLink]="['/products']" class="node">All Products</a></li>
-            <!-- <li><a href="#" class="node" *ngFor="let category of allcategories"  [routerLink]="['/products',category._id,'category']">{{category.name}}</a></li> -->
             <li  *ngFor="let category of allcategories">
               <a  class="node" href="javascript:void(0);">{{category.name}}</a>
               <button class="toggle btn"><i class="fa fa-angle-down"></i></button>
               <ul>
                 <li *ngFor="let subcategory of allsubcategories"><a *ngIf="subcategory.parent_categoryId == category._id" class="node" [routerLink]="['/products',subcategory._id,'sub-category']" routerLinkActive="router-link-active">
                   {{subcategory.name}}</a></li>
-                <!-- <li><a href="#" class="node">Sub sub Link</a></li> -->
               </ul>
             </li>
-            <!-- <li><a href="#" class="node">Sub Link</a></li> -->
-            
+           
           </ul>
         </li>
         <li>
@@ -108,7 +105,7 @@
           <button class="toggle btn"><i class="fa fa-angle-down"></i></button>
           <ul>
             <li *ngFor="let brand of allbrands"><a class="node" (click)="navigatetoBands(brand._id)">{{brand.name}}</a></li>
-            <!-- <li><a href="#" class="node">Sub sub Link</a></li> -->
+        
           </ul>
         </li>
         <li>
@@ -117,21 +114,134 @@
         <li>
           <a class="node" [routerLink]="['/contact']">Contact</a>
         </li>
-        <!-- <li>
-          <a class="node" href="#">Roles</a>
-          <button class="toggle">toggle</button>
-          <ul>
-            <li><a href="#" class="node">Sub Link</a></li>
-            <li><a href="#" class="node">Sub Link</a></li>
-            <li><a href="#" class="node">Sub Link</a></li>
-            <li><a href="#" class="node">Sub Link</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class="node" href="#">Agile @ Scotia</a>
-        </li> -->
       </ul>
     </nav>
   </div>
+</header> -->
 
-</header>
+<!-- newly added  -->
+<!-- <header>
+  <nav class="navbar navbar-light bg-light navbar-expand-lg" id="myNavbar">
+ 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <a href="#" class="navbar-brand">Navbar Brand</a>
+    <div class="collapse navbar-collapse" id="mainNav">
+     <ul class="navbar-nav ml-auto nav-fill">
+      
+      <li class="nav-item px-4">
+       <a href="#" class="nav-link">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item px-4 dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="servicesDropdown">
+        <a class="dropdown-item" href="#">What we do</a>
+        <a class="dropdown-item" href="#">How we fit your needs</a>
+        <div class="dropdown-divider"></div>
+        <div class="d-md-flex align-items-start justify-content-start">
+         <div>   
+          <div class="dropdown-header">Development</div>
+          <a class="dropdown-item" href="#">Bespoke software</a>
+          <a class="dropdown-item" href="#">Mobile apps</a>
+          <a class="dropdown-item" href="#">Websites</a>
+         </div>
+         <div>
+          <div class="dropdown-header">Professional Services</div>
+          <a class="dropdown-item" href="#">Project rescue</a>
+          <a class="dropdown-item" href="#">Source code recovery</a>
+          <a class="dropdown-item" href="#">Application support &amp; maintenance</a>
+         </div>
+         <div>
+          <div class="dropdown-header">Fixed Price Services</div>
+          <a class="dropdown-item" href="#">Add cookie consent</a>
+          <a class="dropdown-item" href="#">Add captcha</a>
+          <a class="dropdown-item" href="#">Add core data</a>
+          <a class="dropdown-item" href="#">Custom error pages</a>
+          <a class="dropdown-item" href="#">Contact form creation</a>
+          <a class="dropdown-item" href="#">Automated backups</a>
+          <a class="dropdown-item" href="#">Image to HTML</a>
+         </div>
+        </div>
+       </div>
+      </li>
+      <li class="nav-item px-4">
+       <a href="#" class="nav-link">Contact</a>
+      </li>
+      <li class="nav-item px-4">
+       <a href="#" class="nav-link">Blog</a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+</header> -->
+
+<header class="navigation sticky-top bg-white">
+  <nav class="navbar navbar-expand-lg navbar-light main w-100">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"> <img src="assets/source/images/logo.png" alt="logo" width="180px">
+      </a>
+      <button class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mr-n0 mr-md-n3">
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/about']">About</a>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown"
+              role="button">Products</a>
+            <ul class="dropdown-menu megamenu">
+              <div class="row">
+                <li class="col-md-2" *ngFor="let category of allcategories"
+                  [routerLink]="['/products',category._id,'category']">
+                  <ul>
+                    <h6 class="list-header">{{category.name}}</h6>
+                    <hr>
+                    <li *ngFor="let subcategory of allsubcategories">
+                      <a *ngIf="subcategory.parent_categoryId == category._id"
+                        [routerLink]="['/products',subcategory._id,'sub-category']">{{subcategory.name}}</a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li class="nav-item dropdown position-static custom-brand">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown"
+              role="button">Brands</a>
+            <ul class="dropdown-menu megamenu">
+              <div class="">
+                <li class="col-md-12">
+                  <ul class="row">
+                    <li class="col-md-2" *ngFor="let brand of allbrands">
+                      <a (click)="navigatetoBands(brand._id)">
+                        <div class="card">
+                          <img src="{{backendUrl}}{{brand.icon}}" alt="icons">
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/services']">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact']">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header> 
