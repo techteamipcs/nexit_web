@@ -10,9 +10,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav m-auto">
-        <li class="nav-item" *ngFor="let category of allcategories">
+        <li class="nav-item" *ngFor="let category of allcategories;let i=index;">
 
-          <a class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
+          <a *ngIf="i<=4" class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
             <img class="home-icon {{category.name | lowercase}}" src="{{imageUrl}}/{{category.icon}}" alt="" style="width:50px; display:block; margin:0 auto;">
             {{category.name}}</a>
         </li>
@@ -121,24 +121,24 @@
     </div>
 
     <div class="row mb-40" *ngFor="let category of allcategories;let i = index;">
-      <div class="col-md-6 text-center mb-5 mb-lg-0" *ngIf="(i%2) == 0">
+      <div class="col-md-6 text-center mb-5 mb-lg-0" *ngIf="(i%2) == 0 && i<=4">
         <img class="img-fluid" src="{{imageUrl}}/{{category.image}}" alt="">
       </div>
-      <div class="col-md-6 align-self-center text-center" *ngIf="(i%2) == 0">
+      <div class="col-md-6 align-self-center text-center" *ngIf="(i%2) == 0 && i<=4">
         <div class="content text-center">
           <h4 class="subheading">{{category.name}}</h4>
           <p [innerHtml]="category.description"></p>
           <a class="showbtn" [routerLink]="['/products',category._id,'category']">Show All | Learn More</a>
         </div>
       </div>
-      <div class="col-md-6 order-md-1 order-2 align-self-center text-center" *ngIf="(i%2) != 0">
+      <div class="col-md-6 order-md-1 order-2 align-self-center text-center" *ngIf="(i%2) != 0 && i<=4">
         <div class="content text-center">
           <h4 class="subheading">{{category.name}}</h4>
           <p [innerHtml]="category.description"></p>
           <a class="showbtn" [routerLink]="['/products',category._id,'category']">Show All | Learn More</a>
         </div>
       </div>
-      <div class="col-md-6 order-md-2 order-1 text-center mb-5 mb-lg-0" *ngIf="(i%2) != 0">
+      <div class="col-md-6 order-md-2 order-1 text-center mb-5 mb-lg-0" *ngIf="(i%2) != 0 && i<=4">
         <img class="img-fluid" src="{{imageUrl}}/{{category.image}}" alt="">
       </div>
     </div>

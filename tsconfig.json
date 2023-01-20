@@ -29,7 +29,7 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
  "allowSyntheticDefaultImports": true,
   }
 }

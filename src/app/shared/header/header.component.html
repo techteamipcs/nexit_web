@@ -276,9 +276,10 @@
         <span>MENU</span>
       </div>
       <ul>
-        <li><label>Item 1</label></li>
+        <li><label>Home</label></li>
+        <li><label>About</label></li>
         <li>
-          <label class="a-label__chevron" for="item-2">Item 2</label>
+          <label class="a-label__chevron" for="item-2">Products</label>
           <input type="checkbox" id="item-2" name="item-2" class="m-menu__checkbox">
           <div class="m-menu">
             <div class="m-menu__header">
@@ -288,13 +289,11 @@
                   <path d="M19 12H6M12 5l-7 7 7 7" />
                 </svg>
               </label>
-              <span>Item 2</span>
+              <span>Categories</span>
             </div>
             <ul>
-              <li><label>Item 2.1</label></li>
-              <li><label>Item 2.2</label></li>
-              <li>
-                <label class="a-label__chevron" for="item-2-3">Item 2.3</label>
+              <li *ngFor="let category of allcategories">
+                <label class="a-label__chevron" for="item-2-3">{{category.name}}</label>
                 <input type="checkbox" id="item-2-3" name="item-2" class="m-menu__checkbox">
                 <div class="m-menu">
                   <div class="m-menu__header">
@@ -304,30 +303,19 @@
                         <path d="M19 12H6M12 5l-7 7 7 7" />
                       </svg>
                     </label>
-                    <span>Item 2.3 </span>
+                    <span>Sub-Categories </span>
                   </div>
                   <ul>
-                    <li><label>Item 2.3.1</label></li>
-                    <li><label>Item 2.3.2</label></li>
-                    <li><label>Item 2.3.3</label></li>
-                    <li><label>Item 2.3.4</label></li>
-                    <li><label>Item 2.3.5</label></li>
+                    <li *ngFor="let subcategory of allsubcategories"><label [routerLink]="['/products',subcategory._id,'sub-category']">{{subcategory.name}}</label></li>
                   </ul>
                 </div>
               </li>
-              <li><label>Item 2.4</label></li>
-              <li><label>Item 2.5</label></li>
-              <li><label>Item 2.6</label></li>
-              <li><label>Item 2.7</label></li>
-              <li><label>Item 2.8</label></li>
-              <li><label>Item 2.9</label></li>
               </ul>
           </div>
         </li>
-        <li><label>Item 3</label></li>
-        <li><label>Item 4</label></li>
-        <li><label>Item 5</label></li>
-        <li><label>Item 6</label></li>
+        <li><label>Brands</label></li>
+        <li><label>Services</label></li>
+        <li><label>Contact</label></li>
       </ul>
     </div>
   </nav>

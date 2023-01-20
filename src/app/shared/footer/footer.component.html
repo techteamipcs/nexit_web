@@ -7,8 +7,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav m-auto">
-        <li class="nav-item" *ngFor="let category of allcategories">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
+        <li class="nav-item" *ngFor="let category of allcategories;let i=index;">
+          <a *ngIf="i<=4" class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
             <img class="home-icon {{category.name | lowercase}}" src="{{backendUrl}}/{{category.icon}}" alt="" style=" display:block; margin:0 auto;">
            <span class="d-sm-inline-block d-none">{{category.name}}</span>
           </a>

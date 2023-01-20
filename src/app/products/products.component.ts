@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit {
   // pagination
   currentPage: number = 1;
   initialized: boolean = false;
-  currentLimit: number = 10;
+  currentLimit: number = 30;
   totalRecord: number = 0;
   selectedcategory:any = [];
   selectedbrand:any = [];
