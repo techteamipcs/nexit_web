@@ -23,6 +23,14 @@
     font-weight: 400 !important;
   }
 }
+.customslider{
+  @media(max-width:991px){
+    margin-top: 80px;
+  }
+  
+}
+
+
 #features {
   // background: #245c4e;
   background: #00714a;
@@ -189,7 +197,7 @@
   width: 150px;
   height: 150px;
   background: #fff;
-  box-shadow: 0 0 6px #36353540;
+  // box-shadow: 0 0 6px #36353540;
   padding: 15px;
   margin: 15px;
 }
