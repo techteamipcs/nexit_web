@@ -62,7 +62,7 @@ export class SearchProductComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    window.scroll(0,0);
   }
 
   ngOnDestroy(): void {

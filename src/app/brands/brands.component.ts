@@ -31,6 +31,7 @@ export class BrandsComponent implements OnInit {
 			this.getBrandById();
 		}
 		this.get_AllBrands();
+		window.scroll(0,0);
 	}
 
 	get_AllBrands() {

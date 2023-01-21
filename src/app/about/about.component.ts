@@ -11,7 +11,8 @@ export class AboutComponent implements OnInit {
     this.baseUrl = environment.baseUrl + '/assets';
    }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    window.scroll(0,0);
   }
 
 }

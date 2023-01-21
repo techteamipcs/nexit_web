@@ -50,6 +50,7 @@ export class ProductDetailsComponent implements OnInit {
 	throw_msg: any;
 	submitted = false;
 	error = {};
+	other_specifications:any;
 	constructor(
 		public router: ActivatedRoute,
 		public dataservice: DataService,
@@ -75,6 +76,7 @@ export class ProductDetailsComponent implements OnInit {
 			message: [''],
 			product_id: ['']
 		});
+		window.scroll(0,0);
 	}
 
 	getProductByID() {
@@ -109,6 +111,12 @@ export class ProductDetailsComponent implements OnInit {
 								return '<img class="img-fluid" src="' + image + '" alt="product-img">';
 							}
 						};
+					}
+					if(this.product && this.product.other_specifications){
+						let tempres = this.product.other_specifications.split(';');
+						if(tempres && tempres.length > 0){
+							this.other_specifications = tempres.map((item:any) => item.trim());
+						}
 					}
 				}
 			} else if (response.code == 400) {

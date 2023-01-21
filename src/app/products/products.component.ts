@@ -54,6 +54,12 @@ export class ProductsComponent implements OnInit {
       (params: Params) => {
         this.type = this.router.snapshot.paramMap.get('type');
         this.id = this.router.snapshot.paramMap.get('id');
+        if(!this.type || !this.id){
+          this.currentLimit = 2000;
+        }
+        if(this.type == 'category') {
+          // this.selectedcategory.push(this.id);
+        }
         this.getFilterdProducts('');
       })
       this.getAllCategory();
@@ -61,7 +67,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    window.scroll(0,0);
   }
 
   ngOnDestroy(): void {
@@ -283,7 +289,9 @@ export class ProductsComponent implements OnInit {
       this.products = tempProductswithbrandcat;
     } 
     if(this.selectedcategory.length < 1 && this.selectedbrand.length < 1){
-      this.products = this.allProducts;
+      this.currentLimit = 2000;
+      this.type = '';
+      this.getFilterdProducts('');
     }
     this.filteredProducts = this.products;
   }

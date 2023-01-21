@@ -195,7 +195,7 @@
                       <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
                     </h4>
                     <p class="price"><span>AED</span> {{prod.sale_price}}
-                      <s class="price"> <span>AED</span> {{prod.regular_price}}</s>
+                      <s class="price" *ngIf="prod.product_discount > 0"> <span>AED</span> {{prod.regular_price}}</s>
                     </p>
                   </div>
                   <!-- </div> -->

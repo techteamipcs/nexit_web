@@ -25,6 +25,7 @@ export class ServicesComponent implements OnInit {
         prevArrow: '<i class="fa fa-chevron-left arrow-left"></i>',
     
       });
+    window.scroll(0,0);
   }
 
 }
