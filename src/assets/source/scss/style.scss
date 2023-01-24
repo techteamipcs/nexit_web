@@ -68,6 +68,13 @@ h1,
 .h1 {
   font-size: 44px;
   line-height: 56px;
+  @media(max-width:1366px){
+font-size: 32px;
+line-height: normal;
+  }
+  @media(max-width:1024px){
+    font-size: 24px;
+      }
 }
 
 h2,
@@ -220,9 +227,10 @@ a:active {
 .btn-main {
   color: #fff;
   // border-radius: 30px;
-  border-radius: 0;
+  border-radius: 30px 0px 0px;
   font-size: 18px;
-  padding: 15px 40px;
+  // padding: 15px 40px;
+  padding: 9px 40px;
   display: inline-block;
   background-color: $primary-color;
   // box-shadow: 0 15px 40px rgba(249, 167, 68, 0.5);
@@ -236,7 +244,7 @@ a:active {
 
   &:hover,
   &:focus {
-    background-color: $primary-color;
+    background-color: #00714A;
     color: #fff;
   }
 }
