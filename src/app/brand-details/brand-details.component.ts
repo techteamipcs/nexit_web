@@ -19,7 +19,7 @@ export class BrandDetailsComponent implements OnInit {
 	type: any;
 	id: any;
 	currentPage: number = 1;
-	currentLimit: number = 10;
+	currentLimit: number = 30;
 	totalRecord: number = 0;
 	products: any = [];
 	// router: any;
@@ -35,7 +35,7 @@ export class BrandDetailsComponent implements OnInit {
 		this.brandId = this.router.snapshot.paramMap.get('id');
 		if (this.brandId) {
 			this.getBrandById();
-			this.getProductsByBrandId(this.brandId);
+			this.getProductsByBrandId();
 		}
 		window.scroll(0,0);
 	}
@@ -45,7 +45,6 @@ export class BrandDetailsComponent implements OnInit {
 		let obj = {
 			id: this.brandId
 		}
-
 		let currentstate = this;
 		this.dataservice.getBrandById(obj).subscribe((response) => {
 			if (response.code == 200) {
@@ -60,16 +59,13 @@ export class BrandDetailsComponent implements OnInit {
 		})
 	}
 
-	getProductsByBrandId(event: any) {
+	getProductsByBrandId() {
 		let obj = {
 			sort: '',
 			_id: this.brandId,
 			limit: this.currentLimit,
 			page: this.currentPage
 		}
-		// if (event) {
-		// 	obj['sort'] = event.target.value;
-		// }
 		this.dataservice.getBrandProducts(obj).subscribe(
 			(response => {
 				if (response.code == 200) {
@@ -89,5 +85,11 @@ export class BrandDetailsComponent implements OnInit {
 			)
 		)
 	}
+
+	loadMore(){
+    this.currentLimit = this.currentLimit + 30;
+    this.getProductsByBrandId();
+  }
+	
 
 }

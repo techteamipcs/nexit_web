@@ -38,8 +38,11 @@
             <td>{{product.part_number}}</td>
           </tr>
         </table>
-        <p class="price py-4">${{product.sale_price}}
-          <s class="price">${{product.regular_price}}</s>
+        <!-- <p class="price py-4">${{product.sale_price}}
+          <s class="price" *ngIf="product.product_discount > 0">${{product.regular_price}}</s>
+        </p> -->
+        <p class="price py-4"><span>AED</span><strong> {{product.sale_price}}</strong>
+          <s class="price" *ngIf="product.product_discount > 0"> <span>AED</span><strong> {{product.regular_price}}</strong></s>
         </p>
         <div class="d-flex flex-row justify-content-center align-self-center">
           <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"
@@ -49,7 +52,7 @@
             data-item-custom1-options="Black|White|Gray" data-item-custom2-name="Choose Size"
             data-item-custom2-options="Small|Medium|Large">Buy Now
           </button>
-          <a class="whatsapp-icon slideUpReturn tabmob btn" href="https://wa.me/+97142834359" target="_blank"> 
+          <a class="whatsapp-icon slideUpReturn tabmob btn" href="https://wa.me/+971564148786" target="_blank"> 
           <button class="btn btn-main mb-5 ml-3 mr-3"> 
               <img src="{{baseUrl}}/source/images/home/whatsapp-white.svg" alt="whatsapp" />           
           </button>
@@ -322,7 +325,7 @@
   </div>
 </section>
 
-<section *ngIf="product" class="gallery section" id="products">
+<section *ngIf="product && product.related_products" class="gallery section" id="products">
   <div class="container-fluid p-0">
     <div class="row">
       <div class="col-lg-12 text-center mx-auto p-0">
@@ -351,7 +354,7 @@
                         <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
                       </h4>
                       <p class="price"><span>AED</span> {{prod.sale_price}}
-                        <s class="price"> <span>AED</span> {{prod.regular_price}}</s>
+                        <s class="price" *ngIf="product.product_discount > 0"> <span>AED</span><strong> {{prod.regular_price}}</strong></s>
                       </p>
                     </div>
                   </div>

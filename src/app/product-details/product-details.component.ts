@@ -89,7 +89,9 @@ export class ProductDetailsComponent implements OnInit {
 				if (response.result) {
 					this.slides = [];
 					this.product = response.result;
-					// this.slides.push({ img: this.backendURL + this.product.image })
+					if(this.product.image){
+						this.slides.push({ img: this.backendURL + this.product.image });
+					}
 					if (this.product && this.product.product_gallery.length > 0) {
 						this.product.product_gallery.forEach((prodimage: any,index:any) => {
 							if (prodimage && index <= 3 ) {

@@ -211,11 +211,13 @@ export class HomeComponent implements OnInit {
     this.dataservice.getAllCategory({}).subscribe(
       (response) => {
         if (response.code == 200) {
-
           if (response.result && response.result.length > 0) {
-            this.allcategories = response.result;
+            response.result.forEach((cat:any) => {
+              if(this.allcategories.length <= 4){
+                this.allcategories.push(cat);
+              }
+            });
           }
-
         } else if (response.code == 400) {
 
         }

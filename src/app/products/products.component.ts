@@ -47,23 +47,23 @@ export class ProductsComponent implements OnInit {
   selectedprice:any;
   filteredProducts:any = [];
   isFilter = false;
-  
+  totalProducts:any = [];
+  isloadMore:boolean = true;
+  category:any;
+  allsubcategories:any = [];
+
   constructor(public dataservice: DataService, public router: ActivatedRoute, public route: Router) {
     this.backendURL = environment.backendUrl + '/public/';
     this.userSubscription = this.router.params.subscribe(
       (params: Params) => {
         this.type = this.router.snapshot.paramMap.get('type');
         this.id = this.router.snapshot.paramMap.get('id');
-        if(!this.type || !this.id){
-          this.currentLimit = 2000;
-        }
-        if(this.type == 'category') {
-          // this.selectedcategory.push(this.id);
-        }
+        this.getAllProducts();
+        this.getAllCategory();
+        this.get_AllBrands();
+        this.getAllsubCategory();
         this.getFilterdProducts('');
-      })
-      this.getAllCategory();
-      this.get_AllBrands();
+      });      
   }
 
   ngOnInit() {
@@ -168,10 +168,39 @@ export class ProductsComponent implements OnInit {
 
           if (response.result && response.result.length > 0) {
             this.allcategories = response.result;
+            if(this.type == 'category'){
+              let tempcat = this.allcategories.filter((item:any) => item._id == this.id);
+              if(tempcat && tempcat[0]){
+                this.category = tempcat[0];
+              }
+            }
           }
 
         } else if (response.code == 400) {
 
+        }
+        else {
+
+        }
+
+      },
+    );
+  }
+
+  getAllsubCategory() {
+    this.dataservice.getAllSubCategory({}).subscribe(
+      (response) => {
+        if (response.code == 200) {
+          if (response.result && response.result.length > 0) {
+            this.allsubcategories = response.result;
+            if(this.type == 'sub-category'){
+              let tempcat = this.allsubcategories.filter((item:any) => item._id == this.id);
+              if(tempcat && tempcat[0]){
+                this.category = tempcat[0];
+              }
+            }
+          }
+        } else if (response.code == 400) {
         }
         else {
 
@@ -187,6 +216,12 @@ export class ProductsComponent implements OnInit {
         if (response.code == 200) {
           if (response.result && response.result.length > 0) {
             this.allbrands = response.result;
+            if(this.type == 'category'){
+              let tempcat = this.allbrands.filter((item:any) => item._id == this.id);
+              if(tempcat && tempcat[0]){
+                this.category = tempcat[0];
+              }
+            }
           }
 
         } else if (response.code == 400) {
@@ -201,8 +236,8 @@ export class ProductsComponent implements OnInit {
 
   getCategoryLength(catId: any) {
     let length = 0;
-    if (this.allProducts && this.allProducts.length > 0) {
-      this.allProducts.forEach((prod: any) => {
+    if (this.totalProducts && this.totalProducts.length > 0) {
+      this.totalProducts.forEach((prod: any) => {
         if (prod && prod.category == catId) {
           length = length + 1;
         }
@@ -234,6 +269,7 @@ export class ProductsComponent implements OnInit {
     let tempCatProducts:any = [];
     let tempBandProducts:any = [];
     let tempProductswithbrandcat:any = [];
+    this.isloadMore = false;
     if(type == 'category') {
       if(event && event.currentTarget.checked){
         this.selectedcategory.push(Ids);
@@ -252,7 +288,7 @@ export class ProductsComponent implements OnInit {
     if(this.selectedcategory && this.selectedcategory.length > 0){
       this.selectedcategory.forEach((cat:any)=>{
         if(cat){
-          let tempPrd = this.allProducts.filter((item:any)=> item.category_id == cat);
+          let tempPrd = this.totalProducts.filter((item:any)=> item.category_id == cat);
           if(tempPrd.length > 0){
             tempCatProducts = tempCatProducts.concat(tempPrd);
           }
@@ -269,7 +305,7 @@ export class ProductsComponent implements OnInit {
     } else {
       if(this.selectedbrand && this.selectedbrand.length > 0){
         this.selectedbrand.forEach((brand:any) => {
-          let tempPrd = this.allProducts.filter((item:any)=> item.brand_id == brand);
+          let tempPrd = this.totalProducts.filter((item:any)=> item.brand_id == brand);
             if(tempPrd.length > 0){
               tempBandProducts = tempBandProducts.concat(tempPrd);
             } else {
@@ -289,8 +325,7 @@ export class ProductsComponent implements OnInit {
       this.products = tempProductswithbrandcat;
     } 
     if(this.selectedcategory.length < 1 && this.selectedbrand.length < 1){
-      this.currentLimit = 2000;
-      this.type = '';
+      this.isloadMore = true;
       this.getFilterdProducts('');
     }
     this.filteredProducts = this.products;
@@ -373,33 +408,54 @@ export class ProductsComponent implements OnInit {
   // }
   
 
-  // getAllProducts() {
-  //   const obj = {
-  //     limit: this.currentLimit,
-  //     page: this.currentPage
-  //   };
-  //   this.dataservice.getAllProducts(obj).subscribe((response) => {
-  //     if (response.code == 200) {
-  //       if (response.result && response.result.length > 0) {
-  //         this.products = response.result;
-  //         this.allProducts = [];
-  //         this.allProducts = this.products;
-  //         this.totalRecord = response?.count;
-  //       } else {
-  //         this.allProducts = [];
-  //         this.products = [];
-  //       }
+  getAllProducts() {
+    const obj = {
+      limit: 2000,
+      page: this.currentPage
+    };
+    this.dataservice.getAllProducts(obj).subscribe((response) => {
+      if (response.code == 200) {
+        if (response.result && response.result.length > 0) {
+          this.totalProducts = [];
+          this.totalProducts = response.result;
+          this.totalRecord = response?.count;
+        }
+      } else if (response.code == 400) {
 
-  //     } else if (response.code == 400) {
+      }
+      else {
 
-  //     }
-  //     else {
+      }
+    },
+    );
+  }
 
-  //     }
-  //   },
-  //   );
-  // }
-
+  loadMore(){
+    this.currentLimit = this.currentLimit + 30;
+    this.getMoreProducts();
+  }
   
+  getMoreProducts() {
+    let obj = {
+      sort: '',
+      type: this.type,
+      _id: this.id,
+      limit: this.currentLimit,
+      page: this.currentPage
+    }
+    this.dataservice.getFilteredProducts(obj).subscribe((response) => {
+      if (response.code == 200) {
+        if (response.result && response.result.length > 0) {
+          this.products = response.result;
+        }
+      } else if (response.code == 400) {
+
+      }
+      else {
+
+      }
+    },
+    );
+  }
   
 }

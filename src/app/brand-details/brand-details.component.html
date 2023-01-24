@@ -43,5 +43,14 @@
         </div>
       </div>
     </div>
+    <div class="row" *ngIf="products.length > 29 ">
+      <div class="col-md-12 col-sm-12 text-center">
+        <div class="view">
+          <div class="count">
+            <button type="button" class="snipcart-add-item btn btn-main mb-5" (click)="loadMore()">Load More</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

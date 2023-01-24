@@ -4,6 +4,16 @@
       <div class="col-lg-10 offset-lg-1 col-md-12">
         <div class="row">
           <div class="col-lg-3 col-md-4">
+            <div class="category-sidebar" *ngIf="type">
+              <div class="widget product-shorting">
+                <h4 class="widget-header">Filter By</h4>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    {{type}} : {{category.name}}
+                  </label>
+                </div>
+              </div>
+            </div>
             <div class="category-sidebar">
               <div class="widget category-list">
                 <h4 class="widget-header">All Category</h4>
@@ -108,6 +118,15 @@
                 </div>
               </div>
               <div *ngIf="products.length < 1"><h1>No products Found</h1></div>
+            </div>
+            <div class="row" *ngIf="products.length > 0 && isloadMore">
+              <div class="col-md-12 col-sm-12 text-center">
+                <div class="view">
+                  <div class="count">
+                    <button type="button" class="snipcart-add-item btn btn-main mb-5" (click)="loadMore()">Load More</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="row" *ngIf="products.length > 0">
               <div class="col-md-6 col-sm-6 text-center text-md-left text-sm-left">

@@ -276,8 +276,8 @@
         <span>MENU</span>
       </div>
       <ul>
-        <li><label>Home</label></li>
-        <li><label>About</label></li>
+        <li (click)="navigatetolink('/')"><label>Home</label></li>
+        <li (click)="navigatetolink('/about')"><label>About</label></li>
         <li>
           <label class="a-label__chevron" for="item-2">Products</label>
           <input type="checkbox" id="item-2" name="item-2" class="m-menu__checkbox">
@@ -306,16 +306,16 @@
                     <span>Sub-Categories </span>
                   </div>
                   <ul>
-                    <li *ngFor="let subcategory of allsubcategories"><label [routerLink]="['/products',subcategory._id,'sub-category']">{{subcategory.name}}</label></li>
+                    <li *ngFor="let subcategory of allsubcategories"><label (click)="navigatetosubcategory(subcategory._id,'sub-category')">{{subcategory.name}}</label></li>
                   </ul>
                 </div>
               </li>
               </ul>
           </div>
         </li>
-        <li><label>Brands</label></li>
-        <li><label>Services</label></li>
-        <li><label>Contact</label></li>
+        <li (click)="navigatetolink('/brands')"><label>Brands</label></li>
+        <li (click)="navigatetolink('/services')"><label>Services</label></li>
+        <li (click)="navigatetolink('/contact')"><label>Contact</label></li>
       </ul>
     </div>
   </nav>
