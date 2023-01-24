@@ -1,23 +1,53 @@
 .page-header {
-  background: linear-gradient(rgba(22, 22, 22, .7), rgba(22, 22, 22, .7)), url(../../assets/source/images/about.jpg) center center no-repeat;
-  
+  background: linear-gradient(rgba(22, 22, 22, 0.7), rgba(22, 22, 22, 0.7)),
+    url(../../assets/source/images/about.jpg) center center no-repeat;
+
   background-size: cover;
   background-attachment: fixed;
 }
-.aboutus h1, h5 span{
-color: #fff;
+.aboutus h1,
+h5 span {
+  color: #fff;
 }
-.value{
-  text-align: center;
-  background: #00714A;
-  p{
-    color: #fff;
+.aboutus {
+  h1 {
+    @media (max-width: 1366px) {
+      font-size: 32px;
+    }
+    @media (max-width: 1024px) {
+      font-size: 24px;
+    }
   }
-  h5{
+  .border{
+    border-radius: 30px 0px 0px 0px;
+    border-width:2px !important;
+  }
+}
+.value {
+  text-align: center;
+  background: #00714a;
+  p {
+    color: #fff;
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+  }
+  h5 {
     font-weight: 300;
     font-size: 28px;
+    @media (max-width: 1366px) {
+      font-size: 24px;
+    }
+    @media (max-width: 1024px) {
+      font-size: 20px;
+    }
   }
 }
-.subheading{
+.subheading {
   font-weight: 300;
+}
+.display-3{
+  @media(max-width:1024px){
+font-size: 30px;
+  }
 }
