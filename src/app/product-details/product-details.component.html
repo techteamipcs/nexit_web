@@ -41,8 +41,8 @@
         <!-- <p class="price py-4">${{product.sale_price}}
           <s class="price" *ngIf="product.product_discount > 0">${{product.regular_price}}</s>
         </p> -->
-        <p class="price py-4"><span>AED</span><strong> {{product.sale_price}}</strong>
-          <s class="price" *ngIf="product.product_discount > 0"> <span>AED</span><strong> {{product.regular_price}}</strong></s>
+        <p class="price py-4"><small>AED </small><strong> {{product.sale_price}}</strong>
+          <s class="price" *ngIf="product.product_discount > 0"> <small> AED </small><strong> {{product.regular_price}}</strong></s>
         </p>
         <div class="d-flex flex-row justify-content-center align-self-center">
           <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"
