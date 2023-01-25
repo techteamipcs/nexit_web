@@ -103,6 +103,9 @@ footer {
 
   .nav-link {
     padding: 7px 20px !important;
+    &:hover,:focus{
+      color: #00714a;
+    }
     @media (max-width: 680px) {
       padding: 5px 12px !important;
     }

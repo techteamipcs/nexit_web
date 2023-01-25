@@ -8,8 +8,8 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav m-auto">
         <li class="nav-item" *ngFor="let category of allcategories;let i=index;">
-          <a *ngIf="i<=4" class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
-            <img class="home-icon {{category.name | lowercase}}" src="{{backendUrl}}/{{category.icon}}" alt="" style=" display:block; margin:0 auto;">
+          <a *ngIf="i<=4" class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']" (mouseenter)="func_1(category)" (mouseleave)="func_11(category)">
+            <img class="home-icon cat_{{category.sequence_number}}" src="{{backendUrl}}/{{category.icon}}" alt="" style=" display:block; margin:0 auto;">
            <span class="d-sm-inline-block d-none">{{category.name}}</span>
           </a>
         </li>
