@@ -247,4 +247,25 @@ export class HomeComponent implements OnInit {
     );
   }
   
+
+  func_1(value:any){
+    if(value && value.sequence_number == 1){
+      $(".cat_"+value.sequence_number).attr("src", this.baseUrl + "/source/images/icon/server-green.svg");
+    } else if(value && value.sequence_number == 2){
+      $(".cat_"+value.sequence_number).attr("src", this.baseUrl + "/source/images/icon/networking-green1.svg");
+    } else if(value && value.sequence_number == 3){
+      $(".cat_"+value.sequence_number).attr("src", this.baseUrl + "/source/images/icon/laptop-green.svg");
+    } else if(value && value.sequence_number == 4){
+      $(".cat_"+value.sequence_number).attr("src", this.baseUrl + "/source/images/icon/pcs-green.svg");
+    } else if(value && value.sequence_number == 5){
+      $(".cat_"+value.sequence_number).attr("src", this.baseUrl + "/source/images/icon/networking-green1.svg");
+    } 
+}
+
+  func_11(value:any){
+    if(value && value.sequence_number){
+    $(".cat_"+value.sequence_number).attr("src", this.imageUrl + "/" + value.icon);
+    }
+  }
+
 }

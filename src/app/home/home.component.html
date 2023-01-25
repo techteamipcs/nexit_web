@@ -12,8 +12,8 @@
       <ul class="navbar-nav m-auto">
         <li class="nav-item" *ngFor="let category of allcategories;let i=index;">
 
-          <a *ngIf="i<=4" class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']">
-            <img class="home-icon {{category.name | lowercase}}" src="{{imageUrl}}/{{category.icon}}" alt="" style="width:50px; display:block; margin:0 auto;">
+          <a *ngIf="i<=4" class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']" (mouseenter)="func_1(category)" (mouseleave)="func_11(category)">
+            <img class="home-icon cat_{{category.sequence_number}}" src="{{imageUrl}}/{{category.icon}}" alt=""  style="width:50px; display:block; margin:0 auto;">
             {{category.name}}</a>
         </li>
 
@@ -44,30 +44,30 @@
       </div>
       <div class="col-lg-4 col-md-6  align-self-center">
         <div class="image">
-          <img class="mb-4" src="{{baseUrl}}/source/images/home/service1.png" alt="">
+          <img class="mb-4" src="{{baseUrl}}/source/images/home/data-centre.jpg" alt="">
           <div class="overlay">
-            <h4 class="font-weight-bold mb-2">IT SERVICES & SOLUTIONS</h4>
-            <p class="textmuted">We install cctv cameras and set up access control systems to enable you to cost
-              effectively monitor and protect your business</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6  align-self-center ">
-        <div class="image">
-          <img class="mb-4" src="{{baseUrl}}/source/images/home/service2.png" alt="">
-          <div class="overlay">
-            <h4 class="font-weight-bold mb-2">STRUCTURED CABLING</h4>
-            <p class="textmuted">We provide structured cabling and Fiber Optics Cabling installation solutions to our
-              clients on time, on budget and on their terms.
-            </p>
+            <h4 class="font-weight-bold mb-2">Datacenters</h4>
+            <p class="textmuted">Datalink helps equip enterprises with data center infrastructure
+              (server,storage,network & software) to support business initiatives, competitive capabilities and customer
+              experience.</p>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-6  align-self-center">
         <div class="image">
-          <img  class="mb-4" src="{{baseUrl}}/source/images/home/service3.png" alt="">
+          <img class="mb-4" src="{{baseUrl}}/source/images/home/vertualization.jpg" alt="">
           <div class="overlay">
-            <h4 class="font-weight-bold mb-2">ELECTRICAL INSTALLATIONS</h4>
+            <h4 class="font-weight-bold mb-2">Virtualisation</h4>
+            <p class="textmuted">From design to implementation, we intensively engage the client in order to deliver
+              streamlined virtual environment that meets all their needs.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6  align-self-center">
+        <div class="image">
+          <img  class="mb-4" src="{{baseUrl}}/source/images/home/cloud-solution.jpg" alt="">
+          <div class="overlay">
+            <h4 class="font-weight-bold mb-2">Cloud Solutions</h4>
             <p class="textmuted">We offer a wide range of electrical services including installation of low to high
               voltage distribution and end usage devices.
 
@@ -75,22 +75,11 @@
           </div>
         </div>
       </div>
-
-      <div class="col-lg-4 col-md-6  align-self-center">
-        <div class="image">
-          <img class="mb-4" src="{{baseUrl}}/source/images/home/service1.png" alt="">
-          <div class="overlay">
-            <h4 class="font-weight-bold mb-2">VIRTUALIZATION</h4>
-            <p class="textmuted">From design to implementation, we intensively engage the client in order to deliver
-              streamlined virtual environment that meets all their needs.</p>
-          </div>
-        </div>
-      </div>
       <div class="col-lg-4 col-md-6  align-self-center ">
         <div class="image">
-          <img class="mb-4" src="{{baseUrl}}/source/images/home/service2.png" alt="">
+          <img class="mb-4" src="{{baseUrl}}/source/images/home/wireless-network.jpg" alt="">
           <div class="overlay">
-            <h4 class="font-weight-bold mb-2">WIRELESS NETWORKS</h4>
+            <h4 class="font-weight-bold mb-2">Wireless Networks</h4>
             <p class="textmuted">Datalink is well experienced, with certified expertise in deploying wireless LAN
               solutions and structured cabling to enable wireless communication.</p>
           </div>
@@ -98,12 +87,22 @@
       </div>
       <div class="col-lg-4 col-md-6  align-self-center">
         <div class="image">
-          <img class="mb-4" src="{{baseUrl}}/source/images/home/service3.png" alt="">
+          <img class="mb-4" src="{{baseUrl}}/source/images/home/cyersecruity.jpg" alt="">
           <div class="overlay">
-            <h4 class="font-weight-bold mb-2">DATA CENTERS</h4>
-            <p class="textmuted">Datalink helps equip enterprises with data center infrastructure
-              (server,storage,network & software) to support business initiatives, competitive capabilities and customer
-              experience.</p>
+            <h4 class="font-weight-bold mb-2">Cybersecurity Solutions</h4>
+            <p class="textmuted">We install cctv cameras and set up access control systems to enable you to cost
+              effectively monitor and protect your business</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6  align-self-center ">
+        <div class="image">
+          <img class="mb-4" src="{{baseUrl}}/source/images/home/structure-cabling.jpg" alt="">
+          <div class="overlay">
+            <h4 class="font-weight-bold mb-2">Structured Cabling</h4>
+            <p class="textmuted">We provide structured cabling and Fiber Optics Cabling installation solutions to our
+              clients on time, on budget and on their terms.
+            </p>
           </div>
         </div>
       </div>
@@ -128,14 +127,14 @@
         <div class="content text-center">
           <h4 class="subheading">{{category.name}}</h4>
           <p [innerHtml]="category.description"></p>
-          <a class="showbtn" [routerLink]="['/products',category._id,'category']">Show All | Learn More</a>
+          <a class="showbtn" [routerLink]="['/products',category._id,'category']">Show All</a>
         </div>
       </div>
       <div class="col-md-6 order-md-1 order-2 align-self-center text-center" *ngIf="(i%2) != 0 && i<=4">
         <div class="content text-center">
           <h4 class="subheading">{{category.name}}</h4>
           <p [innerHtml]="category.description"></p>
-          <a class="showbtn" [routerLink]="['/products',category._id,'category']">Show All | Learn More</a>
+          <a class="showbtn" [routerLink]="['/products',category._id,'category']">Show All</a>
         </div>
       </div>
       <div class="col-md-6 order-md-2 order-1 text-center mb-5 mb-lg-0" *ngIf="(i%2) != 0 && i<=4">
@@ -194,8 +193,8 @@
                     <h4 class="mb-2">
                       <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
                     </h4>
-                    <p class="price"><span>AED</span> {{prod.sale_price}}
-                      <s class="price" *ngIf="prod.product_discount > 0"> <span>AED</span> {{prod.regular_price}}</s>
+                    <p class="price"><small>AED </small> <strong>{{prod.sale_price}}</strong> 
+                       <strong class="price" *ngIf="prod.product_discount > 0"> <small> AED</small> {{prod.regular_price}}</strong>
                     </p>
                   </div>
                   <!-- </div> -->
