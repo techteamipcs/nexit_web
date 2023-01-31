@@ -30,6 +30,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "esModuleInterop": false,
- "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks":false
   }
 }

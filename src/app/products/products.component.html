@@ -103,13 +103,13 @@
               <div class="col-lg-4 col-md-4 col-sm-6 mb-4" *ngFor="let product of products">
                 <div class="card">
                   <div class="block">
-                    <a href="product-details/{{product._id}}" class="gallery-popup">
+                    <a [routerLink]="['/product-details']" [queryParams]="{ sequence_number: product.sequence_number}" routerLinkActive="router-link-active"  class="gallery-popup">
                       <img class="img-fluid" src="{{backendURL}}/{{product.image}}" alt="">
                     </a>
                   </div>
                   <div class="product-info">
                     <h4 class="mb-2">
-                      <a href="product-details/{{product._id}}" class="link-title">{{product.name}}</a>
+                      <a [routerLink]="['/product-details']" [queryParams]="{ sequence_number: product.sequence_number}" class="link-title">{{product.name}}</a>
                     </h4>
                     <p class="price"><small>AED </small> <strong> {{product.sale_price}}</strong>
                       <s class="price" *ngIf="product.product_discount > 0"> <small> AED </small> {{product.regular_price}}</s>

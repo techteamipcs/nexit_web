@@ -149,11 +149,16 @@
     <div class="row">
       <div class="col-lg-6 col-md-8 text-center mx-auto">
         <h2 class="subheading text-white">Get Product Updates</h2>
-        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+        <p class="text-white">Receive email updates from Nexait (including launch announcement, product info and exclusive access).</p>
         <div class="input-group">
-          <form action="" method="post" class="w-100" name="mc-embedded-subscribe-form" target="_blank">
-            <input type="email" id="email" class="form-control" name="email" placeholder="Your Email Address Here"
+          <form [formGroup]="addSubscriberForm" (ngSubmit)="onSubmit()" class="w-100" >
+            <input type="email" id="email" class="form-control" name="email" autocomplete="off" formControlName="email" placeholder="Your Email Address Here"
               required>
+              <div *ngIf="submitted && hasEmailError('email','required')" class="error text-left mt-2">
+                <div class="errormsg">
+                  {{hasEmailError('email','required')}}
+                </div>
+              </div>
             <button class="btn btn-main btn-submit" type="submit" name="subscribe">Subscribe</button>
             <div style="position: absolute; left: -5000px;" aria-hidden="true">
               <input type="text" name="" tabindex="-1">
@@ -181,17 +186,17 @@
                 <div class="product-slider">
                   <!-- <div class="block"> -->
                     <!-- <div class="gallery-overlay">
-                      <a href="product-details/{{prod._id}}" class="gallery-popup">
+                      <a [routerLink]="['/product-details',product.sequence_number]" class="gallery-popup">
                         <i class="tf-ion-plus-round"></i>
                       </a>
                     </div> -->
-                    <a href="product-details/{{prod._id}}" class="gallery-popup">
+                    <a class="gallery-popup">
                     <img src="{{imageUrl}}/{{prod.image}}">
                     <!-- {{prod.name}} -->
                   </a>
                   <div class="product-info">
                     <h4 class="mb-2">
-                      <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
+                      <a [routerLink]="['/product-details']" [queryParams]="{ sequence_number: prod.sequence_number}" class="link-title">{{prod.name}}</a>
                     </h4>
                     <p class="price"><small>AED </small> <strong>{{prod.sale_price}}</strong> 
                        <strong class="price" *ngIf="prod.product_discount > 0"> <small> AED</small> {{prod.regular_price}}</strong>
@@ -209,7 +214,7 @@
     </div>
   </div>
 </section>
-<section class="gallery1 section" id="products">
+<section class="gallery1 section" id="products" *ngIf="allbrands.length > 0">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center mx-auto p-0">

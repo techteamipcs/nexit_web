@@ -14,7 +14,7 @@ declare var $: any;
 	styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-	productId: any;
+	sequence_number: any;
 	product: any;
 	backendURL = '';
   baseUrl:any;
@@ -64,8 +64,16 @@ export class ProductDetailsComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.productId = this.router.snapshot.paramMap.get('id');
-		if (this.productId) {
+		this.router.queryParamMap
+			.subscribe((params:any) => {
+				if(params.params.sequence_number){
+					this.sequence_number = params.params.sequence_number;
+				} else {
+					this.sequence_number = this.router.snapshot.paramMap.get('id');
+				}
+			}
+		);
+		if (this.sequence_number) {
 			this.getProductByID();
 		}
 		this.addContactForm = this.formBuilder.group({
@@ -81,10 +89,10 @@ export class ProductDetailsComponent implements OnInit {
 
 	getProductByID() {
 		let obj = {
-			id: this.productId
+			id: this.sequence_number
 		};
 		let currentstate = this;
-		this.dataservice.getProductByID(obj).subscribe((response) => {
+		this.dataservice.getProductBySequncenumber(obj).subscribe((response) => {
 			if (response.code == 200) {
 				if (response.result) {
 					this.slides = [];

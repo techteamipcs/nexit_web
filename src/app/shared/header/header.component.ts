@@ -18,12 +18,13 @@ export class HeaderComponent implements OnInit {
   constructor(private dataservice: DataService, public route:Router) {
     this.baseUrl = environment.baseUrl + '/assets';
     this.backendUrl = environment.backendUrl + '/public/';
+    this.get_AllBrands();
+    this.getAllCategory();
+    this.getAllSubCategory();
   }
 
-  ngOnInit(): void {
-    this.getAllCategory();
-    this.get_AllBrands();
-    this.getAllSubCategory();
+  ngOnInit() {
+    
   }
 
   getAllCategory() {

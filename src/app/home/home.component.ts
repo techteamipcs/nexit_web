@@ -7,6 +7,8 @@ import { DataService } from '../providers/data.service';
 import { environment } from 'src/environments/environment';
 import { Meta, Title } from '@angular/platform-browser';
 import { PageService } from '../providers/page/page.service';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl,AbstractControl} from '@angular/forms';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 export interface PhotosApi {
   albumId?: number;
@@ -130,12 +132,24 @@ export class HomeComponent implements OnInit {
   initialized: boolean = false;
   currentLimit: number = 10;
   totalRecord: number = 0;
+  addSubscriberForm:FormGroup;
+  throw_msg:any; 
+  msg_success: boolean = false;
+  msg_danger: boolean = false;
+  subject:any = [];
+  submitted = false;
+  error = {};
   constructor(private renderer: Renderer2,private readonly http: HttpClient, public dataservice: DataService, 
     private pageservice: PageService,
     private metaTagService: Meta,
-    private titleService: Title,) {
+    private titleService: Title,
+    private toastr: ToastrManager,
+    public formBuilder : FormBuilder) {
     this.baseUrl = environment.baseUrl + '/assets';
-    this.imageUrl = environment.backendUrl+'/public';    
+    this.imageUrl = environment.backendUrl+'/public'; 
+    this.addSubscriberForm = this.formBuilder.group({
+      email: ['',[Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
+     });   
    }
 
    ngOnInit() {
@@ -198,7 +212,11 @@ export class HomeComponent implements OnInit {
   }
 
   getProducts(){
-    this.dataservice.getAllProducts({}).subscribe((response) => {
+    const obj = {
+      limit: this.currentLimit,
+      page: this.currentPage
+    };
+    this.dataservice.getFilteredProducts(obj).subscribe((response) => {
       if (response.code == 200) {
         if (response.result) {
           this.products = response.result;
@@ -274,5 +292,39 @@ export class HomeComponent implements OnInit {
     $(".cat_"+value.sequence_number).attr("src", this.imageUrl + "/" + value.icon);
     }
   }
+
+  onSubmit() {
+    this.submitted = true;
+    let obj = this.addSubscriberForm.value;
+    if (this.addSubscriberForm.invalid){
+      return false;
+    }    
+    return this.dataservice.addSubscriber(obj).subscribe(response => {
+      if (response && response.code == 200) {
+        this.submitted = true;
+        this.toastr.successToastr("Thank you For Subscribing with Us");
+        setInterval(() => {
+          window.location.reload();
+        }, 2000);
+
+      } else {
+        this.toastr.errorToastr("Already Subscribed from this Email");
+      }
+    },
+      error => this.error = error
+    );
+  }
+
+
+  public hasEmailError = (controlName: string, errorName: string) => { 
+    if(this.addSubscriberForm.controls['email'].value == "" ){
+      return "Email is required";
+    } else if(this.addSubscriberForm.controls['email'].status == "INVALID"){
+      return "Invalid Email";
+    } else {
+      return this.addSubscriberForm.controls['email'].hasError(errorName);
+    }
+    
+  };
 
 }

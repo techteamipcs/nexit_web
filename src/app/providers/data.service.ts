@@ -65,6 +65,15 @@ export class DataService {
 		);
 	};
 
+	getProductBySequncenumber = (data: any): Observable<any> => {
+		const endpoint = environment.backendUrl + '/api/product/getproductbysequence';
+		return this.http.post(endpoint, data).pipe(
+			catchError((err) => {
+				return throwError(err);
+			})
+		);
+	};
+
 	getFilteredProducts = (data: any): Observable<any> => {
 		const endpoint = environment.backendUrl + '/api/product/getProductsbyFilter';
 		return this.http.post(endpoint, data).pipe(
@@ -103,6 +112,15 @@ export class DataService {
 
 	getAllProductswithoutpage = (data: any): Observable<any> => {
 		const endpoint = environment.backendUrl + '/api/product/getProductswithoutpage';
+		return this.http.post(endpoint, data).pipe(
+			catchError((err) => {
+				return throwError(err);
+			})
+		);
+	};
+
+	addSubscriber = (data: any): Observable<any> => {
+		const endpoint = environment.backendUrl + '/api/subscriber/addsubscriber';
 		return this.http.post(endpoint, data).pipe(
 			catchError((err) => {
 				return throwError(err);

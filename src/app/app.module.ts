@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { HelpButtonComponent } from './shared/help-button/help-button.component';
 import { HomeComponent } from './home/home.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpClientModule, HttpResponse } from '@angular/common/http';
@@ -49,7 +50,8 @@ import { BrandDetailsComponent } from './brand-details/brand-details.component';
     PaginationComponent,
     SearchProductComponent,
     Error404Component,
-    BrandDetailsComponent
+    BrandDetailsComponent,
+    HelpButtonComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

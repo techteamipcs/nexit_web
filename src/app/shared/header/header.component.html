@@ -195,8 +195,8 @@
             <a class="nav-link" [routerLink]="['/about']">About</a>
           </li>
           <li class="nav-item dropdown position-static">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown"
-              role="button" [routerLink]="['/products']">Products</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button"
+              [routerLink]="['/products']">Products</a>
             <ul class="dropdown-menu megamenu">
               <div class="row">
                 <li class="col-md-2" *ngFor="let category of allcategories">
@@ -212,7 +212,7 @@
               </div>
             </ul>
           </li>
-          <li class="nav-item dropdown position-static custom-brand">
+          <li class="nav-item dropdown position-static custom-brand" *ngIf="allbrands && allbrands.length > 0">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown"
               role="button">Brands</a>
             <ul class="dropdown-menu megamenu">
@@ -221,7 +221,7 @@
                   <ul class="row">
                     <li class="col-md-2" *ngFor="let brand of allbrands">
                       <a (click)="navigatetoBands(brand._id)">
-                        <div class="card">
+                        <div class="card" *ngIf="brand && brand.icon">
                           <img src="{{backendUrl}}{{brand.icon}}" alt="icons">
                         </div>
                       </a>
@@ -276,8 +276,8 @@
         <span>MENU</span>
       </div>
       <ul>
-        <li (click)="navigatetolink('/')"><label>Home</label></li>
-        <li (click)="navigatetolink('/about')"><label>About</label></li>
+        <li (click)="navigatetolink('home')"><label>Home</label></li>
+        <li (click)="navigatetolink('about')"><label>About</label></li>
         <li>
           <label class="a-label__chevron" for="item-2">Products</label>
           <input type="checkbox" id="item-2" name="item-2" class="m-menu__checkbox">
@@ -306,20 +306,21 @@
                     <span>Sub-Categories </span>
                   </div>
                   <ul>
-                    <li *ngFor="let subcategory of allsubcategories"><label (click)="navigatetosubcategory(subcategory._id,'sub-category')">{{subcategory.name}}</label></li>
+                    <li *ngFor="let subcategory of allsubcategories"><label
+                        (click)="navigatetosubcategory(subcategory._id,'sub-category')">{{subcategory.name}}</label>
+                    </li>
                   </ul>
                 </div>
               </li>
-              </ul>
+            </ul>
           </div>
         </li>
-        <li (click)="navigatetolink('/brands')"><label>Brands</label></li>
-        <li (click)="navigatetolink('/services')"><label>Services</label></li>
-        <li (click)="navigatetolink('/contact')"><label>Contact</label></li>
+        <li (click)="navigatetolink('brands')"><label>Brands</label></li>
+        <li (click)="navigatetolink('services')"><label>Services</label></li>
+        <li (click)="navigatetolink('contact')"><label>Contact</label></li>
       </ul>
     </div>
   </nav>
 </div>
 <!-- mobile2 menu -->
 <!-- mobile menu -->
- 

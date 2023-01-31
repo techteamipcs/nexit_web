@@ -29,11 +29,11 @@ export class ProductsComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return "<b>Min price:</b> $" + value;
+          return "<b>Min price:</b> AED" + value;
         case LabelType.High:
-          return "<b>Max price:</b> $" + value;
+          return "<b>Max price:</b> AED" + value;
         default:
-          return "$" + value;
+          return "AED" + value;
       }
     }
   };

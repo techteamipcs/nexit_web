@@ -341,17 +341,17 @@
                 <div class="product-slider">
                   <div class="block">
                     <!-- <div class="gallery-overlay">
-                      <a href="product-details/{{prod._id}}" class="gallery-popup">
+                      <a [routerLink]="['/product-details',prod.sequence_number]" class="gallery-popup">
                         <i class="tf-ion-plus-round"></i>
                       </a>
                     </div> -->
-                    <a href="product-details/{{prod._id}}" class="gallery-popup">
+                    <a [routerLink]="['/product-details']" [queryParams]="{ sequence_number: prod.sequence_number}" class="gallery-popup">
                       <img src="{{backendURL}}/{{prod.image}}">
                       <!-- {{prod.name}} -->
                     </a>
                     <div class="product-info">
                       <h4 class="mb-2">
-                        <a href="product-details/{{prod._id}}" class="link-title">{{prod.name}}</a>
+                        <a [routerLink]="['/product-details']" [queryParams]="{ sequence_number: prod.sequence_number}" class="link-title">{{prod.name}}</a>
                       </h4>
                       <p class="price"><span>AED</span> {{prod.sale_price}}
                         <s class="price" *ngIf="product.product_discount > 0"> <span>AED</span><strong> {{prod.regular_price}}</strong></s>
