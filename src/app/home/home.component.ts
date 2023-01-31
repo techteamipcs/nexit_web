@@ -96,13 +96,20 @@ export class HomeComponent implements OnInit {
     margin: 14,
     responsive: {
       0: {
-        items: 2
+        items: 2,
+        margin: 5
       },
       400: {
-        items: 2
+        items: 2,
+        margin: 5
+      },
+      480: {
+        items: 2,
+        margin: 5
       },
       740: {
-        items: 3
+        items: 3,
+        margin: 5
       },
       768: {
         items: 3,
