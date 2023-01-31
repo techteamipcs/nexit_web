@@ -90,8 +90,15 @@ footer {
     background: #fff;
     box-shadow: 0 0 5px silver;
     border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     @media (max-width: 575px) {
       height: 40px;
+    }
+    li{
+      margin-right: 0;
     }
   }
 
