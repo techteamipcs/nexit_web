@@ -246,6 +246,9 @@
 }
 .gallery {
   overflow: hidden;
+  @media(max-width:991px){
+padding-bottom:0;
+  }
 }
 
 // .gallery-popup img {
