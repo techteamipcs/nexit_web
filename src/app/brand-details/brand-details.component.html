@@ -36,8 +36,8 @@
             <h4 class="mb-2">
               <a href="product-details/{{product._id}}" class="link-title">{{product.name}}</a>
             </h4>
-            <p class="price"><span>AED</span> {{product.sale_price}}
-              <s class="price" *ngIf="product.product_discount > 0"> <span>AED</span> {{product.regular_price}}</s>
+            <p class="price"><small>AED </small> {{product.sale_price}}
+              <s class="price" *ngIf="product.product_discount > 0"> <span> AED </span> {{product.regular_price}}</s>
             </p>
           </div>
         </div>
