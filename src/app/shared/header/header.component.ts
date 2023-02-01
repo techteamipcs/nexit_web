@@ -97,7 +97,7 @@ export class HeaderComponent implements OnInit {
     window.location.href = '/nexait/'+ link;
   }
   navigatetosubcategory(id:any,type:any){
-    window.location.href = '/products/'+id+'/'+type;
+    window.location.href = '/nexait/products/'+id+'/'+type;
   }
 
 }
