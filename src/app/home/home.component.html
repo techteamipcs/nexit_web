@@ -12,8 +12,11 @@
       <ul class="navbar-nav m-auto">
         <li class="nav-item" *ngFor="let category of allcategories;let i=index;">
 
-          <a *ngIf="i<=4" class="nav-link active" aria-current="page" [routerLink]="['/products',category._id,'category']" (mouseenter)="func_1(category)" (mouseleave)="func_11(category)">
-            <img class="home-icon cat_{{category.sequence_number}}" src="{{imageUrl}}/{{category.icon}}" alt=""  style="width:50px; display:block; margin:0 auto;">
+          <a *ngIf="i<=4" class="nav-link active" aria-current="page"
+            [routerLink]="['/products',category._id,'category']" (mouseenter)="func_1(category)"
+            (mouseleave)="func_11(category)">
+            <img class="home-icon cat_{{category.sequence_number}}" src="{{imageUrl}}/{{category.icon}}" alt=""
+              style="width:50px; display:block; margin:0 auto;">
             {{category.name}}</a>
         </li>
 
@@ -47,9 +50,8 @@
           <img class="mb-4" src="{{baseUrl}}/source/images/home/data-centre.jpg" alt="">
           <div class="overlay">
             <h4 class="font-weight-bold mb-2">Datacenters</h4>
-            <p class="textmuted">Datalink helps equip enterprises with data center infrastructure
-              (server,storage,network & software) to support business initiatives, competitive capabilities and customer
-              experience.</p>
+            <p class="textmuted">With our product, you can improve the performance of your data center's power and
+              cooling system. You can innovate, adapt, and expand with the aid of sustainable technologies.</p>
           </div>
         </div>
       </div>
@@ -58,18 +60,18 @@
           <img class="mb-4" src="{{baseUrl}}/source/images/home/vertualization.jpg" alt="">
           <div class="overlay">
             <h4 class="font-weight-bold mb-2">Virtualisation</h4>
-            <p class="textmuted">From design to implementation, we intensively engage the client in order to deliver
-              streamlined virtual environment that meets all their needs.</p>
+            <p class="textmuted">performance with dynamic load balancing and quick provisioning, and boost server usage
+              by consolidating resources.</p>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-6  align-self-center">
         <div class="image">
-          <img  class="mb-4" src="{{baseUrl}}/source/images/home/cloud-solution.jpg" alt="">
+          <img class="mb-4" src="{{baseUrl}}/source/images/home/cloud-solution.jpg" alt="">
           <div class="overlay">
             <h4 class="font-weight-bold mb-2">Cloud Solutions</h4>
-            <p class="textmuted">We offer a wide range of electrical services including installation of low to high
-              voltage distribution and end usage devices.
+            <p class="textmuted">To improve your daily business operations, cloud computing solutions enable you and
+              your staff to exchange, edit, and publish documents in a single platform.
 
             </p>
           </div>
@@ -90,8 +92,8 @@
           <img class="mb-4" src="{{baseUrl}}/source/images/home/cyersecruity.jpg" alt="">
           <div class="overlay">
             <h4 class="font-weight-bold mb-2">Cybersecurity Solutions</h4>
-            <p class="textmuted">We install cctv cameras and set up access control systems to enable you to cost
-              effectively monitor and protect your business</p>
+            <p class="textmuted">Businesses can save money by using wireless networks instead of installing wires inside
+              buildings or connecting several pieces of equipment.</p>
           </div>
         </div>
       </div>
@@ -100,8 +102,8 @@
           <img class="mb-4" src="{{baseUrl}}/source/images/home/structure-cabling.jpg" alt="">
           <div class="overlay">
             <h4 class="font-weight-bold mb-2">Structured Cabling</h4>
-            <p class="textmuted">We provide structured cabling and Fiber Optics Cabling installation solutions to our
-              clients on time, on budget and on their terms.
+            <p class="textmuted">Solutions for cyber security for your company. Utilize Nexa IT security solutions to
+              safeguard your IT infrastructure and data from internal and external attacks.
             </p>
           </div>
         </div>
@@ -149,16 +151,17 @@
     <div class="row">
       <div class="col-lg-6 col-md-8 text-center mx-auto">
         <h2 class="subheading text-white">Get Product Updates</h2>
-        <p class="text-white">Receive email updates from Nexait (including launch announcement, product info and exclusive access).</p>
+        <p class="text-white">Receive email updates from Nexait (including launch announcement, product info and
+          exclusive access).</p>
         <div class="input-group">
-          <form [formGroup]="addSubscriberForm" (ngSubmit)="onSubmit()" class="w-100" >
-            <input type="email" id="email" class="form-control" name="email" autocomplete="off" formControlName="email" placeholder="Your Email Address Here"
-              required>
-              <div *ngIf="submitted && hasEmailError('email','required')" class="error text-left mt-2">
-                <div class="errormsg">
-                  {{hasEmailError('email','required')}}
-                </div>
+          <form [formGroup]="addSubscriberForm" (ngSubmit)="onSubmit()" class="w-100">
+            <input type="email" id="email" class="form-control" name="email" autocomplete="off" formControlName="email"
+              placeholder="Your Email Address Here" required>
+            <div *ngIf="submitted && hasEmailError('email','required')" class="error text-left mt-2">
+              <div class="errormsg">
+                {{hasEmailError('email','required')}}
               </div>
+            </div>
             <button class="btn btn-main btn-submit" type="submit" name="subscribe">Subscribe</button>
             <div style="position: absolute; left: -5000px;" aria-hidden="true">
               <input type="text" name="" tabindex="-1">
@@ -185,21 +188,23 @@
               <ng-template carouselSlide [id]="prod">
                 <div class="product-slider">
                   <!-- <div class="block"> -->
-                    <!-- <div class="gallery-overlay">
+                  <!-- <div class="gallery-overlay">
                       <a [routerLink]="['/product-details',product.sequence_number]" class="gallery-popup">
                         <i class="tf-ion-plus-round"></i>
                       </a>
                     </div> -->
-                    <a class="gallery-popup">
+                  <a class="gallery-popup">
                     <img src="{{imageUrl}}/{{prod.image}}">
                     <!-- {{prod.name}} -->
                   </a>
                   <div class="product-info">
                     <h4 class="mb-2">
-                      <a [routerLink]="['/product-details']" [queryParams]="{ sequence_number: prod.sequence_number}" class="link-title">{{prod.name}}</a>
+                      <a [routerLink]="['/product-details']" [queryParams]="{ sequence_number: prod.sequence_number}"
+                        class="link-title">{{prod.name}}</a>
                     </h4>
-                    <p class="price"><small>AED </small> <strong>{{prod.sale_price}}</strong> 
-                       <strong class="price" *ngIf="prod.product_discount > 0"> <small> AED</small> {{prod.regular_price}}</strong>
+                    <p class="price"><small>AED </small> <strong>{{prod.sale_price}}</strong>
+                      <strong class="price" *ngIf="prod.product_discount > 0"> <small> AED</small>
+                        {{prod.regular_price}}</strong>
                     </p>
                   </div>
                   <!-- </div> -->
