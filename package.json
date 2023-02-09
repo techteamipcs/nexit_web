@@ -4,14 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && chmod 777 -R /www/wwwroot/nodejs/nexait/nexait_web/dist/* &&  mv /www/wwwroot/nodejs/nexait/nexait_web/dist/* /www/wwwroot/nodejs/nexait/deploy",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run nexait_web:serve-ssr",
     "serve:ssr": "node dist/nexait_web/server/main.js",
     "build:ssr": "ng build && ng run nexait_web:server",
     "prerender": "ng run nexait_web:prerender",
-    "nexa": "ng run nexait_web:prerender"
+    "nexa": "ng run nexait_web:prerender",
+    "deploy": "chmod 777 -R /www/wwwroot/nodejs/nexait/nexait_web/dist/* &&  cp -r /www/wwwroot/nodejs/nexait/nexait_web/dist/* /www/wwwroot/default"
   },
   "private": true,
   "dependencies": {
