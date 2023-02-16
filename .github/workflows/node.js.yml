@@ -34,5 +34,5 @@ jobs:
           cd /www/wwwroot/nodejs/nexait/nexait_web
           git pull
           #npm install --force
-          npm run nexa
-          npm run deploy
+          sudo npm run nexa
+          sudo npm run deploy
