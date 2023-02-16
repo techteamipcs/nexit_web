@@ -145,7 +145,7 @@ export class HomeComponent implements OnInit {
     private titleService: Title,
     private toastr: ToastrManager,
     public formBuilder : FormBuilder) {
-    this.baseUrl = environment.baseUrl + '/assets';
+    this.baseUrl = environment.baseUrl + 'assets';
     this.imageUrl = environment.backendUrl+'/public'; 
     this.addSubscriberForm = this.formBuilder.group({
       email: ['',[Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
