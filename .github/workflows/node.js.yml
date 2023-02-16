@@ -33,6 +33,6 @@ jobs:
         script: |
           cd /www/wwwroot/nodejs/nexait/nexait_web
           git pull
-          npm install --force
+          #npm install --force
           npm run nexa
           npm run deploy
