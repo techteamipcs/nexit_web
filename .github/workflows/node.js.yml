@@ -33,6 +33,6 @@ jobs:
         script: |
           cd /www/wwwroot/nodejs/nexait/nexait_web
           git pull
-          #sudo npm install --force
-          ng run nexait_web:prerender
-          chmod 777 -R /www/wwwroot/nodejs/nexait/nexait_web/dist/* &&  cp -r /www/wwwroot/nodejs/nexait/nexait_web/dist/* /www/wwwroot/default
+          npm install --force
+          npm run nexa
+          npm run deploy
