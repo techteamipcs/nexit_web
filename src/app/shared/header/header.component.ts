@@ -86,18 +86,18 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateTOproduct(id:any,type:any){
-    this.route.navigate(['/nexait/products',id,type])
+    this.route.navigate(['/products',id,type])
   }
 
   navigatetoBands(id:any){
-    window.location.href = '/nexait/brands/'+id;
+    window.location.href = '/brands/'+id;
   }
 
   navigatetolink(link:any){
-    window.location.href = '/nexait/'+ link;
+    window.location.href = '/'+ link;
   }
   navigatetosubcategory(id:any,type:any){
-    window.location.href = '/nexait/products/'+id+'/'+type;
+    window.location.href = '/products/'+id+'/'+type;
   }
 
 }
