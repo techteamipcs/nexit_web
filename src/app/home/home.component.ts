@@ -139,6 +139,7 @@ export class HomeComponent implements OnInit {
   subject:any = [];
   submitted = false;
   error = {};
+  alltestimonials:any = [];
   constructor(private renderer: Renderer2,private readonly http: HttpClient, public dataservice: DataService, 
     private pageservice: PageService,
     private metaTagService: Meta,
@@ -159,6 +160,7 @@ export class HomeComponent implements OnInit {
     this.getAllCategory();
     this.get_PageMeta();
     this.get_AllBrands();
+    this.get_AllTestimonials();
   }
 
   get_PageMeta() {
@@ -190,6 +192,7 @@ export class HomeComponent implements OnInit {
     //   err => throwError(err)
     // )
   }
+
   getConfig(){
     const obj = {
       limit: this.currentLimit,
@@ -326,5 +329,26 @@ export class HomeComponent implements OnInit {
     }
     
   };
+
+  get_AllTestimonials() {
+    let obj = {
+      limit : 10,
+      page : 1
+    }
+    this.dataservice.getAllTestimonials(obj).subscribe(
+      (response) => {
+        if (response.code == 200) {
+          if (response.result && response.result.length > 0) {
+            this.alltestimonials = response.result;
+          }
+        } else if (response.code == 400) {
+          console.log('400');
+        }
+        else {
+          console.log('error');
+        }
+      },
+    );
+  }
 
 }

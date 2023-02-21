@@ -33,7 +33,6 @@
         <img src="{{imageUrl}}/{{image}}">
       </ng-template>
     </ng-container>
-
   </owl-carousel-o>
 </div>
 <!-- Service Start -->
@@ -66,8 +65,6 @@
           <!--<a class="btn" href=""><i class="fa fa-arrow-right text-white me-3"></i>Read More</a>-->
         </div>
       </div>
-
-
       <div class="col-md-6 col-lg-4 mb-4 wow fadeIn" data-wow-delay="0.1s">
         <div class="service-item border h-100 p-5">
           <div class="btn-square bg-light rounded-circle mb-4" style="width: 64px; height: 64px;">
@@ -79,7 +76,6 @@
           <!--<a class="btn" href=""><i class="fa fa-arrow-right text-white me-3"></i>Read More</a>-->
         </div>
       </div>
-
       <div class="col-md-6 col-lg-4 mb-4 wow fadeIn" data-wow-delay="0.5s">
         <div class="service-item border h-100 p-5">
           <div class="btn-square bg-light rounded-circle mb-4" style="width: 64px; height: 64px;">
@@ -88,12 +84,10 @@
           <h4 class="mb-3">WIRELESS NETWORKS</h4>
           <p class="mb-4">We offer a wide range of electrical services including installation of low to high voltage
             distribution and end usage devices.
-
           </p>
           <!--<a class="btn" href=""><i class="fa fa-arrow-right text-white me-3"></i>Read More</a>-->
         </div>
       </div>
-
       <div class="col-md-6 col-lg-4 mb-4 wow fadeIn" data-wow-delay="0.7s">
         <div class="service-item border h-100 p-5">
           <div class="btn-square bg-light rounded-circle mb-4" style="width: 64px; height: 64px;">
@@ -113,7 +107,6 @@
           <h4 class="mb-3">STRUCTURED CABLING</h4>
           <p class="mb-4">We provide structured cabling and Fiber Optics Cabling installation solutions to our clients
             on time, on budget and on their terms.
-
           </p>
           <!--<a class="btn" href=""><i class="fa fa-arrow-right text-white me-3"></i>Read More</a>-->
         </div>
@@ -296,9 +289,7 @@
                   <!-- </div> -->
                 </div>
               </ng-template>
-
             </ng-container>
-
           </owl-carousel-o>
         </div>
       </div>
@@ -336,55 +327,20 @@
 </section>
 <section class="testimonials section" id="testimonial">
   <div class="container">
-
     <div class="row justify-content-center">
       <div class="col-12">
         <div class="heading">
           <h2>What our clients say!</h2>
         </div>
       </div>
-
-      <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center">
-        <div class="testimonial-block">
+      <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center" *ngFor="let testimonial of alltestimonials; let i = index">
+        <div class="testimonial-block" *ngIf="i <= 2">
           <i class="tf-ion-quote"></i>
-          <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I
-            enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for
-            the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere
-            tranquil existence, that I neglect my talents.</p>
+          <p [innerHTML]="testimonial.text"></p>
           <div class="author-details">
-            <img src="assets/source/images/avater.png" alt="Jonathon Andrew">
-            <h4>Jonathon Andrew</h4>
-            <span>CEO, Themefisher</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center">
-        <div class="testimonial-block">
-          <i class="tf-ion-quote"></i>
-          <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I
-            enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for
-            the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere
-            tranquil existence, that I neglect my talents.</p>
-          <div class="author-details">
-            <img src="assets/source/images/avater.png" alt="Jonathon Andrew">
-            <h4>Jonathon Andrew</h4>
-            <span>CEO, Themefisher</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center">
-        <div class="testimonial-block">
-          <i class="tf-ion-quote"></i>
-          <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I
-            enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for
-            the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere
-            tranquil existence, that I neglect my talents.</p>
-          <div class="author-details">
-            <img src="assets/source/images/avater.png" alt="Jonathon Andrew">
-            <h4>Jonathon Andrew</h4>
-            <span>CEO, Themefisher</span>
+            <img src="{{imageUrl}}/{{testimonial.image}}" alt="testimonial.name">
+            <h4>{{testimonial.name}}</h4>
+            <span>{{testimonial.title}}, {{testimonial.location}}</span>
           </div>
         </div>
       </div>

@@ -127,4 +127,13 @@ export class DataService {
 			})
 		);
 	};
+
+	getAllTestimonials = (data: any): Observable<any> => {
+		const endpoint = environment.backendUrl + '/api/home/alltestimonial';
+		return this.http.post(endpoint, data).pipe(
+			catchError((err) => {
+				return throwError(err);
+			})
+		);
+	};
 }
