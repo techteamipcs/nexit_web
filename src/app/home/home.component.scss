@@ -13,7 +13,8 @@
     padding: 10px 30px !important;
     font-weight: 400;
     text-align: center;
-    &:hover, &:focus{
+    &:hover,
+    &:focus {
       color: #00714a;
     }
   }
@@ -29,6 +30,60 @@
 .customslider {
   @media (max-width: 991px) {
     margin-top: 80px;
+  }
+  .bannerbox {
+    // background: #fff;
+    width: 400px;
+    position: absolute;
+    left: 5%;
+    top: 6rem;
+    border-radius: 30px 0px 0px 0px;
+    padding: 15px;
+    h1 {
+      color: #00714a;
+      line-height: normal;
+      @media (max-width:600px) {
+        font-size: 18px;
+      }
+      @media (max-width:380px) {
+        font-size: 16px;
+      }
+    }
+    p{
+      line-height: normal;
+      margin-bottom: 0;
+      @media (max-width:600px) {
+      font-size: 14px;
+      }
+      @media (max-width:380px) {
+        font-size: 12px;
+        }
+    }
+    @media (max-width: 991px) {
+      width: 270px;
+      left: 6%;
+      top: 5rem;
+    }
+    @media (max-width:767px) {
+      top: 4rem;
+    }
+    @media (max-width:600px) {
+      width: 200px;
+      top: 3rem;
+    }
+    @media (max-width:575px) {
+     
+      left: 2%;
+      top: 2rem;
+    }
+    @media (max-width:480px) {
+      background: #ffffffd6;
+      width: 80%;
+      left: 0;
+      right: 0;
+      top: 1.5rem;
+      margin: 0 auto;
+    }
   }
 }
 
@@ -230,7 +285,7 @@
           font-size: 16px;
         }
       }
-      p.price{
+      p.price {
         font-size: 18px;
         @media (max-width: 1366px) {
           font-size: 16px;
@@ -246,8 +301,8 @@
 }
 .gallery {
   overflow: hidden;
-  @media(max-width:991px){
-padding-bottom:0;
+  @media (max-width: 991px) {
+    padding-bottom: 0;
   }
 }
 
@@ -262,29 +317,30 @@ padding-bottom:0;
 .gallery1 .gallery-popup img {
   // width: 150px;
   // height: 150px;
-width: auto;
-height: auto;
+  width: auto;
+  height: auto;
   background: #fff;
   // box-shadow: 0 0 6px #36353540;
   padding: 15px;
   // margin: 15px;
-  margin:0 auto;
+  margin: 0 auto;
 }
 .errormsg {
   color: red;
 }
 
 .page-header {
-  background: linear-gradient(rgba(22, 22, 22, .7), rgba(22, 22, 22, .7)), url(../../assets/source/images/about.jpg) center center no-repeat;
-  
+  background: linear-gradient(rgba(22, 22, 22, 0.7), rgba(22, 22, 22, 0.7)),
+    url(../../assets/source/images/about.jpg) center center no-repeat;
+
   background-size: cover;
   background-attachment: fixed;
 }
-.img-fluid{
+.img-fluid {
   width: 100%;
-height: 100%;
+  height: 100%;
 }
 #our-services .service-item {
-  border-width:2px !important;
+  border-width: 2px !important;
   border-radius: 30px 0px 0px 0px;
 }

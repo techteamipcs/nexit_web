@@ -27,11 +27,17 @@
 <div class="customslider">
   <owl-carousel-o [options]="customOptions" *ngIf="config">
     <!-- [ngClass]="{ item: true }" -->
-    <ng-container *ngFor="let image of config.image">
-      <!-- [ngClass]="{ item: true }" -->
-      <ng-template carouselSlide [id]="image+1">
-        <img src="{{imageUrl}}/{{image}}">
-      </ng-template>
+    <!-- <ng-container *ngFor="let image of config.image"> -->
+      <ng-container *ngFor="let banner of allbanner; let i=index;">
+       
+        <!-- [ngClass]="{ item: true }" -->
+        <ng-template carouselSlide [id]="banner+1" *ngIf="banner.status == 'active'">
+          <img src="{{imageUrl}}/{{banner.icon}}" >
+          <div class="bannerbox">
+            <h1>{{banner.name}}</h1>
+            <p>{{banner.description}}</p>
+          </div>
+        </ng-template>
     </ng-container>
   </owl-carousel-o>
 </div>

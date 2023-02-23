@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   slides:any=[];
   recentslider:any=[];
   allbrands: any = [];
+  allbanner: any = [];
   customOptions: OwlOptions = {
     loop: true,
     autoplay:true,
@@ -160,6 +161,7 @@ export class HomeComponent implements OnInit {
     this.getAllCategory();
     this.get_PageMeta();
     this.get_AllBrands();
+    this.get_AllBanner();
     this.get_AllTestimonials();
   }
 
@@ -275,7 +277,26 @@ export class HomeComponent implements OnInit {
     );
   }
   
+  get_AllBanner() {
+		const obj = {
+			limit: this.currentLimit,
+			page: this.currentPage,
+		};
+		this.dataservice.getAllBanners(obj).subscribe(
+			(response) => {
+				if (response.code == 200) {
+					if (response.result && response.result.length > 0) {
+						this.allbanner = response.result;
+					}
 
+				} else if (response.code == 400) {
+          console.log('400');
+				} else {
+          console.log('error');
+				}
+			},
+		);
+	}
   func_1(value:any){
     if(value && value.sequence_number == 1){
       $(".cat_"+value.sequence_number).attr("src", this.baseUrl + "/source/images/icon/server-green.svg");
