@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let banner of allbanner">
+      <div class="brands">
+        
+        <!-- <p>{{brand.description}}</p> -->
+        <!-- <p>{{brand._id}}</p> -->
+        <!-- <a href="brands/{{banner._id}}" class="link-title"></a> -->
+        <img class="w-100" src="{{backendUrl}}/{{banner.icon}}" alt=""width="">
+        <p>{{banner.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
