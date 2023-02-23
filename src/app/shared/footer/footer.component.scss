@@ -97,7 +97,7 @@ footer {
     @media (max-width: 575px) {
       height: 40px;
     }
-    li{
+    li {
       margin-right: 0;
     }
   }
@@ -110,7 +110,8 @@ footer {
 
   .nav-link {
     padding: 7px 20px !important;
-    &:hover,:focus{
+    &:hover,
+    :focus {
       color: #00714a;
     }
     @media (max-width: 680px) {
@@ -118,7 +119,7 @@ footer {
     }
     @media (max-width: 575px) {
       padding: 5px 15px !important;
-    }   
+    }
     @media (max-width: 380px) {
       padding: 5px 10px !important;
     }
@@ -127,6 +128,9 @@ footer {
     }
     span {
       font-weight: 400;
+      @media (max-width: 600px) {
+        font-size: 14px;
+      }
     }
   }
   //   .home-icon.storage{
