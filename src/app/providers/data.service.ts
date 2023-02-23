@@ -28,7 +28,14 @@ export class DataService {
 			})
 		);
 	};
-
+  getAllBanners = (data: any): Observable<any> => {
+		const endpoint = environment.backendUrl + '/api/banner/getAllBanner';
+		return this.http.post(endpoint, data).pipe(
+			catchError((err) => {
+				return throwError(err);
+			})
+		);
+	};
 	getAllBrands = (data: any): Observable<any> => {
 		const endpoint = environment.backendUrl + '/api/brand/getAllBrand';
 		return this.http.post(endpoint, data).pipe(
