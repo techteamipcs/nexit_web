@@ -6,6 +6,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { OrderService } from '../order/order.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import { NgxSpinnerService } from 'ngx-spinner';
 declare var $: any;
 
 @Component({
@@ -56,7 +57,8 @@ export class ProductDetailsComponent implements OnInit {
 		public dataservice: DataService,
 		private orderservice: OrderService,
 		private formBuilder: FormBuilder,
-		private toastr: ToastrManager
+		private toastr: ToastrManager, 
+		private spinner: NgxSpinnerService
 	) {
 		this.backendURL = environment.backendUrl + '/public/';
     this.baseUrl = environment.baseUrl + '/assets';
@@ -92,7 +94,9 @@ export class ProductDetailsComponent implements OnInit {
 			id: this.sequence_number
 		};
 		let currentstate = this;
+		this.spinner.show();
 		this.dataservice.getProductBySequncenumber(obj).subscribe((response) => {
+			this.spinner.hide();
 			if (response.code == 200) {
 				if (response.result) {
 					this.slides = [];
@@ -186,7 +190,9 @@ export class ProductDetailsComponent implements OnInit {
 		if (this.addContactForm.invalid) {
 			return false;
 		}
+		this.spinner.show();
 		return this.orderservice.orderMail(obj).subscribe(response => {
+			this.spinner.hide();
 			if (response && response.body.code == 200) {
 				this.submitted = true;
 				this.toastr.successToastr(response.body.message);

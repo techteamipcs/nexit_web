@@ -9,6 +9,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { PageService } from '../providers/page/page.service';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl,AbstractControl} from '@angular/forms';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 export interface PhotosApi {
   albumId?: number;
@@ -146,7 +147,8 @@ export class HomeComponent implements OnInit {
     private metaTagService: Meta,
     private titleService: Title,
     private toastr: ToastrManager,
-    public formBuilder : FormBuilder) {
+    public formBuilder : FormBuilder,
+    private spinner: NgxSpinnerService) {
     this.baseUrl = environment.baseUrl + '/assets';
     this.imageUrl = environment.backendUrl+'/public'; 
     this.addSubscriberForm = this.formBuilder.group({
@@ -221,7 +223,9 @@ export class HomeComponent implements OnInit {
       limit: this.currentLimit,
       page: this.currentPage
     };
+    this.spinner.show();
     this.dataservice.getFilteredProducts(obj).subscribe((response) => {
+      this.spinner.hide();
       if (response.code == 200) {
         if (response.result) {
           this.products = response.result;

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,7 @@ import { SearchProductComponent } from './search-product/search-product.componen
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Error404Component } from './error404/error404.component';
 import { BrandDetailsComponent } from './brand-details/brand-details.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -65,9 +66,11 @@ import { BrandDetailsComponent } from './brand-details/brand-details.component';
     ToastrModule.forRoot(),
     NgxSliderModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxSpinnerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

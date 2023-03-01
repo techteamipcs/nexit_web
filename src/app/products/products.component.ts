@@ -5,6 +5,8 @@ import { environment } from 'src/environments/environment';
 import { DataService } from '../providers/data.service';
 declare var $: any;
 import { Options, LabelType } from '@angular-slider/ngx-slider';
+import { NgxSpinnerService } from "ngx-spinner";
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -52,7 +54,7 @@ export class ProductsComponent implements OnInit {
   category:any;
   allsubcategories:any = [];
 
-  constructor(public dataservice: DataService, public router: ActivatedRoute, public route: Router) {
+  constructor(public dataservice: DataService, public router: ActivatedRoute, public route: Router, private spinner: NgxSpinnerService) {
     this.backendURL = environment.backendUrl + '/public/';
     this.userSubscription = this.router.params.subscribe(
       (params: Params) => {
@@ -91,7 +93,9 @@ export class ProductsComponent implements OnInit {
     if (event) {
       obj['sort'] = event.target.value;
     }
+    this.spinner.show();
     this.dataservice.getFilteredProducts(obj).subscribe((response) => {
+      this.spinner.hide();
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
           this.products = response.result;
@@ -135,7 +139,9 @@ export class ProductsComponent implements OnInit {
       this.isFilter = true;
       this.products = [];
     }
+    this.spinner.show();
     this.dataservice.getFilteredProducts(obj).subscribe((response) => {
+      this.spinner.hide();
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
           this.totalRecord = response?.count;
@@ -162,10 +168,11 @@ export class ProductsComponent implements OnInit {
 
 
   getAllCategory() {
+    this.spinner.show();
     this.dataservice.getAllCategory({}).subscribe(
       (response) => {
+        this.spinner.hide();
         if (response.code == 200) {
-
           if (response.result && response.result.length > 0) {
             this.allcategories = response.result;
             if(this.type == 'category'){
@@ -188,8 +195,10 @@ export class ProductsComponent implements OnInit {
   }
 
   getAllsubCategory() {
+    this.spinner.show();
     this.dataservice.getAllSubCategory({}).subscribe(
       (response) => {
+        this.spinner.hide();
         if (response.code == 200) {
           if (response.result && response.result.length > 0) {
             this.allsubcategories = response.result;
@@ -211,8 +220,10 @@ export class ProductsComponent implements OnInit {
   }
 
   get_AllBrands() {
+    this.spinner.show();
     this.dataservice.getAllBrands({}).subscribe(
       (response) => {
+        this.spinner.hide();
         if (response.code == 200) {
           if (response.result && response.result.length > 0) {
             this.allbrands = response.result;
@@ -359,7 +370,9 @@ export class ProductsComponent implements OnInit {
       limit: this.currentLimit,
       page: this.currentPage
     }
+    this.spinner.show();
     this.dataservice.getFilteredProducts(obj).subscribe((response) => {
+      this.spinner.hide();
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
           this.products = response.result;
@@ -413,7 +426,9 @@ export class ProductsComponent implements OnInit {
       limit: 2000,
       page: this.currentPage
     };
+    this.spinner.show();
     this.dataservice.getAllProducts(obj).subscribe((response) => {
+      this.spinner.hide();
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
           this.totalProducts = [];
@@ -443,7 +458,9 @@ export class ProductsComponent implements OnInit {
       limit: this.currentLimit,
       page: this.currentPage
     }
+    this.spinner.show();
     this.dataservice.getFilteredProducts(obj).subscribe((response) => {
+      this.spinner.hide();
       if (response.code == 200) {
         if (response.result && response.result.length > 0) {
           this.products = response.result;
