@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://172.105.52.164:5002',
-  baseUrl: 'http://172.105.52.164/',
+  backendUrl: 'https://www.nexait.ae:5002',
+  baseUrl: 'https://www.nexait.ae/',
 };
 
 /*
